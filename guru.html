@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <!-- ==========================================
+         Basic Meta
+    =========================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daftar Guru SMP Suka Maju">
+    <meta name="keywords" content="SMP Suka Maju, Sekolah, Pendidikan, Guru">
+    <meta name="author" content="Alan">
+
+    <title>Guru - SMP Suka Maju</title>
+
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
+
+    <link rel="icon" href="assets/images/logo/favicon.png">
+
+    <!-- ==========================================
+         Google Font
+    =========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ==========================================
+         CSS
+    =========================================== -->
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         HEADER (Konsisten dengan index.html)
+    ========================================== -->
+
+    <header class="header">
+        <nav class="navbar container">
+
+            <!-- Logo & Nama Sekolah (Kiri) -->
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/logo/logo-sekolah.png" alt="Logo SMP Suka Maju">
+                <span class="nav-brand-text">SMP SUKA MAJU</span>
+            </a>
+
+            <!-- Menu Navigasi -->
+            <ul class="nav-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#about">Profil Sekolah</a></li>
+                <li><a href="fasilitas.html">Fasilitas</a></li>
+                <li><a href="guru.html">Guru</a></li>
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="index.html#statistics">Statistik Sekolah</a></li>
+                <li><a href="index.html#contact">Kontak</a></li>
+            </ul>
+
+            <!-- Ikon Admin (Kanan) -->
+            <a href="#" class="admin-access" aria-label="Login Admin">
+                <img src="assets/icons/admin.png" alt="Admin">
+            </a>
+
+            <!-- Tombol Mobile Menu -->
+            <button class="menu-toggle">☰</button>
+
+        </nav>
+    </header>
+
+    <!-- ==========================================
+         MAIN
+    =========================================== -->
+
+    <main>
+
+        <!-- ==========================================================
+             GURU - SEMUA
+        ========================================================== -->
+
+        <section class="guru" id="guru">
+            <div class="container">
+
+                <!-- ===== BREADCRUMB NAVIGASI ===== -->
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index.html#guru">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <span class="separator">›</span>
+                        </li>
+                        <li aria-current="page">
+                            <span class="current">Daftar Guru</span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="section-header">
+                    <h2 class="section-title">Semua Guru & Tenaga Kependidikan</h2>
+                    <p class="section-subtitle">
+                        Tenaga pendidik profesional yang berdedikasi dalam membimbing dan mendidik siswa.
+                    </p>
+                </div>
+
+                <!-- Grid Guru (akan diisi oleh JavaScript) -->
+                <div class="guru-grid" id="guru-grid">
+                    <!-- Akan diisi oleh JS -->
+                </div>
+
+                <!-- ===== PAGINATION ===== -->
+                <div class="pagination-container">
+                    <nav class="pagination" id="pagination-guru" aria-label="Navigasi halaman guru">
+                        <!-- Akan diisi oleh JS -->
+                    </nav>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER (Lengkap) ===== -->
+    <footer class="footer">
+        <div class="container">
+
+            <!-- Grid 4 Kolom -->
+            <div class="footer-grid">
+
+                <!-- Kolom 1: Logo & Deskripsi -->
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="assets/images/logo/logo-sekolah.png" alt="Logo SMP Suka Maju" class="footer-logo">
+                        <span class="footer-brand-text">SMP SUKA MAJU</span>
+                    </div>
+                    <p class="footer-desc">
+                        Membentuk Generasi Berakhlak Mulia, Berprestasi, dan Berwawasan Global.
+                    </p>
+                </div>
+
+                <!-- Kolom 2: Menu Cepat -->
+                <div class="footer-col">
+                    <h4>Menu Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="index.html#about">Tentang</a></li>
+                        <li><a href="fasilitas.html">Fasilitas</a></li>
+                        <li><a href="guru.html">Guru</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                        <li><a href="index.html#contact">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Informasi Kontak -->
+                <div class="footer-col">
+                    <h4>Informasi Kontak</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <img src="assets/icons/location.png" alt="Alamat">
+                            Jl. Pendidikan No. 1, Kota Pendidikan
+                        </li>
+                        <li>
+                            <img src="assets/icons/phone.png" alt="Telepon">
+                            (021) 1234-5678
+                        </li>
+                        <li>
+                            <img src="assets/icons/email.png" alt="Email">
+                            info@smp-sukamaju.sch.id
+                        </li>
+                        <li>
+                            <img src="assets/icons/time.png" alt="Jam Operasional">
+                            Senin - Jumat, 07.00 - 16.00 WIB
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 4: Media Sosial -->
+                <div class="footer-col">
+                    <h4>Media Sosial</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <img src="assets/icons/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <img src="assets/icons/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <img src="assets/icons/youtube.png" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 SMP Suka Maju. Seluruh Hak Cipta Dilindungi.</p>
+                <p class="footer-credit">Dibuat oleh <strong>Kelompok 3 - XII RPL 1/SMK Krian 1 Sidoarjo</strong></p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JavaScript (khusus guru.html)
+    =========================================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // ==========================================================
+            // DATA GURU (16 guru - siap untuk 2 halaman @8 guru)
+            // Nanti bisa diganti dengan fetch dari API
+            // ==========================================================
+            const allGuru = [
+                { nama: "Ahmad Fauzi, S.Pd.", mapel: "Guru Matematika", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Siti Rahma, S.Pd.", mapel: "Guru Bahasa Indonesia", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Budi Santoso, S.Pd.", mapel: "Guru IPA", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Dewi Lestari, S.Pd.", mapel: "Guru IPS", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Rizki Hidayat, S.Pd.", mapel: "Guru Bahasa Inggris", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Haji Hidayat, S.Pd.", mapel: "Guru Bahasa Arab", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Maya Anjani, S.Pd.", mapel: "Guru Seni Budaya", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Tri Wahyuni, S.Pd.", mapel: "Guru BK", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Fajar Prasetyo, S.Pd.", mapel: "Guru PJOK", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Nina Suryani, S.Pd.", mapel: "Guru PKN", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Rina Marlina, S.Pd.", mapel: "Guru Bahasa Sunda", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Agus Salim, S.Pd.", mapel: "Guru TIK", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Diana Putri, S.Pd.", mapel: "Guru Ekonomi", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Rudi Hartono, S.Pd.", mapel: "Guru Geografi", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Susi Susanti, S.Pd.", mapel: "Guru Sejarah", foto: "assets/images/placeholders/teacher-placeholder.png" },
+                { nama: "Bambang Wijaya, S.Pd.", mapel: "Guru Fisika", foto: "assets/images/placeholders/teacher-placeholder.png" }
+            ];
+
+            // Konfigurasi
+            const itemsPerPage = 8;
+            let currentPage = 1;
+            const totalPages = Math.ceil(allGuru.length / itemsPerPage);
+
+            // Fungsi render guru
+            function renderGuru(page) {
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const pageData = allGuru.slice(start, end);
+
+                const grid = document.getElementById('guru-grid');
+                grid.innerHTML = '';
+
+                if (pageData.length === 0) {
+                    grid.innerHTML = `<p style="text-align:center; padding:40px 0; color:var(--text-light);">Belum ada data guru.</p>`;
+                    return;
+                }
+
+                pageData.forEach(guru => {
+                    const card = document.createElement('div');
+                    card.className = 'guru-card';
+                    card.innerHTML = `
+                        <img src="${guru.foto}" alt="${guru.nama}">
+                        <h4>${guru.nama}</h4>
+                        <p>${guru.mapel}</p>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+
+            // Fungsi render pagination
+            function renderPagination(page) {
+                const container = document.getElementById('pagination-guru');
+                let html = '<ul>';
+
+                // Tombol Prev
+                html += `
+                    <li>
+                        <a href="#" class="prev ${page === 1 ? 'disabled' : ''}" aria-label="Halaman sebelumnya">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </a>
+                    </li>
+                `;
+
+                // Nomor halaman (hanya sampai totalPages)
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === page) {
+                        html += `<li><a href="#" class="active">${i}</a></li>`;
+                    } else {
+                        html += `<li><a href="#">${i}</a></li>`;
+                    }
+                }
+
+                // Tombol Next
+                html += `
+                    <li>
+                        <a href="#" class="next ${page === totalPages ? 'disabled' : ''}" aria-label="Halaman berikutnya">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </li>
+                `;
+
+                html += '</ul>';
+                container.innerHTML = html;
+
+                // Event listener untuk link pagination (kecuali yang disabled atau active)
+                container.querySelectorAll('li a:not(.active):not(.disabled)').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        let newPage = currentPage;
+
+                        // Deteksi apakah tombol prev/next
+                        if (this.classList.contains('prev')) {
+                            newPage = currentPage - 1;
+                        } else if (this.classList.contains('next')) {
+                            newPage = currentPage + 1;
+                        } else {
+                            // Nomor halaman
+                            const num = parseInt(this.textContent.trim());
+                            if (!isNaN(num)) {
+                                newPage = num;
+                            }
+                        }
+
+                        if (newPage >= 1 && newPage <= totalPages && newPage !== currentPage) {
+                            currentPage = newPage;
+                            renderGuru(currentPage);
+                            renderPagination(currentPage);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+
+            // Inisialisasi tampilan pertama
+            renderGuru(currentPage);
+            renderPagination(currentPage);
+
+        });
+    </script>
+
+</body>
+
+</html>

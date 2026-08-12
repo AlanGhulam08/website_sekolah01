@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detail Berita - SMP Suka Maju">
+    <meta name="keywords" content="SMP Suka Maju, Berita, Sekolah">
+    <meta name="author" content="Alan">
+    <title>Detail Berita - SMP Suka Maju</title>
+    <link rel="icon" href="assets/images/logo/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/logo/logo-sekolah.png" alt="Logo SMP Suka Maju">
+                <span class="nav-brand-text">SMP SUKA MAJU</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#about">Profil Sekolah</a></li>
+                <li><a href="fasilitas.html">Fasilitas</a></li>
+                <li><a href="guru.html">Guru</a></li>
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="index.html#statistics">Statistik Sekolah</a></li>
+                <li><a href="index.html#contact">Kontak</a></li>
+            </ul>
+            <a href="#" class="admin-access" aria-label="Login Admin">
+                <img src="assets/icons/admin.png" alt="Admin">
+            </a>
+            <button class="menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <section class="detail-berita">
+            <div class="container">
+
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index.html#news">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <span class="separator">›</span>
+                        </li>
+                        <li>
+                            <a href="berita.html">Semua Berita</a>
+                        </li>
+                        <li>
+                            <span class="separator">›</span>
+                        </li>
+                        <li aria-current="page">
+                            <span class="current" id="berita-title">Judul Berita</span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Konten Detail Berita -->
+                <article class="detail-berita-content">
+                    <div class="detail-berita-header">
+                        <span class="detail-berita-date" id="berita-date">29 Juli 2026</span>
+                        <h1 id="berita-title-full">SMP Suka Maju Juara Olimpiade Sains</h1>
+                    </div>
+
+                    <div class="detail-berita-image">
+                        <img src="assets/images/placeholders/news1.jpg" alt="Gambar Berita" id="berita-image">
+                    </div>
+
+                    <div class="detail-berita-body" id="berita-body">
+                        <!-- Konten dari JavaScript -->
+                    </div>
+                </article>
+
+                <!-- Tombol Kembali -->
+                <div class="detail-berita-back">
+                    <a href="berita.html" class="btn btn-outline">
+                        ← Kembali ke Semua Berita
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER LENGKAP ===== -->
+    <footer class="footer">
+        <div class="container">
+
+            <!-- Grid 4 Kolom -->
+            <div class="footer-grid">
+
+                <!-- Kolom 1: Logo & Deskripsi -->
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="assets/images/logo/logo-sekolah.png" alt="Logo SMP Suka Maju" class="footer-logo">
+                        <span class="footer-brand-text">SMP SUKA MAJU</span>
+                    </div>
+                    <p class="footer-desc">
+                        Membentuk Generasi Berakhlak Mulia, Berprestasi, dan Berwawasan Global.
+                    </p>
+                </div>
+
+                <!-- Kolom 2: Menu Cepat -->
+                <div class="footer-col">
+                    <h4>Menu Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="index.html#about">Tentang</a></li>
+                        <li><a href="fasilitas.html">Fasilitas</a></li>
+                        <li><a href="guru.html">Guru</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                        <li><a href="index.html#contact">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Informasi Kontak -->
+                <div class="footer-col">
+                    <h4>Informasi Kontak</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <img src="assets/icons/location.png" alt="Alamat">
+                            Jl. Pendidikan No. 1, Kota Pendidikan
+                        </li>
+                        <li>
+                            <img src="assets/icons/phone.png" alt="Telepon">
+                            (021) 1234-5678
+                        </li>
+                        <li>
+                            <img src="assets/icons/email.png" alt="Email">
+                            info@smp-sukamaju.sch.id
+                        </li>
+                        <li>
+                            <img src="assets/icons/time.png" alt="Jam Operasional">
+                            Senin - Jumat, 07.00 - 16.00 WIB
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 4: Media Sosial -->
+                <div class="footer-col">
+                    <h4>Media Sosial</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <img src="assets/icons/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <img src="assets/icons/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <img src="assets/icons/youtube.png" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 SMP Suka Maju. Seluruh Hak Cipta Dilindungi.</p>
+                <p class="footer-credit">Dibuat oleh <strong>Kelompok 3 - XII RPL 1/SMK Krian 1 Sidoarjo</strong></p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Ambil data dari global allNewsData (sudah didefinisikan di script.js)
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const beritaId = urlParams.get('id');
+
+            if (beritaId) {
+                const data = allNewsData.find(item => item.id == beritaId);
+                if (data) {
+                    document.getElementById('berita-title').textContent = data.title;
+                    document.getElementById('berita-title-full').textContent = data.title;
+                    document.getElementById('berita-date').textContent = data.date;
+                    document.getElementById('berita-image').src = data.image;
+                    document.getElementById('berita-body').innerHTML = data.fullBody;
+                } else {
+                    document.getElementById('berita-title').textContent = "Berita Tidak Ditemukan";
+                    document.getElementById('berita-title-full').textContent = "Berita Tidak Ditemukan";
+                    document.getElementById('berita-body').innerHTML = `
+                        <p style="text-align: center; padding: 50px 0; color: var(--text-light);">
+                            Maaf, berita yang Anda cari tidak ditemukan. 
+                            <br><br>
+                            <a href="berita.html" class="btn btn-outline">← Kembali ke Semua Berita</a>
+                        </p>
+                    `;
+                    document.getElementById('berita-image').style.display = 'none';
+                }
+            } else {
+                // Jika tidak ada id, redirect ke berita.html
+                window.location.href = 'berita.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

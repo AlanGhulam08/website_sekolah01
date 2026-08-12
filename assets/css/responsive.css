@@ -1,0 +1,469 @@
+/* ==========================================
+   Large Desktop
+========================================== */
+@media (min-width:1400px){}
+
+/* ==========================================
+   Laptop
+========================================== */
+@media (max-width:1200px){
+
+    .container{ width:92%; }
+
+    /* ABOUT */
+    .about-image{ max-width:900px; }
+    .about-highlight{ gap:20px; }
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+@media (max-width:992px){
+
+    .navbar{ height:75px; }
+    .nav-menu{ display:none; }
+    .btn-outline{ display:none; }
+    .menu-toggle{ display:block; }
+
+    /* Sembunyikan ikon admin di tablet & mobile */
+    .admin-access {
+        display: none;
+    }
+
+    /* HERO (Bersih, hanya banner) */
+    .hero{ padding-top: 80px; }
+    .hero-banner img { height: 300px; }
+
+    /* ABOUT */
+    .about-content{ max-width:100%; }
+    .about-content h3{ font-size:1.8rem; }
+    .about-highlight{ grid-template-columns:repeat(2,1fr); gap:20px; }
+    .highlight-card{ padding:30px 20px; }
+
+    /* STATISTICS */
+    .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+
+    /* FACILITIES */
+    .facilities-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+
+    /* NEWS */
+    .news-grid { grid-template-columns: 1fr; }
+
+    /* PRINCIPAL - Sembunyikan foto, judul, dan nama di Tablet */
+    .principal-image,
+    .principal-content h3,
+    .principal-content h4 {
+        display: none;
+    }
+    .principal-box {
+        padding: 25px;
+        gap: 0;
+        text-align: center;
+    }
+    .principal-content p {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin: 0;
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+@media (max-width:768px){
+
+    section{ padding:80px 0; }
+
+    /* HERO (Bersih, hanya banner) */
+    .hero{ padding-top: 60px; }
+    .hero-banner img { height: 250px; }
+
+    /* ABOUT */
+    .section-header{ margin-bottom:50px; }
+    .about-image{ margin-bottom:50px; }
+    .about-content{ margin-bottom:60px; }
+    .about-content h3{ font-size:1.6rem; }
+    .about-content p{ line-height:1.9; }
+    .about-highlight{ grid-template-columns:1fr; gap:18px; }
+    .highlight-card{ padding:28px 20px; }
+    .highlight-card img { width: 55px; height: 55px; max-width: 55px; object-fit: contain; }
+
+    /* PRINCIPAL - Sembunyikan foto, judul, dan nama di Mobile */
+    .principal-image,
+    .principal-content h3,
+    .principal-content h4 {
+        display: none;
+    }
+    .principal-box {
+        padding: 20px;
+        gap: 0;
+        text-align: center;
+    }
+    .principal-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* STATISTICS */
+    .stat-number { font-size: 3rem; }
+    .stat-label { font-size: 1rem; }
+    .stat-icon { width: 40px; height: 40px; }
+
+    /* FACILITIES */
+    .facilities-grid { grid-template-columns: 1fr; gap: 20px; }
+    .facility-card img { height: 180px; }
+
+    /* NEWS */
+    .news-item, .news-grid-item { flex-direction: column; align-items: flex-start; padding: 15px 20px; gap: 15px; }
+    .news-img img, .news-grid-item .news-img img { width: 100%; height: 180px; }
+    .news-grid-item .news-img img { height: 150px; }
+    .news-text h4 { font-size: 1rem; }
+}
+
+/* ==========================================
+   Small Mobile
+========================================== */
+@media (max-width:576px){
+
+    .container{ width:94%; }
+    
+    /* HERO (Bersih, hanya banner) */
+    .hero-banner img { height: 200px; }
+
+    /* ABOUT */
+    .about-content h3{ font-size:1.4rem; }
+    .about-content p{ font-size:.95rem; }
+    .highlight-card{ padding:25px 18px; }
+    .highlight-card img { width: 50px; height: 50px; max-width: 50px; object-fit: contain; }
+    .highlight-card h4{ font-size:1rem; }
+
+    /* PRINCIPAL - Sembunyikan foto, judul, dan nama di Small Mobile */
+    .principal-image,
+    .principal-content h3,
+    .principal-content h4 {
+        display: none;
+    }
+    .principal-box {
+        padding: 15px;
+        gap: 0;
+        text-align: center;
+    }
+    .principal-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* STATISTICS */
+    .stat-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-number { font-size: 2.5rem; }
+    .stat-icon { width: 35px; height: 35px; }
+
+    /* FACILITIES */
+    .facility-card img { height: 160px; }
+    .facility-card h3 { font-size: 1rem; padding: 15px; }
+
+    /* NEWS */
+    .news-img img, .news-grid-item .news-img img { height: 150px; }
+    .modal-content { padding: 20px; }
+    .modal-content img { height: 160px; }
+
+    /* NAVBAR BRAND */
+    .nav-brand-text { font-size: 0.9rem; }
+    .nav-brand img { width: 40px; }
+}
+
+/* ==========================================
+   Tablet - Guru
+========================================== */
+@media (max-width:992px){
+    .guru-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* ==========================================
+   Mobile - Guru
+========================================== */
+@media (max-width:768px){
+    .guru-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .guru-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ==========================================
+   Small Mobile - Guru
+========================================== */
+@media (max-width:576px){
+    .guru-card {
+        padding: 20px 15px;
+    }
+    .guru-card img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* ==========================================
+   Tablet - Footer
+========================================== */
+@media (max-width:992px){
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* ==========================================
+   Mobile - Footer
+========================================== */
+@media (max-width:768px){
+    .footer {
+        padding: 50px 0 20px;
+        margin-top: 60px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .footer-desc {
+        max-width: 100%;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   Small Mobile - Footer
+========================================== */
+@media (max-width:576px){
+    .footer-grid {
+        gap: 30px;
+    }
+    .footer-social a {
+        width: 38px;
+        height: 38px;
+    }
+    .footer-social a img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ==========================================
+   Tablet - Contact
+========================================== */
+@media (max-width:992px){
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contact-map {
+        min-height: 350px;
+    }
+    .map-placeholder {
+        min-height: 350px;
+    }
+    .contact-map iframe {
+        min-height: 350px;
+    }
+}
+
+/* ==========================================
+   Mobile - Contact
+========================================== */
+@media (max-width:768px){
+    .whatsapp-btn {
+        max-width: 100%;
+    }
+    .operational-hours ul li {
+        flex-direction: column;
+        gap: 4px;
+        padding: 10px 0;
+    }
+    .services-list {
+        flex-direction: column;
+    }
+    .service-item {
+        width: 100%;
+    }
+    .contact-map {
+        min-height: 300px;
+    }
+    .map-placeholder {
+        min-height: 300px;
+    }
+    .contact-map iframe {
+        min-height: 300px;
+    }
+}
+
+/* ==========================================
+   Small Mobile - Contact
+========================================== */
+@media (max-width:576px){
+    .contact-map {
+        min-height: 250px;
+    }
+    .map-placeholder {
+        min-height: 250px;
+    }
+    .contact-map iframe {
+        min-height: 250px;
+    }
+    .whatsapp-btn {
+        font-size: 1rem;
+        padding: 14px 24px;
+    }
+}
+
+/* ==========================================
+   BREADCRUMB - RESPONSIVE
+========================================== */
+
+/* Tablet & Mobile: breadcrumb lebih kecil */
+@media (max-width: 992px) {
+    .breadcrumb {
+        margin-bottom: 20px;
+        padding: 8px 0;
+    }
+    .breadcrumb li {
+        font-size: 0.85rem;
+    }
+    .breadcrumb li a svg {
+        width: 14px;
+        height: 14px;
+    }
+    .breadcrumb .separator {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile kecil: breadcrumb lebih kecil lagi */
+@media (max-width: 576px) {
+    .breadcrumb {
+        margin-bottom: 16px;
+        padding: 6px 0;
+    }
+    .breadcrumb li {
+        font-size: 0.8rem;
+    }
+    .breadcrumb li a svg {
+        width: 12px;
+        height: 12px;
+    }
+    .breadcrumb .separator {
+        font-size: 0.9rem;
+    }
+}/* ==========================================
+   PAGINATION - RESPONSIVE
+========================================== */
+
+/* Tablet: pagination lebih kecil */
+@media (max-width: 992px) {
+    .pagination-container {
+        margin-top: 40px;
+    }
+    .pagination li a,
+    .pagination li span {
+        min-width: 34px;
+        height: 34px;
+        padding: 0 10px;
+        font-size: 0.85rem;
+    }
+    .pagination li a.prev,
+    .pagination li a.next {
+        min-width: 34px;
+        padding: 0 8px;
+    }
+    .pagination li a.prev svg,
+    .pagination li a.next svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Mobile: pagination lebih kecil dan bisa di-scroll horizontal jika terlalu panjang */
+@media (max-width: 576px) {
+    .pagination-container {
+        margin-top: 30px;
+        overflow-x: auto;
+        padding: 4px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+    .pagination ul {
+        gap: 4px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .pagination li a,
+    .pagination li span {
+        min-width: 30px;
+        height: 30px;
+        padding: 0 8px;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+    .pagination li a.prev,
+    .pagination li a.next {
+        min-width: 30px;
+        padding: 0 6px;
+    }
+    .pagination li a.prev svg,
+    .pagination li a.next svg {
+        width: 12px;
+        height: 12px;
+    }
+    .pagination li span.dots {
+        min-width: 20px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ==========================================
+   NEWS PAGE - ALL NEWS - RESPONSIVE
+========================================== */
+
+/* Tablet: 2 kolom */
+@media (max-width: 992px) {
+    .news-grid-all {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .news-item-all .news-img {
+        height: 170px;
+    }
+}
+
+/* Mobile: 1 kolom */
+@media (max-width: 576px) {
+    .news-grid-all {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .news-item-all .news-img {
+        height: 160px;
+    }
+    .news-item-all .news-text {
+        padding: 16px 18px;
+    }
+    .news-item-all .news-text h4 {
+        font-size: 1rem;
+    }
+    .news-item-all .news-text p {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 2;
+    }
+}
