@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yayasan Pendidikan Islam</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+    <!-- ====================
+    NAVBAR
+    ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <!-- Brand / Logo -->
+            <div class="nav-brand">
+                <div class="logo-icon">Y</div>
+                <div class="brand-text">
+                    Yayasan <small>Pendidikan Islam</small>
+                </div>
+            </div>
+
+            <!-- Menu Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda" class="active">Beranda</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#visi-misi">Visi &amp; Misi</a></li>
+                <li><a href="#unit-pendidikan">Unit Pendidikan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+
+            <!-- Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ====================
+    HERO / BERANDA
+    ==================== -->
+    <section id="beranda" class="hero">
+        <div class="carousel">
+            <!-- Slides -->
+            <div class="carousel-slides">
+                <div class="carousel-slide active" style="background-image: url('https://picsum.photos/seed/education1/1600/900');"></div>
+                <div class="carousel-slide" style="background-image: url('https://picsum.photos/seed/education2/1600/900');"></div>
+                <div class="carousel-slide" style="background-image: url('https://picsum.photos/seed/education3/1600/900');"></div>
+            </div>
+
+            <!-- Konten hero -->
+            <div class="hero-content">
+                <div class="container">
+                    <div class="badge">Yayasan Pendidikan Islam</div>
+                    <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
+                    <p>Mewujudkan pendidikan Islam yang unggul, moderat, dan berdaya saing global.</p>
+                    <div class="hero-buttons">
+                        <a href="#profil" class="btn-primary">Tentang Kami</a>
+                        <a href="#unit-pendidikan" class="btn-outline">Unit Pendidikan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol carousel -->
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Dots -->
+            <div class="carousel-dots" id="dotsContainer"></div>
+        </div>
+    </section>
+
+    <!-- ====================
+    PROFIL YAYASAN
+    ==================== -->
+    <section id="profil" class="profile-section">
+        <div class="container">
+            <!-- Tambahkan class fade-up -->
+            <div class="profile-grid fade-up">
+                <div class="profile-image">
+                    <img src="https://picsum.photos/seed/principal/600/700" alt="Foto Ketua Yayasan" />
+                </div>
+                <div class="profile-content">
+                    <span class="section-tag">Profil Yayasan</span>
+                    <h2>Menjadi Pelopor <span>Pendidikan Islam</span></h2>
+                    <p class="sambutan">
+                        Assalamu'alaikum warahmatullahi wabarakatuh.<br /><br />
+                        [Isi sambutan singkat dari Ketua Yayasan. Di sini nanti akan diisi dengan visi, komitmen, dan harapan Yayasan dalam mengelola pendidikan Islam yang unggul, moderat, dan berdaya saing global. Placeholder ini akan diganti dengan data resmi.]
+                    </p>
+                    <div class="profile-author">
+                        <h3>[Nama Ketua Yayasan]</h3>
+                        <p>Ketua Yayasan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    VISI & MISI
+    ==================== -->
+    <section id="visi-misi" class="vision-section">
+        <div class="container">
+            <div class="section-head center">
+                <span class="section-tag">Visi &amp; Misi</span>
+                <h2 class="section-title">Tujuan <span>Pendidikan</span> Kami</h2>
+                <p class="section-sub">Komitmen kami dalam mencetak generasi yang berilmu, beriman, dan berakhlak mulia.</p>
+            </div>
+
+            <!-- Tambahkan class fade-up -->
+            <div class="vision-grid fade-up">
+                <!-- Visi -->
+                <div class="vision-card">
+                    <div class="vision-label">Visi</div>
+                    <blockquote>
+                        “[Visi Yayasan] — Menjadi pusat pendidikan Islam yang unggul, moderat, dan diakui secara nasional dalam mencetak generasi rabbani yang berdaya saing global.”
+                    </blockquote>
+                </div>
+
+                <!-- Misi -->
+                <div class="mission-grid">
+                    <!-- Tambahkan class stagger-child pada setiap mission-item -->
+                    <div class="mission-item stagger-child">
+                        <span class="mission-number">01</span>
+                        <h4>[Misi Pertama]</h4>
+                        <p>Menyelenggarakan pendidikan yang mengintegrasikan ilmu agama dan ilmu umum secara seimbang.</p>
+                    </div>
+                    <div class="mission-item stagger-child">
+                        <span class="mission-number">02</span>
+                        <h4>[Misi Kedua]</h4>
+                        <p>Membentuk karakter peserta didik yang berakhlak mulia, mandiri, dan memiliki jiwa kepemimpinan.</p>
+                    </div>
+                    <div class="mission-item stagger-child">
+                        <span class="mission-number">03</span>
+                        <h4>[Misi Ketiga]</h4>
+                        <p>Mengembangkan kurikulum yang adaptif terhadap perkembangan zaman tanpa meninggalkan nilai-nilai Islam.</p>
+                    </div>
+                    <div class="mission-item stagger-child">
+                        <span class="mission-number">04</span>
+                        <h4>[Misi Keempat]</h4>
+                        <p>Menjalin kemitraan strategis dengan berbagai lembaga pendidikan untuk peningkatan mutu secara berkelanjutan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    UNIT PENDIDIKAN
+    ==================== -->
+    <section id="unit-pendidikan" class="units-section">
+        <div class="container">
+            <div class="section-head center">
+                <span class="section-tag">Unit Pendidikan</span>
+                <h2 class="section-title">Lembaga di Bawah <span>Naungan</span> Yayasan</h2>
+                <p class="section-sub">Yayasan Pendidikan Islam menaungi dua unit pendidikan yang berkomitmen mencetak generasi unggul dan berakhlak mulia.</p>
+            </div>
+
+            <!-- Tambahkan class fade-up -->
+            <div class="units-grid fade-up">
+                <!-- SMP -->
+                <div class="unit-card stagger-child">
+                    <div class="unit-card-image">
+                        <img src="https://picsum.photos/seed/smp/600/400" alt="SMP AL-Makin Krian" />
+                    </div>
+                    <div class="unit-card-content">
+                        <h3>SMP AL-Makin Krian</h3>
+                        <p>Sekolah Menengah Pertama yang mengintegrasikan kurikulum nasional dengan pendidikan karakter Islami, membekali siswa dengan ilmu dan akhlak.</p>
+                        <a href="/smp/" class="btn-unit">Kunjungi Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- MA -->
+                <div class="unit-card stagger-child">
+                    <div class="unit-card-image">
+                        <img src="https://picsum.photos/seed/ma/600/400" alt="MA" />
+                    </div>
+                    <div class="unit-card-content">
+                        <h3>MA</h3>
+                        <p>Madrasah Aliyah yang mempersiapkan generasi muda dengan pendalaman ilmu agama dan pengetahuan umum untuk melanjutkan ke jenjang pendidikan tinggi.</p>
+                        <a href="/ma/" class="btn-unit">Kunjungi Website <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    KONTAK
+    ==================== -->
+    <section id="kontak" class="contact-section">
+        <div class="container">
+            <div class="section-head center">
+                <span class="section-tag">Hubungi Kami</span>
+                <h2 class="section-title">Informasi <span>Kontak</span></h2>
+                <p class="section-sub">Silakan hubungi kami untuk informasi lebih lanjut tentang Yayasan dan unit pendidikan kami.</p>
+            </div>
+
+            <!-- Tambahkan class fade-up -->
+            <div class="contact-grid fade-up">
+                <!-- Informasi -->
+                <div class="contact-info">
+                    <!-- Tambahkan class stagger-child pada setiap info-item -->
+                    <div class="info-item stagger-child">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>[Alamat Yayasan, Jalan, Kecamatan, Kabupaten, Provinsi]</p>
+                        </div>
+                    </div>
+                    <div class="info-item stagger-child">
+                        <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item stagger-child">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@yayasan.com">info@yayasan.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item stagger-child">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>Senin – Jumat: 08.00 – 16.00</p>
+                        </div>
+                    </div>
+                    <div class="info-item social stagger-child">
+                        <div class="info-icon"><i class="fas fa-share-alt"></i></div>
+                        <div>
+                            <h4>Media Sosial</h4>
+                            <div class="social-links">
+                                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="contact-form-wrapper">
+                    <h3>Kirim Pesan</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" placeholder="Nama Anda" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@contoh.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subjek pesan" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Google Maps - tambahkan class fade-up -->
+            <div class="map-container fade-up">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.314233360618!2d112.633276!3d-7.253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f9e9b6b1c5c3%3A0x9d8c9c9c9c9c9c9c!2sKrian%2C%20Sidoarjo!5e0!3m2!1sen!2sid!4v1712345678901!5m2!1sen!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Lokasi Yayasan">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    FOOTER
+    ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Tambahkan class fade-up -->
+            <div class="footer-grid fade-up">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">Y</div>
+                    <div>
+                        <h3>Yayasan Pendidikan Islam</h3>
+                        <p>Membangun generasi berakhlak mulia melalui pendidikan Islam yang unggul.</p>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Yayasan Pendidikan Islam. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

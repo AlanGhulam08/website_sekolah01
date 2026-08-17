@@ -1,0 +1,362 @@
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* ============================================
+   TABLET LANDSCAPE (≤ 992px)
+   ============================================ */
+@media (max-width: 992px) {
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ============================================
+   TABLET PORTRAIT & MOBILE BESAR (≤ 768px)
+   ============================================ */
+@media (max-width: 768px) {
+    /* ---------- NAVBAR ---------- */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: var(--transition);
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
+        padding: 40px 20px;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        color: var(--gray-dark) !important;
+        background: transparent !important;
+        padding: 10px 24px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--emerald) !important;
+        background: rgba(26, 107, 60, 0.08) !important;
+    }
+
+    .hamburger.active span {
+        background: var(--dark-green);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-outline {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .carousel-btn.prev {
+        left: 12px;
+    }
+
+    .carousel-btn.next {
+        right: 12px;
+    }
+
+    .carousel-dots {
+        bottom: 20px;
+        gap: 8px;
+    }
+
+    .carousel-dots .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* ---------- PROFIL ---------- */
+    .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .profile-content {
+        text-align: center;
+    }
+
+    .profile-author {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .profile-image img {
+        max-width: 320px;
+    }
+
+    /* ---------- VISI & MISI ---------- */
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .vision-card {
+        padding: 32px 24px;
+    }
+
+    .vision-card blockquote {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-sub {
+        font-size: 1rem;
+    }
+
+    /* ---------- UNIT PENDIDIKAN ---------- */
+    .units-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .unit-card-image {
+        height: 200px;
+    }
+
+    .unit-card-content {
+        padding: 20px 24px 24px;
+    }
+
+    .unit-card-content h3 {
+        font-size: 1.2rem;
+    }
+
+    /* ---------- KONTAK ---------- */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contact-form-wrapper {
+        padding: 24px 20px;
+    }
+
+    .map-container {
+        height: 220px;
+        margin-top: 32px;
+    }
+
+    .info-item {
+        gap: 14px;
+    }
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .footer-brand {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-social .social-links {
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   MOBILE KECIL (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+    /* ---------- HERO ---------- */
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content .badge {
+        font-size: 0.7rem;
+        padding: 4px 16px;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
+
+    /* ---------- PROFIL ---------- */
+    .profile-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .profile-content .sambutan {
+        font-size: 0.95rem;
+    }
+
+    /* ---------- VISI & MISI ---------- */
+    .vision-card blockquote {
+        font-size: 1rem;
+    }
+
+    .mission-item {
+        padding: 20px 16px;
+    }
+
+    .mission-number {
+        font-size: 1.6rem;
+    }
+
+    /* ---------- UNIT PENDIDIKAN ---------- */
+    .unit-card-image {
+        height: 180px;
+    }
+
+    .unit-card-content {
+        padding: 16px 18px 20px;
+    }
+
+    .unit-card-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .unit-card-content p {
+        font-size: 0.85rem;
+    }
+
+    .btn-unit {
+        font-size: 0.85rem;
+    }
+
+    /* ---------- KONTAK ---------- */
+    .contact-form-wrapper {
+        padding: 20px 16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .map-container {
+        height: 180px;
+    }
+
+    .info-item.social .social-links a {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+        padding: 32px 0 20px;
+    }
+
+    .footer-brand h3 {
+        font-size: 1rem;
+    }
+
+    .footer-brand p {
+        font-size: 0.8rem;
+    }
+
+    .footer-social .social-links a {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================
+   PERBAIKAN TAMBAHAN UNTUK PERANGKAT SANGAT KECIL
+   ============================================ */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content .badge {
+        font-size: 0.6rem;
+        padding: 3px 12px;
+    }
+
+    .brand-text {
+        font-size: 0.95rem;
+    }
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+}
