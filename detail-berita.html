@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Berita - Yayasan Pendidikan Islam</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+    <!-- ====================
+    NAVBAR (SOLID - TANPA EFEK TEMBUS PANDANG)
+    ==================== -->
+    <nav class="navbar navbar-solid" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img 
+                    src="assets/logo/logo-yayasan.png" 
+                    alt="Logo Yayasan" 
+                    class="logo-image"
+                />
+                <div class="brand-text">
+                    Yayasan <small>Pendidikan Islam</small>
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#profil">Profil</a></li>
+                <li><a href="index.html#visi-misi">Visi &amp; Misi</a></li>
+                <li><a href="index.html#unit-pendidikan">Unit Pendidikan</a></li>
+                <li><a href="berita.html" class="active">Berita</a></li>
+                <li><a href="index.html#kontak">Kontak</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ====================
+    DETAIL BERITA
+    ==================== -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="detail-wrapper" id="detailWrapper">
+                <!-- Konten akan di-render oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    FOOTER
+    ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img 
+                        src="assets/logo/logo-yayasan.png" 
+                        alt="Logo Yayasan" 
+                        class="footer-logo-image"
+                    />
+                    <div>
+                        <h3>Yayasan Pendidikan Islam</h3>
+                        <p>Membangun generasi berakhlak mulia melalui pendidikan Islam yang unggul.</p>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Yayasan Pendidikan Islam. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/berita.js"></script>
+</body>
+</html>

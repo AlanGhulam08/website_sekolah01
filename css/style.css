@@ -87,19 +87,13 @@ ul {
     gap: 14px;
 }
 
-.logo-icon {
+.logo-image {
     width: 46px;
     height: 46px;
-    background: var(--emerald);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 1.4rem;
-    font-weight: 800;
+    object-fit: contain;
+    display: block;
     flex-shrink: 0;
-    transition: var(--transition);
+    border-radius: 14px;
 }
 
 .brand-text {
@@ -129,10 +123,6 @@ ul {
 
 .navbar.scrolled .brand-text {
     color: var(--dark-green);
-}
-
-.navbar.scrolled .logo-icon {
-    background: var(--dark-green);
 }
 
 .nav-links {
@@ -203,6 +193,342 @@ ul {
 }
 
 /* ============================================
+   NAVBAR SOLID (untuk halaman berita & detail)
+   ============================================ */
+.navbar-solid {
+    background: var(--white) !important;
+    box-shadow: 0 2px 28px rgba(0, 0, 0, 0.06);
+    padding: 12px 0;
+}
+
+.navbar-solid .brand-text {
+    color: var(--dark-green) !important;
+}
+
+.navbar-solid .logo-image {
+    /* bisa tambahkan efek jika perlu */
+}
+
+.navbar-solid .nav-links a {
+    color: var(--gray-dark) !important;
+}
+
+.navbar-solid .nav-links a:hover,
+.navbar-solid .nav-links a.active {
+    color: var(--white) !important;
+    background: var(--emerald) !important;
+}
+
+.navbar-solid .hamburger span {
+    background: var(--dark-green) !important;
+}
+
+.navbar-solid .hamburger.active span {
+    background: var(--dark-green);
+}
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.page-header {
+    padding: 140px 0 60px;
+    background: var(--off-white);
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--dark-green);
+    margin-bottom: 12px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--gray-medium);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   NEWS PAGE
+   ============================================ */
+.news-page {
+    padding: 60px 0 100px;
+    background: var(--white);
+}
+
+/* ============================================
+   BREADCRUMB
+   ============================================ */
+.breadcrumb {
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.breadcrumb ol {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.breadcrumb li a {
+    color: var(--emerald);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.breadcrumb li a:hover {
+    color: var(--dark-green);
+}
+
+.breadcrumb .separator {
+    color: var(--gray-light);
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb .separator i {
+    font-size: 0.6rem;
+}
+
+.breadcrumb .current {
+    color: var(--gray-dark);
+    font-weight: 600;
+}
+
+/* ============================================
+   PAGINATION - DIPERBESAR & DITENGAH
+   ============================================ */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 48px;
+    padding: 0 18px;
+    border: 2px solid var(--gray-light);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--gray-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+}
+
+.page-btn:hover {
+    background: var(--emerald);
+    color: var(--white);
+    border-color: var(--emerald);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(26, 107, 60, 0.25);
+}
+
+.page-btn.active {
+    background: var(--emerald);
+    color: var(--white);
+    border-color: var(--emerald);
+    box-shadow: 0 4px 16px rgba(26, 107, 60, 0.30);
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-btn:disabled:hover {
+    background: var(--white);
+    color: var(--gray-dark);
+    border-color: var(--gray-light);
+    transform: none;
+    box-shadow: none;
+}
+
+.page-btn i {
+    font-size: 0.9rem;
+}
+
+.page-dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 48px;
+    color: var(--gray-medium);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* ============================================
+   DETAIL BERITA
+   ============================================ */
+.detail-section {
+    padding: 140px 0 80px;
+    background: var(--white);
+}
+
+.detail-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Meta */
+.detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.detail-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    background: var(--emerald);
+    padding: 4px 16px;
+    border-radius: 50px;
+}
+
+.detail-date {
+    font-size: 0.85rem;
+    color: var(--gray-medium);
+}
+
+/* Title */
+.detail-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--dark-green);
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+/* Image */
+.detail-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Content */
+.detail-content {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--gray-dark);
+}
+
+.detail-content p {
+    margin-bottom: 20px;
+}
+
+.detail-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin: 32px 0 16px;
+}
+
+.detail-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-green);
+    margin: 24px 0 12px;
+}
+
+.detail-content ul,
+.detail-content ol {
+    margin: 16px 0 20px 24px;
+}
+
+.detail-content ul li,
+.detail-content ol li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.detail-content strong {
+    font-weight: 600;
+    color: var(--dark-green);
+}
+
+/* Back button */
+.detail-back {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--gray-light);
+}
+
+.detail-back .btn-news {
+    font-size: 0.95rem;
+    gap: 12px;
+}
+
+.detail-back .btn-news i {
+    font-size: 0.9rem;
+}
+
+/* Not found */
+.detail-not-found {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.detail-not-found h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 12px;
+}
+
+.detail-not-found p {
+    font-size: 1.1rem;
+    color: var(--gray-medium);
+    margin-bottom: 24px;
+}
+
+.detail-not-found .btn-primary {
+    padding: 14px 48px;
+}
+
+/* ============================================
    HERO / CAROUSEL
    ============================================ */
 .hero {
@@ -229,9 +555,6 @@ ul {
     inset: 0;
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     will-change: opacity;
 }
 
@@ -239,6 +562,15 @@ ul {
     opacity: 1;
 }
 
+/* Gambar di dalam slide */
+.hero-slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay gelap di atas gambar */
 .carousel-slide::after {
     content: '';
     position: absolute;
@@ -246,6 +578,7 @@ ul {
     background: rgba(0, 0, 0, 0.45);
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.20) 100%);
     pointer-events: none;
+    z-index: 1;
 }
 
 .hero-content {
@@ -741,6 +1074,144 @@ ul {
 }
 
 /* ============================================
+   BERITA
+   ============================================ */
+.news-section {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 16px;
+}
+
+/* Card Berita */
+.news-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--gray-light);
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--emerald-light);
+}
+
+.news-card-image {
+    overflow: hidden;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.news-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.news-card:hover .news-card-image img {
+    transform: scale(1.05);
+}
+
+.news-card-content {
+    padding: 24px 24px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: var(--gray-medium);
+}
+
+.news-category {
+    color: var(--emerald);
+    background: rgba(26, 107, 60, 0.08);
+    padding: 2px 12px;
+    border-radius: 50px;
+}
+
+.news-date {
+    color: var(--gray-medium);
+}
+
+.news-card-content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.news-card-content p {
+    font-size: 0.9rem;
+    color: var(--gray-medium);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+/* Tombol Berita */
+.btn-news {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    background: transparent;
+    color: var(--emerald);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 2px solid var(--emerald);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-news i {
+    transition: var(--transition);
+    font-size: 0.75rem;
+}
+
+.btn-news:hover {
+    color: var(--dark-green);
+    border-bottom-color: var(--gold);
+    gap: 14px;
+}
+
+.btn-news:hover i {
+    transform: translateX(4px);
+    color: var(--gold);
+}
+
+/* Footer Berita - Tombol Lihat Semua Berita */
+.news-footer {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.news-footer .btn-primary {
+    padding: 14px 48px;
+}
+
+/* ============================================
    KONTAK
    ============================================ */
 .contact-section {
@@ -926,18 +1397,13 @@ ul {
     gap: 16px;
 }
 
-.footer-logo {
+.footer-logo-image {
     width: 48px;
     height: 48px;
-    background: var(--emerald);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 1.4rem;
-    font-weight: 800;
+    object-fit: contain;
+    display: block;
     flex-shrink: 0;
+    border-radius: 14px;
 }
 
 .footer-brand h3 {
@@ -1003,7 +1469,6 @@ ul {
    ANIMATIONS & INTERACTIONS
    ============================================ */
 
-/* --- 1. Fade-up (untuk section utama) --- */
 .fade-up {
     opacity: 0;
     transform: translateY(50px);
@@ -1016,7 +1481,6 @@ ul {
     transform: translateY(0);
 }
 
-/* --- 2. Stagger child (untuk card-grid item) --- */
 .stagger-child {
     opacity: 0;
     transform: translateY(40px);
@@ -1029,7 +1493,6 @@ ul {
     transform: translateY(0);
 }
 
-/* Stagger delays — semakin ke bawah, semakin besar delay-nya */
 .stagger-child:nth-child(1) {
     transition-delay: 0.05s;
 }
@@ -1049,22 +1512,17 @@ ul {
     transition-delay: 0.55s;
 }
 
-/* --- 3. Interactive hover enhancements (upgrade dari yang sudah ada) --- */
-
-/* Card hover: tambahkan efek border glow untuk unit card & mission item */
 .unit-card:hover,
 .mission-item:hover {
     border-color: var(--gold) !important;
     box-shadow: 0 20px 60px rgba(13, 59, 30, 0.12);
 }
 
-/* Profil image hover: lebih smooth */
 .profile-image img {
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Tombol sosial media di footer hover: efek scale + rotasi ringan */
 .footer-social .social-links a {
     transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
@@ -1072,7 +1530,6 @@ ul {
     transform: translateY(-4px) scale(1.05);
 }
 
-/* Tombol sosial media di kontak */
 .info-item.social .social-links a {
     transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
@@ -1080,7 +1537,6 @@ ul {
     transform: translateY(-4px) scale(1.05);
 }
 
-/* Carousel button: tambahan efek glow saat hover */
 .carousel-btn {
     transition: opacity 0.4s ease, background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -1088,7 +1544,6 @@ ul {
     box-shadow: 0 0 20px rgba(201, 168, 76, 0.20);
 }
 
-/* Navbar link: underline effect saat hover (pada desktop) */
 @media (min-width: 769px) {
     .nav-links a::after {
         content: '';
