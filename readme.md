@@ -1,8 +1,8 @@
-# Yayasan Pendidikan Islam — Company Profile
+#YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN — Company Profile
 
-Website resmi Yayasan Pendidikan Islam yang menaungi dua unit pendidikan:
+Website resmi YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN yang menaungi dua unit pendidikan:
 - SMP AL-Makin Krian
-- MA (nama sementara)
+- MA Madrasah Aliyah
 
 ## Teknologi
 - HTML5

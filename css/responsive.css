@@ -268,6 +268,7 @@
 
     .pagination {
         gap: 8px;
+        margin-top: 70px; /* <-- PERUBAHAN: dari 50px menjadi 70px */
     }
 
     .page-btn {
@@ -426,8 +427,10 @@
         font-size: 0.7rem;
     }
 
+    /* ---------- PAGINATION ---------- */
     .pagination {
         gap: 6px;
+        margin-top: 50px; /* <-- PERUBAHAN: dari 40px menjadi 50px */
     }
 
     .page-btn {
