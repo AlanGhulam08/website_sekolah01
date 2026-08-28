@@ -20,25 +20,47 @@
 <body>
 
     <!-- ====================
-    NAVBAR
+    1. NAVBAR
     ==================== -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">
-                <img 
-                    src="assets/logo/logo-yayasan.png" 
-                    alt="Logo Yayasan" 
-                    class="logo-image"
-                />
+                <img src="assets/logo/logo-yayasan.png" alt="Logo Yayasan" class="logo-image" />
                 <div class="brand-text">
-                    Yayasan <small>PENDIDIKAN DAN SOSIAL AT THOYYIBUN</small>
+                    YAYASAN <small>PENDIDIKAN DAN SOSIAL AT THOYYIBUN</small>
                 </div>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#beranda" class="active">Beranda</a></li>
-                <li><a href="#profil">Profil</a></li>
-                <li><a href="#visi-misi">Visi &amp; Misi</a></li>
-                <li><a href="#unit-pendidikan">Unit Pendidikan</a></li>
+                
+                <!-- Dropdown Struktur Organisasi -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Struktur Organisasi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="struktur-yayasan.html">Struktur Yayasan</a>
+                        <a href="struktur-smp.html">Struktur SMP</a>
+                        <a href="struktur-ma.html">Struktur MA</a>
+                    </div>
+                </li>
+
+                <!-- Dropdown Unit Pendidikan -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Unit Pendidikan <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="info-smp.html">SMP</a>
+                        <a href="info-ma.html">MA</a>
+                    </div>
+                </li>
+
+                <!-- Dropdown Informasi -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Informasi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="ppdb-smp.html">PPDB SMP</a>
+                        <a href="ppdb-ma.html">PPDB MA</a>
+                    </div>
+                </li>
+
                 <li><a href="#berita">Berita</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
@@ -51,51 +73,43 @@
     </nav>
 
     <!-- ====================
-    HERO / BERANDA
+    2. HERO CAROUSEL (Teks Konsisten & Sama)
     ==================== -->
     <section id="beranda" class="hero">
         <div class="carousel">
             <div class="carousel-slides">
-                <!-- Slide 1 -->
+                <!-- Slide 1 (Teks Sama) -->
                 <div class="carousel-slide active">
-                    <img 
-                        src="assets/images/hero/hero1.png" 
-                        alt="Slide 1 - Kegiatan Pendidikan" 
-                        class="hero-slide-image"
-                    />
-                </div>
-                <!-- Slide 2 -->
-                <div class="carousel-slide">
-                    <img 
-                        src="https://picsum.photos/seed/education2/1600/900" 
-                        alt="Slide 2 - Suasana Sekolah" 
-                        class="hero-slide-image"
-                    />
-                </div>
-                <!-- Slide 3 -->
-                <div class="carousel-slide">
-                    <img 
-                        src="https://picsum.photos/seed/education3/1600/900" 
-                        alt="Slide 3 - Kegiatan Keagamaan" 
-                        class="hero-slide-image"
-                    />
-                </div>
-            </div>
-
-            <!-- Konten hero -->
-            <div class="hero-content">
-                <div class="container">
-                    <div class="badge">YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</div>
-                    <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
-                    <p>Mewujudkan pendidikan Islam yang unggul, moderat, dan berdaya saing global.</p>
-                    <div class="hero-buttons">
+                    <img src="https://picsum.photos/seed/education1/1600/900" alt="Banner 1 - Profil Yayasan" class="hero-slide-image" />
+                    <div class="slide-content">
+                        <div class="badge">Profil Yayasan</div>
+                        <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan Islam berkualitas yang mengintegrasikan ilmu agama dan ilmu umum untuk mencetak generasi unggul.</p>
                         <a href="#profil" class="btn-primary">Tentang Kami</a>
-                        <a href="#unit-pendidikan" class="btn-outline">Unit Pendidikan</a>
+                    </div>
+                </div>
+                <!-- Slide 2 (Teks Sama) -->
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/education2/1600/900" alt="Banner 2 - Profil Yayasan" class="hero-slide-image" />
+                    <div class="slide-content">
+                        <div class="badge">Profil Yayasan</div>
+                        <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan Islam berkualitas yang mengintegrasikan ilmu agama dan ilmu umum untuk mencetak generasi unggul.</p>
+                        <a href="#profil" class="btn-primary">Tentang Kami</a>
+                    </div>
+                </div>
+                <!-- Slide 3 (Teks Sama) -->
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/education3/1600/900" alt="Banner 3 - Profil Yayasan" class="hero-slide-image" />
+                    <div class="slide-content">
+                        <div class="badge">Profil Yayasan</div>
+                        <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan Islam berkualitas yang mengintegrasikan ilmu agama dan ilmu umum untuk mencetak generasi unggul.</p>
+                        <a href="#profil" class="btn-primary">Tentang Kami</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Tombol carousel -->
             <button class="carousel-btn prev" id="prevBtn" aria-label="Previous slide">
                 <i class="fas fa-chevron-left"></i>
             </button>
@@ -103,13 +117,59 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
 
-            <!-- Dots -->
             <div class="carousel-dots" id="dotsContainer"></div>
         </div>
     </section>
 
     <!-- ====================
-    PROFIL YAYASAN
+    3. UNIT PENDIDIKAN
+    ==================== -->
+    <section id="unit-pendidikan" class="units-section">
+        <div class="container">
+            <div class="section-head center">
+                <span class="section-tag">Lembaga Kami</span>
+                <h2 class="section-title">Unit <span>Pendidikan</span></h2>
+                <p class="section-sub">Lembaga pendidikan di bawah naungan Yayasan.</p>
+            </div>
+
+            <div class="units-logo-grid">
+                <!-- Unit 1: SMP (Data Resmi) -->
+                <div class="unit-logo-item">
+                    <img src="assets/logo/logo-smp.png" alt="Logo SMP" />
+                    <h4>SMP</h4>
+                    <h5>AL-Makin Krian</h5>
+                </div>
+
+                <!-- Unit 2: MA (Data Resmi) -->
+                <div class="unit-logo-item">
+                    <img src="assets/logo/logo-ma.png" alt="Logo MA" />
+                    <h4>MA</h4>
+                    <h5>Madrasah Aliyah</h5>
+                </div>
+
+                <!-- Placeholder Unit 3 -->
+                <div class="unit-logo-item">
+                    <img src="https://via.placeholder.com/100?text=Logo" alt="Logo Lembaga 3" />
+                    <h4>Nama Lembaga 3</h4>
+                </div>
+
+                <!-- Placeholder Unit 4 -->
+                <div class="unit-logo-item">
+                    <img src="https://via.placeholder.com/100?text=Logo" alt="Logo Lembaga 4" />
+                    <h4>Nama Lembaga 4</h4>
+                </div>
+
+                <!-- Placeholder Unit 5 -->
+                <div class="unit-logo-item">
+                    <img src="https://via.placeholder.com/100?text=Logo" alt="Logo Lembaga 5" />
+                    <h4>Nama Lembaga 5</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    4. SAMBUTAN KETUA YAYASAN
     ==================== -->
     <section id="profil" class="profile-section">
         <div class="container">
@@ -118,28 +178,29 @@
                     <img src="assets/images/kepala-sekolah/kepala-sekolah.jpg" alt="Foto Ketua Yayasan" />
                 </div>
                 <div class="profile-content">
-                    <span class="section-tag">Profil Yayasan</span>
-                    <h2>Menjadi Pelopor <span>Pendidikan Islam</span></h2>
+                    <span class="section-tag">Sambutan</span>
+                    <h2>Kata <span>Sambutan</span> Ketua Yayasan</h2>
                     <p class="sambutan">
                         Assalamu'alaikum warahmatullahi wabarakatuh.<br /><br />
-                        [Isi sambutan singkat dari Ketua Yayasan. Di sini nanti akan diisi dengan visi, komitmen, dan harapan Yayasan dalam mengelola pendidikan Islam yang unggul, moderat, dan berdaya saing global. Placeholder ini akan diganti dengan data resmi.]
+                        [Isi sambutan singkat dari Ketua Yayasan. Placeholder ini akan diganti dengan kata sambutan resmi.]
                     </p>
                     <div class="profile-author">
                         <h3>[Nama Ketua Yayasan]</h3>
                         <p>Ketua Yayasan</p>
                     </div>
+                    <a href="#" class="btn-outline">Baca Selengkapnya</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ====================
-    VISI & MISI
+    5. VISI & MISI
     ==================== -->
     <section id="visi-misi" class="vision-section">
         <div class="container">
             <div class="section-head center">
-                <span class="section-tag">Visi &amp; Misi</span>
+                <span class="section-tag">Visi & Misi</span>
                 <h2 class="section-title">Tujuan <span>Pendidikan</span> Kami</h2>
                 <p class="section-sub">Komitmen kami dalam mencetak generasi yang berilmu, beriman, dan berakhlak mulia.</p>
             </div>
@@ -177,111 +238,161 @@
     </section>
 
     <!-- ====================
-    UNIT PENDIDIKAN
+    6. BERITA HIGHLIGHT
     ==================== -->
-    <section id="unit-pendidikan" class="units-section">
+    <section id="berita-highlight" class="news-highlight-section">
         <div class="container">
             <div class="section-head center">
-                <span class="section-tag">Unit Pendidikan</span>
-                <h2 class="section-title">Lembaga di Bawah <span>Naungan</span> Yayasan</h2>
-                <p class="section-sub"> YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN menaungi dua unit pendidikan yang berkomitmen mencetak generasi unggul dan berakhlak mulia.</p>
+                <span class="section-tag">Konten Pilihan</span>
+                <h2 class="section-title">Berita <span>Highlight</span></h2>
+                <p class="section-sub">Kegiatan unggulan yang menjadi sorotan yayasan.</p>
             </div>
-            <div class="units-grid fade-up">
-                <div class="unit-card stagger-child">
-                    <div class="unit-card-image">
-                        <img src="https://picsum.photos/seed/smp/600/400" alt="SMP AL-Makin Krian" />
+
+            <div class="news-grid-highlight">
+                <!-- Highlight 1 -->
+                <article class="news-card highlight">
+                    <div class="news-card-image">
+                        <img src="https://picsum.photos/seed/highlight1/600/400" alt="Highlight 1" />
                     </div>
-                    <div class="unit-card-content">
-                        <h3>SMP AL-Makin Krian</h3>
-                        <p>Sekolah Menengah Pertama yang mengintegrasikan kurikulum nasional dengan pendidikan karakter Islami, membekali siswa dengan ilmu dan akhlak.</p>
-                        <a href="/smp/" class="btn-unit">Kunjungi Website <i class="fas fa-arrow-right"></i></a>
+                    <div class="news-card-content">
+                        <div class="news-meta">
+                            <span class="news-category">[Kegiatan Yayasan]</span>
+                            <span class="news-date">[Tanggal]</span>
+                        </div>
+                        <h3>[Judul Highlight 1]</h3>
+                        <p>[Ringkasan singkat kegiatan unggulan]</p>
+                        <a href="detail-berita.html?id=1" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
-                <div class="unit-card stagger-child">
-                    <div class="unit-card-image">
-                        <img src="https://picsum.photos/seed/ma/600/400" alt="MA" />
+                </article>
+
+                <!-- Highlight 2 -->
+                <article class="news-card highlight">
+                    <div class="news-card-image">
+                        <img src="https://picsum.photos/seed/highlight2/600/400" alt="Highlight 2" />
                     </div>
-                    <div class="unit-card-content">
-                        <h3>MA</h3>
-                        <p>Madrasah Aliyah yang mempersiapkan generasi muda dengan pendalaman ilmu agama dan pengetahuan umum untuk melanjutkan ke jenjang pendidikan tinggi.</p>
-                        <a href="/ma/" class="btn-unit">Kunjungi Website <i class="fas fa-arrow-right"></i></a>
+                    <div class="news-card-content">
+                        <div class="news-meta">
+                            <span class="news-category">[Kegiatan Yayasan]</span>
+                            <span class="news-date">[Tanggal]</span>
+                        </div>
+                        <h3>[Judul Highlight 2]</h3>
+                        <p>[Ringkasan singkat kegiatan unggulan]</p>
+                        <a href="detail-berita.html?id=2" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
+                </article>
+
+                <!-- Highlight 3 -->
+                <article class="news-card highlight">
+                    <div class="news-card-image">
+                        <img src="https://picsum.photos/seed/highlight3/600/400" alt="Highlight 3" />
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-meta">
+                            <span class="news-category">[Kegiatan Yayasan]</span>
+                            <span class="news-date">[Tanggal]</span>
+                        </div>
+                        <h3>[Judul Highlight 3]</h3>
+                        <p>[Ringkasan singkat kegiatan unggulan]</p>
+                        <a href="detail-berita.html?id=3" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- ====================
-    BERITA
+    7. BERITA TERBARU
     ==================== -->
     <section id="berita" class="news-section">
         <div class="container">
             <div class="section-head center">
-                <span class="section-tag">Berita Terkini</span>
-                <h2 class="section-title">Informasi &amp; <span>Kabar</span> Yayasan</h2>
-                <p class="section-sub">Ikuti berbagai informasi, kegiatan, dan perkembangan terbaru dari YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.</p>
+                <span class="section-tag">Informasi Terkini</span>
+                <h2 class="section-title">Berita <span>Terbaru</span></h2>
+                <p class="section-sub">Ikuti perkembangan kegiatan dan informasi dari yayasan kami.</p>
             </div>
 
             <div class="news-grid">
                 <!-- Berita 1 -->
-                <article class="news-card fade-up stagger-child">
+                <article class="news-card">
                     <div class="news-card-image">
-                        <img 
-                            src="https://picsum.photos/seed/news1/600/400" 
-                            alt="Placeholder gambar berita 1 - Kegiatan Yayasan"
-                        />
+                        <img src="https://picsum.photos/seed/news1/600/400" alt="Berita 1" />
                     </div>
                     <div class="news-card-content">
                         <div class="news-meta">
-                            <span class="news-category">[Kegiatan Yayasan]</span>
+                            <span class="news-category">[Kegiatan]</span>
                             <span class="news-date">[Tanggal]</span>
                         </div>
-                        <h3>[Judul Berita Pertama]</h3>
-                        <p>[Ringkasan singkat berita pertama. Di sini nanti akan diisi dengan informasi kegiatan, prestasi, atau pengumuman dari Yayasan.]</p>
+                        <h3>[Judul Berita 1]</h3>
+                        <p>[Ringkasan singkat berita 1]</p>
                         <a href="detail-berita.html?id=1" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
 
                 <!-- Berita 2 -->
-                <article class="news-card fade-up stagger-child">
+                <article class="news-card">
                     <div class="news-card-image">
-                        <img 
-                            src="https://picsum.photos/seed/news2/600/400" 
-                            alt="Placeholder gambar berita 2 - Kegiatan Pendidikan"
-                        />
+                        <img src="https://picsum.photos/seed/news2/600/400" alt="Berita 2" />
                     </div>
                     <div class="news-card-content">
                         <div class="news-meta">
-                            <span class="news-category">[Kegiatan Yayasan]</span>
+                            <span class="news-category">[Kegiatan]</span>
                             <span class="news-date">[Tanggal]</span>
                         </div>
-                        <h3>[Judul Berita Kedua]</h3>
-                        <p>[Ringkasan singkat berita kedua. Placeholder ini akan diganti dengan konten asli nantinya.]</p>
+                        <h3>[Judul Berita 2]</h3>
+                        <p>[Ringkasan singkat berita 2]</p>
                         <a href="detail-berita.html?id=2" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
 
                 <!-- Berita 3 -->
-                <article class="news-card fade-up stagger-child">
+                <article class="news-card">
                     <div class="news-card-image">
-                        <img 
-                            src="https://picsum.photos/seed/news3/600/400" 
-                            alt="Placeholder gambar berita 3 - Kegiatan Keagamaan"
-                        />
+                        <img src="https://picsum.photos/seed/news3/600/400" alt="Berita 3" />
                     </div>
                     <div class="news-card-content">
                         <div class="news-meta">
-                            <span class="news-category">[Kegiatan Yayasan]</span>
+                            <span class="news-category">[Kegiatan]</span>
                             <span class="news-date">[Tanggal]</span>
                         </div>
-                        <h3>[Judul Berita Ketiga]</h3>
-                        <p>[Ringkasan singkat berita ketiga. Placeholder ini akan diganti dengan konten asli nantinya.]</p>
+                        <h3>[Judul Berita 3]</h3>
+                        <p>[Ringkasan singkat berita 3]</p>
                         <a href="detail-berita.html?id=3" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Berita 4 -->
+                <article class="news-card">
+                    <div class="news-card-image">
+                        <img src="https://picsum.photos/seed/news4/600/400" alt="Berita 4" />
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-meta">
+                            <span class="news-category">[Kegiatan]</span>
+                            <span class="news-date">[Tanggal]</span>
+                        </div>
+                        <h3>[Judul Berita 4]</h3>
+                        <p>[Ringkasan singkat berita 4]</p>
+                        <a href="detail-berita.html?id=4" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Berita 5 -->
+                <article class="news-card">
+                    <div class="news-card-image">
+                        <img src="https://picsum.photos/seed/news5/600/400" alt="Berita 5" />
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-meta">
+                            <span class="news-category">[Kegiatan]</span>
+                            <span class="news-date">[Tanggal]</span>
+                        </div>
+                        <h3>[Judul Berita 5]</h3>
+                        <p>[Ringkasan singkat berita 5]</p>
+                        <a href="detail-berita.html?id=5" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
             </div>
 
-            <!-- Tombol Lihat Semua Berita -->
             <div class="news-footer">
                 <a href="berita.html" class="btn-primary">Lihat Semua Berita</a>
             </div>
@@ -289,15 +400,63 @@
     </section>
 
     <!-- ====================
-    KONTAK
+    8. TESTIMONI
+    ==================== -->
+    <section id="testimoni" class="testimoni-section">
+        <div class="container">
+            <div class="section-head center">
+                <span class="section-tag">Testimoni</span>
+                <h2 class="section-title">Apa Kata <span>Mereka</span></h2>
+                <p class="section-sub">Kesan dan pesan dari masyarakat, orang tua, dan siswa.</p>
+            </div>
+
+            <div class="testimoni-carousel">
+                <div class="testimoni-track" id="testimoniTrack">
+                    <!-- Testimoni 1 -->
+                    <div class="testimoni-item">
+                        <img src="https://picsum.photos/seed/person1/100/100" alt="Foto Profil 1" />
+                        <h4>[Nama Testimoni 1]</h4>
+                        <span>Orang Tua Siswa</span>
+                        <p>"[Placeholder testimoni 1. Ucapan terima kasih dan kesan positif terhadap yayasan.]"</p>
+                    </div>
+
+                    <!-- Testimoni 2 -->
+                    <div class="testimoni-item">
+                        <img src="https://picsum.photos/seed/person2/100/100" alt="Foto Profil 2" />
+                        <h4>[Nama Testimoni 2]</h4>
+                        <span>Alumni</span>
+                        <p>"[Placeholder testimoni 2. Ucapan terima kasih dan kesan positif terhadap yayasan.]"</p>
+                    </div>
+
+                    <!-- Testimoni 3 -->
+                    <div class="testimoni-item">
+                        <img src="https://picsum.photos/seed/person3/100/100" alt="Foto Profil 3" />
+                        <h4>[Nama Testimoni 3]</h4>
+                        <span>Masyarakat</span>
+                        <p>"[Placeholder testimoni 3. Ucapan terima kasih dan kesan positif terhadap yayasan.]"</p>
+                    </div>
+                </div>
+
+                <div class="testimoni-controls">
+                    <button class="testi-btn prev" id="testiPrev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testi-dots" id="testiDots"></div>
+                    <button class="testi-btn next" id="testiNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    9. KONTAK & PETA
     ==================== -->
     <section id="kontak" class="contact-section">
         <div class="container">
             <div class="section-head center">
                 <span class="section-tag">Hubungi Kami</span>
                 <h2 class="section-title">Informasi <span>Kontak</span></h2>
-                <p class="section-sub">Silakan hubungi kami untuk informasi lebih lanjut tentang Yayasan dan unit pendidikan kami.</p>
+                <p class="section-sub">Silakan hubungi kami untuk informasi lebih lanjut.</p>
             </div>
+
             <div class="contact-grid fade-up">
                 <div class="contact-info">
                     <div class="info-item stagger-child">
@@ -318,7 +477,7 @@
                         <div class="info-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h4>Email</h4>
-                            <p><a href="mailto:info@yayasan.com">info@YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.com</a></p>
+                            <p><a href="mailto:info@yayasan.com">info@yayasan.com</a></p>
                         </div>
                     </div>
                     <div class="info-item stagger-child">
@@ -334,13 +493,16 @@
                             <h4>Media Sosial</h4>
                             <div class="social-links">
                                 <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                                <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                             </div>
                         </div>
                     </div>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+                    </a>
                 </div>
+
                 <div class="contact-form-wrapper">
                     <h3>Kirim Pesan</h3>
                     <form id="contactForm" class="contact-form">
@@ -364,6 +526,7 @@
                     </form>
                 </div>
             </div>
+
             <div class="map-container fade-up">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.314233360618!2d112.633276!3d-7.253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f9e9b6b1c5c3%3A0x9d8c9c9c9c9c9c9c!2sKrian%2C%20Sidoarjo!5e0!3m2!1sen!2sid!4v1712345678901!5m2!1sen!2sid" 
@@ -377,28 +540,35 @@
     </section>
 
     <!-- ====================
-    FOOTER
+    10. FOOTER
     ==================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid fade-up">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <img 
-                        src="assets/logo/logo-yayasan.png" 
-                        alt="Logo Yayasan" 
-                        class="footer-logo-image"
-                    />
+                    <img src="assets/logo/logo-yayasan.png" alt="Logo Yayasan" class="footer-logo-image" />
                     <div>
                         <h3>YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</h3>
                         <p>Membangun generasi berakhlak mulia melalui pendidikan Islam yang unggul.</p>
                     </div>
                 </div>
+                <div class="footer-links">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="struktur-yayasan.html">Struktur Organisasi</a></li>
+                        <li><a href="#unit-pendidikan">Unit Pendidikan</a></li>
+                        <li><a href="ppdb-smp.html">Informasi PPDB</a></li>
+                        <li><a href="#berita">Berita</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
                 <div class="footer-social">
                     <h4>Ikuti Kami</h4>
                     <div class="social-links">
                         <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>

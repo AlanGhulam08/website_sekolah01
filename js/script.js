@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const links = navLinks.querySelectorAll('a');
+    const dropdownParents = document.querySelectorAll('.dropdown > a');
 
     // --- 1. Toggle hamburger ---
     hamburger.addEventListener('click', function (e) {
@@ -16,23 +17,54 @@ document.addEventListener('DOMContentLoaded', function () {
         navLinks.classList.toggle('open');
     });
 
-    // --- 2. Tutup menu saat link diklik ---
+    // --- 2. Toggle Dropdown di Mobile/Tablet ---
+    dropdownParents.forEach(parent => {
+        parent.addEventListener('click', function (e) {
+            // Hanya aktif di mobile/tablet (sama dengan breakpoint responsive.css)
+            if (window.innerWidth <= 992) {
+                e.preventDefault(); // Mencegah lompat ke atas karena href="#"
+                const parentLi = this.parentElement;
+                
+                // Tutup dropdown lain agar tidak terbuka bersamaan
+                dropdownParents.forEach(other => {
+                    if (other !== this) {
+                        other.parentElement.classList.remove('open');
+                    }
+                });
+
+                // Toggle class 'open' pada dropdown yang diklik
+                parentLi.classList.toggle('open');
+            }
+        });
+    });
+
+    // --- 3. Tutup menu saat link diklik ---
     links.forEach(link => {
         link.addEventListener('click', function () {
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
+            
+            // Tutup juga semua dropdown saat link diklik
+            dropdownParents.forEach(parent => {
+                parent.parentElement.classList.remove('open');
+            });
         });
     });
 
-    // --- 3. Tutup menu klik di luar ---
+    // --- 4. Tutup menu klik di luar ---
     document.addEventListener('click', function (e) {
         if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
+            
+            // Tutup semua dropdown
+            dropdownParents.forEach(parent => {
+                parent.parentElement.classList.remove('open');
+            });
         }
     });
 
-    // --- 4. Efek scroll navbar ---
+    // --- 5. Efek scroll navbar ---
     window.addEventListener('scroll', function () {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
         if (currentScroll > 50) {
@@ -42,8 +74,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // --- 6. PERBAIKAN: Tutup menu otomatis saat layar di-resize ke desktop ---
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 992) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+            
+            // Tutup semua dropdown
+            dropdownParents.forEach(parent => {
+                parent.parentElement.classList.remove('open');
+            });
+        }
+    });
+
     // ============================================
-    // CAROUSEL
+    // HERO CAROUSEL
     // ============================================
 
     const slides = document.querySelectorAll('.carousel-slide');
@@ -52,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextBtn = document.getElementById('nextBtn');
     let currentIndex = 0;
     let intervalId = null;
-    const AUTO_INTERVAL = 5000; // 5 detik
+    const AUTO_INTERVAL = 5000;
 
     // --- Buat dots ---
     slides.forEach((_, index) => {
@@ -66,110 +111,138 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const dots = dotsContainer.querySelectorAll('.dot');
 
-    // --- Fungsi pindah slide ---
     function goToSlide(index) {
-        // Hapus active dari semua slide & dot
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
-
-        // Set active
         slides[index].classList.add('active');
         dots[index].classList.add('active');
         currentIndex = index;
     }
 
-    // --- Next / Prev ---
     function nextSlide() {
-        const next = (currentIndex + 1) % slides.length;
-        goToSlide(next);
+        goToSlide((currentIndex + 1) % slides.length);
     }
 
     function prevSlide() {
-        const prev = (currentIndex - 1 + slides.length) % slides.length;
-        goToSlide(prev);
+        goToSlide((currentIndex - 1 + slides.length) % slides.length);
     }
 
-    nextBtn.addEventListener('click', function () {
-        nextSlide();
-        resetAutoSlide();
-    });
+    nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
+    prevBtn.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
 
-    prevBtn.addEventListener('click', function () {
-        prevSlide();
-        resetAutoSlide();
-    });
-
-    // --- Auto slide ---
     function startAutoSlide() {
         if (intervalId) clearInterval(intervalId);
         intervalId = setInterval(nextSlide, AUTO_INTERVAL);
     }
 
     function resetAutoSlide() {
-        if (intervalId) {
-            clearInterval(intervalId);
-            intervalId = null;
-        }
+        clearInterval(intervalId);
         startAutoSlide();
     }
 
-    // Hentikan auto slide saat hover (opsional)
     const carousel = document.querySelector('.carousel');
-    carousel.addEventListener('mouseenter', function () {
-        if (intervalId) {
-            clearInterval(intervalId);
-            intervalId = null;
-        }
-    });
+    carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
     carousel.addEventListener('mouseleave', startAutoSlide);
 
-    // --- Inisialisasi ---
     goToSlide(0);
     startAutoSlide();
 
     // ============================================
-    // CONTACT FORM (frontend only)
+    // TESTIMONI CAROUSEL
+    // ============================================
+
+    const testiTrack = document.getElementById('testimoniTrack');
+    const testiPrev = document.getElementById('testiPrev');
+    const testiNext = document.getElementById('testiNext');
+    const testiDots = document.getElementById('testiDots');
+    const testiItems = document.querySelectorAll('.testimoni-item');
+    let testiIndex = 0;
+    let testiIntervalId = null;
+
+    if (testiTrack) {
+        // Buat dots untuk testimoni
+        testiItems.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToTestimoni(index));
+            testiDots.appendChild(dot);
+        });
+
+        const testiDotsArray = testiDots.querySelectorAll('.dot');
+
+        function goToTestimoni(index) {
+            testiItems.forEach(item => item.style.transform = `translateX(-${index * 100}%)`);
+            testiDotsArray.forEach(dot => dot.classList.remove('active'));
+            testiDotsArray[index].classList.add('active');
+            testiIndex = index;
+        }
+
+        function nextTestimoni() {
+            goToTestimoni((testiIndex + 1) % testiItems.length);
+        }
+
+        function prevTestimoni() {
+            goToTestimoni((testiIndex - 1 + testiItems.length) % testiItems.length);
+        }
+
+        testiNext.addEventListener('click', () => { nextTestimoni(); resetAutoTesti(); });
+        testiPrev.addEventListener('click', () => { prevTestimoni(); resetAutoTesti(); });
+
+        function startAutoTesti() {
+            if (testiIntervalId) clearInterval(testiIntervalId);
+            testiIntervalId = setInterval(nextTestimoni, 6000);
+        }
+
+        function resetAutoTesti() {
+            clearInterval(testiIntervalId);
+            startAutoTesti();
+        }
+
+        const testimoniCarousel = document.querySelector('.testimoni-carousel');
+        testimoniCarousel.addEventListener('mouseenter', () => clearInterval(testiIntervalId));
+        testimoniCarousel.addEventListener('mouseleave', startAutoTesti);
+
+        goToTestimoni(0);
+        startAutoTesti();
+    }
+
+    // ============================================
+    // CONTACT FORM
     // ============================================
 
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Terima kasih! Pesan Anda telah terkirim. (Simulasi frontend)');
+            alert('Terima kasih! Pesan Anda telah terkirim. (Simulasi)');
             this.reset();
         });
     }
 
     // ============================================
-    // SCROLL ANIMATIONS (Intersection Observer)
+    // SCROLL ANIMATIONS
     // ============================================
 
-    // Pilih semua elemen yang akan dianimasi
     const fadeElements = document.querySelectorAll('.fade-up');
     const staggerElements = document.querySelectorAll('.stagger-child');
 
-    // Konfigurasi observer
     const observerOptions = {
-        threshold: 0.15, // 15% elemen terlihat baru trigger
-        rootMargin: '0px 0px -50px 0px' // sedikit offset agar lebih smooth
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    // Observer untuk fade-up
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: stop observing setelah muncul agar performa lebih baik
                 fadeObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    fadeElements.forEach(el => {
-        fadeObserver.observe(el);
-    });
+    fadeElements.forEach(el => fadeObserver.observe(el));
 
-    // Observer untuk stagger-child
     const staggerObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -179,9 +252,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, { ...observerOptions, threshold: 0.1 });
 
-    staggerElements.forEach(el => {
-        staggerObserver.observe(el);
-    });
-
-    console.log('Navbar, Carousel, Contact Form, & Animations siap!');
+    staggerElements.forEach(el => staggerObserver.observe(el));
 });
