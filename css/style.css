@@ -228,11 +228,9 @@ ul {
     background: var(--dark-green);
 }
 
-/* PERBAIKAN: Tambahan untuk navbar solid (halaman berita/detail) */
 .navbar-solid .hamburger span {
     background: var(--dark-green);
 }
-/* Akhir perbaikan */
 
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
@@ -281,7 +279,6 @@ ul {
     position: relative;
     width: 100%;
     height: 100%;
-    /* PERBAIKAN: Minimum height agar tidak kolaps di mobile */
     min-height: 600px; 
 }
 
@@ -843,6 +840,133 @@ ul {
 }
 
 /* ============================================
+   BREADCRUMB (TAMBAHAN BARU)
+   ============================================ */
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--gray-medium);
+}
+
+.breadcrumb ol {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb a {
+    color: var(--emerald);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb a:hover {
+    color: var(--dark-green);
+}
+
+.breadcrumb .separator {
+    color: var(--gray-light);
+    font-size: 0.7rem;
+}
+
+.breadcrumb .current {
+    color: var(--gray-dark);
+    font-weight: 600;
+}
+
+/* ============================================
+   PAGE HEADER (TAMBAHAN UNTUK DESKTOP)
+   ============================================ */
+.page-header {
+    padding-top: 140px; /* Memberi jarak agar tidak tertutup navbar */
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+/* ============================================
+   PAGINATION (TAMBAHAN BARU)
+   ============================================ */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 48px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 12px;
+    border: 2px solid var(--gray-light);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--gray-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.page-btn:hover {
+    background: var(--emerald);
+    color: var(--white);
+    border-color: var(--emerald);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(26, 107, 60, 0.25);
+}
+
+.page-btn.active {
+    background: var(--emerald);
+    color: var(--white);
+    border-color: var(--emerald);
+    box-shadow: 0 4px 16px rgba(26, 107, 60, 0.30);
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-btn:disabled:hover {
+    background: var(--white);
+    color: var(--gray-dark);
+    border-color: var(--gray-light);
+    transform: none;
+    box-shadow: none;
+}
+
+.page-btn.prev-btn i,
+.page-btn.next-btn i {
+    font-size: 0.8rem;
+}
+
+.page-dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 44px;
+    color: var(--gray-medium);
+    font-size: 1.2rem;
+}
+
+/* ============================================
    TESTIMONI (CAROUSEL)
    ============================================ */
 .testimoni-section {
@@ -1249,7 +1373,6 @@ ul {
     transform: translateY(0);
 }
 
-/* PERBAIKAN: Delay diperpanjang sampai 10 elemen agar semua animasi berjalan */
 .stagger-child:nth-child(1) { transition-delay: 0.05s; }
 .stagger-child:nth-child(2) { transition-delay: 0.15s; }
 .stagger-child:nth-child(3) { transition-delay: 0.25s; }

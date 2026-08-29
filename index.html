@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
 
+    <link rel="icon" type="image/png" href="assets/logo/logo-yayasan.png" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
@@ -82,9 +84,9 @@
                 <div class="carousel-slide active">
                     <img src="https://picsum.photos/seed/education1/1600/900" alt="Banner 1 - Profil Yayasan" class="hero-slide-image" />
                     <div class="slide-content">
-                        <div class="badge">Profil Yayasan</div>
+                        <div class="badge">Yayasan Pendidikan dan Sosial At Thoyyibun</div>
                         <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
-                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan Islam berkualitas yang mengintegrasikan ilmu agama dan ilmu umum untuk mencetak generasi unggul.</p>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan yang berkualitas.</p>
                         <a href="#profil" class="btn-primary">Tentang Kami</a>
                     </div>
                 </div>
@@ -94,7 +96,7 @@
                     <div class="slide-content">
                         <div class="badge">Profil Yayasan</div>
                         <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
-                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan Islam berkualitas yang mengintegrasikan ilmu agama dan ilmu umum untuk mencetak generasi unggul.</p>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan yang berkualitas.</p>
                         <a href="#profil" class="btn-primary">Tentang Kami</a>
                     </div>
                 </div>
@@ -104,7 +106,7 @@
                     <div class="slide-content">
                         <div class="badge">Profil Yayasan</div>
                         <h1>Membangun Generasi <span>Berakhlak Mulia</span></h1>
-                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan Islam berkualitas yang mengintegrasikan ilmu agama dan ilmu umum untuk mencetak generasi unggul.</p>
+                        <p> Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan yang berkualitas.</p>
                         <a href="#profil" class="btn-primary">Tentang Kami</a>
                     </div>
                 </div>
@@ -238,7 +240,7 @@
     </section>
 
     <!-- ====================
-    6. BERITA HIGHLIGHT
+    6. BERITA HIGHLIGHT (Dinamis - Diisi oleh berita.js)
     ==================== -->
     <section id="berita-highlight" class="news-highlight-section">
         <div class="container">
@@ -248,60 +250,14 @@
                 <p class="section-sub">Kegiatan unggulan yang menjadi sorotan yayasan.</p>
             </div>
 
-            <div class="news-grid-highlight">
-                <!-- Highlight 1 -->
-                <article class="news-card highlight">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/highlight1/600/400" alt="Highlight 1" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan Yayasan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Highlight 1]</h3>
-                        <p>[Ringkasan singkat kegiatan unggulan]</p>
-                        <a href="detail-berita.html?id=1" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Highlight 2 -->
-                <article class="news-card highlight">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/highlight2/600/400" alt="Highlight 2" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan Yayasan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Highlight 2]</h3>
-                        <p>[Ringkasan singkat kegiatan unggulan]</p>
-                        <a href="detail-berita.html?id=2" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Highlight 3 -->
-                <article class="news-card highlight">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/highlight3/600/400" alt="Highlight 3" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan Yayasan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Highlight 3]</h3>
-                        <p>[Ringkasan singkat kegiatan unggulan]</p>
-                        <a href="detail-berita.html?id=3" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+            <div class="news-grid-highlight" id="highlightContainer">
+                <!-- Berita akan di-render oleh JavaScript dari berita.js -->
             </div>
         </div>
     </section>
 
     <!-- ====================
-    7. BERITA TERBARU
+    7. BERITA TERBARU (Dinamis - Diisi oleh berita.js)
     ==================== -->
     <section id="berita" class="news-section">
         <div class="container">
@@ -311,86 +267,8 @@
                 <p class="section-sub">Ikuti perkembangan kegiatan dan informasi dari yayasan kami.</p>
             </div>
 
-            <div class="news-grid">
-                <!-- Berita 1 -->
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/news1/600/400" alt="Berita 1" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Berita 1]</h3>
-                        <p>[Ringkasan singkat berita 1]</p>
-                        <a href="detail-berita.html?id=1" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Berita 2 -->
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/news2/600/400" alt="Berita 2" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Berita 2]</h3>
-                        <p>[Ringkasan singkat berita 2]</p>
-                        <a href="detail-berita.html?id=2" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Berita 3 -->
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/news3/600/400" alt="Berita 3" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Berita 3]</h3>
-                        <p>[Ringkasan singkat berita 3]</p>
-                        <a href="detail-berita.html?id=3" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Berita 4 -->
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/news4/600/400" alt="Berita 4" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Berita 4]</h3>
-                        <p>[Ringkasan singkat berita 4]</p>
-                        <a href="detail-berita.html?id=4" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Berita 5 -->
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="https://picsum.photos/seed/news5/600/400" alt="Berita 5" />
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-meta">
-                            <span class="news-category">[Kegiatan]</span>
-                            <span class="news-date">[Tanggal]</span>
-                        </div>
-                        <h3>[Judul Berita 5]</h3>
-                        <p>[Ringkasan singkat berita 5]</p>
-                        <a href="detail-berita.html?id=5" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+            <div class="news-grid" id="latestContainer">
+                <!-- Berita akan di-render oleh JavaScript dari berita.js -->
             </div>
 
             <div class="news-footer">
@@ -549,7 +427,7 @@
                     <img src="assets/logo/logo-yayasan.png" alt="Logo Yayasan" class="footer-logo-image" />
                     <div>
                         <h3>YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</h3>
-                        <p>Membangun generasi berakhlak mulia melalui pendidikan Islam yang unggul.</p>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan yang berkualitas.</p>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -581,5 +459,6 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
+    <script src="js/berita.js"></script>
 </body>
 </html>

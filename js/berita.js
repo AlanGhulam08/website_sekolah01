@@ -10,6 +10,7 @@ const beritaData = [
         date: '[Tanggal 01]',
         image: 'https://picsum.photos/seed/news1/800/500',
         excerpt: '[Ringkasan singkat berita 01. Placeholder ini akan diganti dengan konten asli nantinya.]',
+        isFeatured: true, // Penanda berita highlight
         content: `
             <p>Paragraf pertama dari berita 01. Di sini nanti akan diisi dengan konten berita yang sebenarnya.</p>
             <p>Paragraf kedua menjelaskan lebih detail tentang kegiatan atau informasi yang disampaikan.</p>
@@ -30,6 +31,7 @@ const beritaData = [
         date: '[Tanggal 02]',
         image: 'https://picsum.photos/seed/news2/800/500',
         excerpt: '[Ringkasan singkat berita 02. Placeholder ini akan diganti dengan konten asli nantinya.]',
+        isFeatured: true, // Penanda berita highlight
         content: `
             <p>Paragraf pertama dari berita 02. Konten ini bersifat placeholder.</p>
             <p>Paragraf kedua dengan informasi lebih lanjut.</p>
@@ -75,6 +77,7 @@ const beritaData = [
         date: '[Tanggal 05]',
         image: 'https://picsum.photos/seed/news5/800/500',
         excerpt: '[Ringkasan singkat berita 05. Placeholder ini akan diganti dengan konten asli nantinya.]',
+        isFeatured: true, // Penanda berita highlight
         content: `
             <p>Paragraf pertama dari berita 05. Placeholder untuk konten.</p>
             <p>Paragraf kedua dengan informasi tambahan.</p>
@@ -120,6 +123,7 @@ const beritaData = [
         date: '[Tanggal 08]',
         image: 'https://picsum.photos/seed/news8/800/500',
         excerpt: '[Ringkasan singkat berita 08. Placeholder ini akan diganti dengan konten asli nantinya.]',
+        // PERUBAHAN: Properti isFeatured dihapus agar hanya 3 berita yang tampil di highlight
         content: `
             <p>Paragraf pertama dari berita 08. Konten placeholder.</p>
             <p>Paragraf kedua dengan informasi lebih lanjut.</p>
@@ -197,7 +201,49 @@ const beritaData = [
 const BERITA_PER_HALAMAN = 6;
 
 // ============================================
-// FUNGSI RENDER CARD BERITA (Menggunakan <img>)
+// FUNGSI HELPER (Untuk Index.html)
+// ============================================
+
+function getFeaturedBerita() {
+    return beritaData.filter(berita => berita.isFeatured === true);
+}
+
+function getLatestBerita(count) {
+    return [...beritaData].slice(0, count);
+}
+
+// Render berita highlight ke container
+function renderFeaturedBerita(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const featured = getFeaturedBerita();
+    container.innerHTML = featured.map(berita => renderBeritaCard(berita)).join('');
+    
+    // PERBAIKAN: Tambahkan class visible agar animasi muncul
+    setTimeout(() => {
+        container.querySelectorAll('.fade-up, .stagger-child').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 100);
+}
+
+// Render berita terbaru ke container
+function renderLatestBerita(containerId, count = 5) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const latest = getLatestBerita(count);
+    container.innerHTML = latest.map(berita => renderBeritaCard(berita)).join('');
+    
+    // PERBAIKAN: Tambahkan class visible agar animasi muncul
+    setTimeout(() => {
+        container.querySelectorAll('.fade-up, .stagger-child').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 100);
+}
+
+// ============================================
+// FUNGSI RENDER CARD BERITA
 // ============================================
 
 function renderBeritaCard(berita) {
@@ -223,7 +269,7 @@ function renderBeritaCard(berita) {
 }
 
 // ============================================
-// FUNGSI PAGINATION (Dengan Icon Panah)
+// FUNGSI PAGINATION (Untuk berita.html)
 // ============================================
 
 function renderPagination(totalBerita, currentPage) {
@@ -286,7 +332,7 @@ function renderPagination(totalBerita, currentPage) {
 }
 
 // ============================================
-// FUNGSI RENDER HALAMAN BERITA
+// FUNGSI RENDER HALAMAN BERITA (berita.html)
 // ============================================
 
 function renderNewsPage(page = 1) {
@@ -310,7 +356,7 @@ function renderNewsPage(page = 1) {
 }
 
 // ============================================
-// FUNGSI RENDER DETAIL BERITA
+// FUNGSI RENDER DETAIL BERITA (detail-berita.html)
 // ============================================
 
 function renderDetailBerita() {
@@ -379,13 +425,14 @@ function renderDetailBerita() {
 }
 
 // ============================================
-// INIT
+// INIT (Deteksi Halaman)
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     // Cek halaman mana yang sedang dibuka
     const isBeritaPage = document.getElementById('newsGrid') !== null;
     const isDetailPage = document.getElementById('detailWrapper') !== null;
+    const isHomePage = document.getElementById('highlightContainer') !== null || document.getElementById('latestContainer') !== null;
 
     if (isBeritaPage) {
         // Halaman berita.html
@@ -395,5 +442,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Halaman detail-berita.html
         renderDetailBerita();
         console.log('Halaman Detail Berita siap!');
+    } else if (isHomePage) {
+        // Halaman index.html - Integrasi berita dinamis
+        renderFeaturedBerita('highlightContainer');
+        renderLatestBerita('latestContainer', 5);
+        console.log('Halaman Utama - Berita dinamis dimuat!');
     }
 });
