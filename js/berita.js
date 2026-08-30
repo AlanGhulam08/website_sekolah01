@@ -228,7 +228,7 @@ function renderFeaturedBerita(containerId) {
 }
 
 // Render berita terbaru ke container
-function renderLatestBerita(containerId, count = 5) {
+function renderLatestBerita(containerId, count = 6) {
     const container = document.getElementById(containerId);
     if (!container) return;
     const latest = getLatestBerita(count);
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (isHomePage) {
         // Halaman index.html - Integrasi berita dinamis
         renderFeaturedBerita('highlightContainer');
-        renderLatestBerita('latestContainer', 5);
+        renderLatestBerita('latestContainer', 6);
         console.log('Halaman Utama - Berita dinamis dimuat!');
     }
 });

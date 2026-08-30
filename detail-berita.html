@@ -22,25 +22,47 @@
 <body>
 
     <!-- ====================
-    NAVBAR (SOLID - TANPA EFEK TEMBUS PANDANG)
+    NAVBAR (SAMA DENGAN INDEX.HTML)
     ==================== -->
     <nav class="navbar navbar-solid" id="navbar">
         <div class="container">
             <div class="nav-brand">
-                <img 
-                    src="assets/logo/logo-yayasan.png" 
-                    alt="Logo Yayasan" 
-                    class="logo-image"
-                />
+                <img src="assets/logo/logo-yayasan.png" alt="Logo Yayasan" class="logo-image" />
                 <div class="brand-text">
                     YAYASAN <small>PENDIDIKAN DAN SOSIAL AT THOYYIBUN</small>
                 </div>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Beranda</a></li>
-                <li><a href="index.html#profil">Profil</a></li>
-                <li><a href="index.html#visi-misi">Visi &amp; Misi</a></li>
-                <li><a href="index.html#unit-pendidikan">Unit Pendidikan</a></li>
+                
+                <!-- Dropdown Struktur Organisasi -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Struktur Organisasi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="struktur-yayasan.html">Struktur Yayasan</a>
+                        <a href="struktur-smp.html">Struktur SMP</a>
+                        <a href="struktur-ma.html">Struktur MA</a>
+                    </div>
+                </li>
+
+                <!-- Dropdown Unit Pendidikan -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Unit Pendidikan <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="info-smp.html">SMP</a>
+                        <a href="info-ma.html">MA</a>
+                    </div>
+                </li>
+
+                <!-- Dropdown Informasi -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Informasi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="ppdb-smp.html">PPDB SMP</a>
+                        <a href="ppdb-ma.html">PPDB MA</a>
+                    </div>
+                </li>
+
                 <li><a href="berita.html" class="active">Berita</a></li>
                 <li><a href="index.html#kontak">Kontak</a></li>
             </ul>
@@ -53,7 +75,7 @@
     </nav>
 
     <!-- ====================
-    DETAIL BERITA
+    DETAIL BERITA (Diisi oleh berita.js)
     ==================== -->
     <section class="detail-section">
         <div class="container">
@@ -64,28 +86,35 @@
     </section>
 
     <!-- ====================
-    FOOTER
+    FOOTER (SAMA DENGAN INDEX.HTML)
     ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img 
-                        src="assets/logo/logo-yayasan.png" 
-                        alt="Logo Yayasan" 
-                        class="footer-logo-image"
-                    />
+                    <img src="assets/logo/logo-yayasan.png" alt="Logo Yayasan" class="footer-logo-image" />
                     <div>
                         <h3>YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</h3>
-                        <p>Membangun generasi berakhlak mulia melalui pendidikan Islam yang unggul.</p>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan yang berkualitas.</p>
                     </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="index.html#beranda">Beranda</a></li>
+                        <li><a href="struktur-yayasan.html">Struktur Organisasi</a></li>
+                        <li><a href="index.html#unit-pendidikan">Unit Pendidikan</a></li>
+                        <li><a href="ppdb-smp.html">Informasi PPDB</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
                 </div>
                 <div class="footer-social">
                     <h4>Ikuti Kami</h4>
                     <div class="social-links">
                         <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
