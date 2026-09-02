@@ -1,0 +1,91 @@
+/* ============================================
+   STRUKTUR ORGANISASI
+   ============================================ */
+.struktur-section {
+    padding: 60px 0 100px;
+    background: var(--white);
+}
+
+.struktur-section .section-head {
+    margin-bottom: 40px;
+}
+
+.struktur-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ubah dari 3 menjadi 4 kolom */
+    gap: 32px;
+}
+
+.struktur-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--gray-light);
+    text-align: center;
+}
+
+.struktur-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--gold);
+}
+
+.struktur-card-image {
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: var(--off-white);
+}
+
+.struktur-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.struktur-card:hover .struktur-card-image img {
+    transform: scale(1.05);
+}
+
+.struktur-card-content {
+    padding: 20px 16px 24px;
+}
+
+.struktur-card-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 4px;
+}
+
+.struktur-jabatan {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.struktur-bio {
+    font-size: 0.85rem;
+    color: var(--gray-medium);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .struktur-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 kolom */
+        gap: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .struktur-grid {
+        grid-template-columns: 1fr; /* Mobile: 1 kolom */
+        gap: 20px;
+    }
+}

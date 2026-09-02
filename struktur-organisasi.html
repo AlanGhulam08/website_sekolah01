@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Semua Berita - YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
+    <title>Struktur Organisasi - YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
 
     <link rel="icon" type="image/png" href="assets/logo/logo-yayasan.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/struktur.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,8 +36,8 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Beranda</a></li>
                 
-                <!-- Link langsung Struktur Organisasi -->
-                <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+                <!-- Link aktif Struktur Organisasi -->
+                <li><a href="struktur-organisasi.html" class="active">Struktur Organisasi</a></li>
                 
                 <!-- Dropdown Unit Pendidikan -->
                 <li class="dropdown">
@@ -47,7 +48,7 @@
                     </div>
                 </li>
 
-                <li><a href="berita.html" class="active">Berita</a></li>
+                <li><a href="berita.html">Berita</a></li>
                 <li><a href="index.html#kontak">Kontak</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -66,27 +67,33 @@
             <!-- Breadcrumb -->
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ol>
-                    <li><a href="index.html#berita">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><span class="separator"><i class="fas fa-chevron-right"></i></span></li>
-                    <li aria-current="page"><span class="current">Semua Berita</span></li>
+                    <li aria-current="page"><span class="current">Struktur Organisasi</span></li>
                 </ol>
             </nav>
-            <h1>Semua Berita</h1>
-            <p>Informasi dan kabar terbaru dari YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.</p>
+            <h1>Struktur Organisasi</h1>
+            <p>Susunan pengurus dan struktur YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.</p>
         </div>
     </section>
 
     <!-- ====================
-    DAFTAR BERITA
+    DAFTAR STRUKTUR
     ==================== -->
-    <section class="news-page">
+    <section class="struktur-section">
         <div class="container">
-            <div class="news-grid" id="newsGrid">
-                <!-- Card akan di-render oleh JavaScript -->
+            <div class="section-head center">
+                <span class="section-tag">Tim Kami</span>
+                <h2 class="section-title">Dewan <span>Pengurus & Struktur</span></h2>
+                <p class="section-sub">Orang-orang yang berkomitmen memajukan pendidikan Islam.</p>
+            </div>
+
+            <div class="struktur-grid" id="strukturGrid">
+                <!-- Data akan di-render oleh JavaScript -->
             </div>
 
             <!-- Pagination -->
-            <div class="pagination" id="pagination">
+            <div class="pagination" id="strukturPagination">
                 <!-- Tombol pagination akan di-render oleh JavaScript -->
             </div>
         </div>
@@ -133,6 +140,6 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
-    <script src="js/berita.js"></script>
+    <script src="js/struktur.js"></script>
 </body>
 </html>

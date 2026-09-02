@@ -33,6 +33,12 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
+
+    /* Struktur Organisasi - Penyesuaian 4 kolom menjadi 3 kolom */
+    .struktur-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
 }
 
 /* ============================================
@@ -195,6 +201,12 @@
     /* ---------- BERITA ---------- */
     .news-grid-highlight,
     .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    /* ---------- STRUKTUR ORGANISASI (TABLET) ---------- */
+    .struktur-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
     }
@@ -549,6 +561,12 @@
         padding: 12px;
         font-size: 0.9rem;
         text-align: center;
+    }
+
+    /* ---------- STRUKTUR ORGANISASI (MOBILE) ---------- */
+    .struktur-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     /* ---------- PAGINATION (TAMBAHAN BARU) ---------- */

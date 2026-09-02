@@ -348,7 +348,7 @@ ul {
 
 .slide-content h1 {
     font-size: 3.8rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--white);
     line-height: 1.1;
     margin-bottom: 16px;
@@ -523,9 +523,9 @@ ul {
 
 .profile-image img {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     height: auto;
-    aspect-ratio: 5 / 6;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     border-radius: var(--radius);
     box-shadow: var(--shadow-hover);
