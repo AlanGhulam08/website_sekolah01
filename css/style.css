@@ -700,6 +700,37 @@ ul {
 }
 
 /* ============================================
+   VIDEO PROFILE (TAMBAHAN DI HALAMAN UTAMA)
+   ============================================ */
+.video-profile-section {
+    padding: 100px 0;
+    background: var(--off-white);
+}
+
+.video-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #000;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border: none;
+}
+
+/* Responsif untuk video */
+@media (max-width: 768px) {
+    .video-profile-section {
+        padding: 60px 0;
+    }
+}
+
+/* ============================================
    BERITA (HIGHLIGHT & TERBARU)
    ============================================ */
 .news-highlight-section {
@@ -1484,6 +1515,19 @@ ul {
 
 .detail-back .btn-news:hover {
     gap: 16px;
+}
+
+/* Watermark Footer */
+.footer-bottom .watermark {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35); /* Warna putih transparan */
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom .watermark strong {
+    color: rgba(255, 255, 255, 0.55); /* Sedikit lebih terang untuk nama */
+    font-weight: 600;
 }
 
 .stagger-child:nth-child(1) { transition-delay: 0.05s; }
