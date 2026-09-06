@@ -205,12 +205,6 @@
         gap: 24px;
     }
 
-    /* ---------- STRUKTUR ORGANISASI (TABLET) ---------- */
-    .struktur-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-
     /* ---------- PAGINATION (TAMBAHAN BARU) ---------- */
     .pagination {
         justify-content: center;
@@ -561,12 +555,6 @@
         padding: 12px;
         font-size: 0.9rem;
         text-align: center;
-    }
-
-    /* ---------- STRUKTUR ORGANISASI (MOBILE) ---------- */
-    .struktur-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
     }
 
     /* ---------- PAGINATION (TAMBAHAN BARU) ---------- */

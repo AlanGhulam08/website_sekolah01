@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Struktur Organisasi - YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
+    <title>Unit Pendidikan - YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
 
     <link rel="icon" type="image/png" href="assets/logo/logo-yayasan.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/struktur.css" />
+    <link rel="stylesheet" href="css/unit.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700,800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -35,11 +35,9 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Beranda</a></li>
+                <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
                 
-                <!-- Link aktif Struktur Organisasi -->
-                <li><a href="struktur-organisasi.html" class="active">Struktur Organisasi</a></li>
-                
-                <!-- Dropdown Unit Pendidikan -->
+                <!-- Dropdown Unit Pendidikan (aktif) -->
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Unit Pendidikan <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
@@ -60,44 +58,11 @@
     </nav>
 
     <!-- ====================
-    PAGE HEADER + BREADCRUMB
+    KONTEN UNIT (Diisi oleh unit.js)
     ==================== -->
-    <section class="page-header">
-        <div class="container">
-            <!-- Breadcrumb -->
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-                <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li><span class="separator"><i class="fas fa-chevron-right"></i></span></li>
-                    <li aria-current="page"><span class="current">Struktur Organisasi</span></li>
-                </ol>
-            </nav>
-            <h1>Struktur Organisasi</h1>
-            <p>Susunan pengurus dan struktur YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.</p>
-        </div>
-    </section>
-
-    <!-- ====================
-    DAFTAR STRUKTUR
-    ==================== -->
-    <section class="struktur-section">
-        <div class="container">
-            <div class="section-head center">
-                <span class="section-tag">Tim Kami</span>
-                <h2 class="section-title">Dewan <span>Pengurus & Struktur</span></h2>
-                <p class="section-sub">Orang-orang yang berkomitmen memajukan pendidikan Islam.</p>
-            </div>
-
-            <div class="struktur-grid" id="strukturGrid">
-                <!-- Data akan di-render oleh JavaScript -->
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination" id="strukturPagination">
-                <!-- Tombol pagination akan di-render oleh JavaScript -->
-            </div>
-        </div>
-    </section>
+    <main id="unitContent">
+        <!-- Semua section akan dirender oleh JavaScript -->
+    </main>
 
     <!-- ====================
     FOOTER (KONSISTEN DENGAN INDEX.HTML)
@@ -141,6 +106,6 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
-    <script src="js/struktur.js"></script>
+    <script src="js/unit.js"></script>
 </body>
 </html>

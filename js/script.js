@@ -20,19 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- 2. Toggle Dropdown di Mobile/Tablet ---
     dropdownParents.forEach(parent => {
         parent.addEventListener('click', function (e) {
-            // Hanya aktif di mobile/tablet (sama dengan breakpoint responsive.css)
             if (window.innerWidth <= 992) {
-                e.preventDefault(); // Mencegah lompat ke atas karena href="#"
+                e.preventDefault();
                 const parentLi = this.parentElement;
-                
-                // Tutup dropdown lain agar tidak terbuka bersamaan
                 dropdownParents.forEach(other => {
                     if (other !== this) {
                         other.parentElement.classList.remove('open');
                     }
                 });
-
-                // Toggle class 'open' pada dropdown yang diklik
                 parentLi.classList.toggle('open');
             }
         });
@@ -43,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function () {
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
-            
-            // Tutup juga semua dropdown saat link diklik
             dropdownParents.forEach(parent => {
                 parent.parentElement.classList.remove('open');
             });
@@ -56,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
-            
-            // Tutup semua dropdown
             dropdownParents.forEach(parent => {
                 parent.parentElement.classList.remove('open');
             });
@@ -74,13 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // --- 6. PERBAIKAN: Tutup menu otomatis saat layar di-resize ke desktop ---
+    // --- 6. Tutup menu otomatis saat layar di-resize ke desktop ---
     window.addEventListener('resize', function () {
         if (window.innerWidth > 992) {
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
-            
-            // Tutup semua dropdown
             dropdownParents.forEach(parent => {
                 parent.parentElement.classList.remove('open');
             });
@@ -88,69 +77,71 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ============================================
-    // HERO CAROUSEL
+    // HERO CAROUSEL (Dengan Pengaman)
     // ============================================
-
     const slides = document.querySelectorAll('.carousel-slide');
     const dotsContainer = document.getElementById('dotsContainer');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-    let intervalId = null;
-    const AUTO_INTERVAL = 5000;
 
-    // --- Buat dots ---
-    slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
+    // Hanya jalankan carousel jika elemen tersedia
+    if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        let intervalId = null;
+        const AUTO_INTERVAL = 5000;
 
-    const dots = dotsContainer.querySelectorAll('.dot');
+        // --- Buat dots ---
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
 
-    function goToSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentIndex = index;
-    }
+        const dots = dotsContainer.querySelectorAll('.dot');
 
-    function nextSlide() {
-        goToSlide((currentIndex + 1) % slides.length);
-    }
+        function goToSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
 
-    function prevSlide() {
-        goToSlide((currentIndex - 1 + slides.length) % slides.length);
-    }
+        function nextSlide() {
+            goToSlide((currentIndex + 1) % slides.length);
+        }
 
-    nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
-    prevBtn.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
+        function prevSlide() {
+            goToSlide((currentIndex - 1 + slides.length) % slides.length);
+        }
 
-    function startAutoSlide() {
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(nextSlide, AUTO_INTERVAL);
-    }
+        nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
+        prevBtn.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
 
-    function resetAutoSlide() {
-        clearInterval(intervalId);
+        function startAutoSlide() {
+            if (intervalId) clearInterval(intervalId);
+            intervalId = setInterval(nextSlide, AUTO_INTERVAL);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(intervalId);
+            startAutoSlide();
+        }
+
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
+        carousel.addEventListener('mouseleave', startAutoSlide);
+
+        goToSlide(0);
         startAutoSlide();
     }
-
-    const carousel = document.querySelector('.carousel');
-    carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
-    carousel.addEventListener('mouseleave', startAutoSlide);
-
-    goToSlide(0);
-    startAutoSlide();
 
     // ============================================
     // TESTIMONI CAROUSEL
     // ============================================
-
     const testiTrack = document.getElementById('testimoniTrack');
     const testiPrev = document.getElementById('testiPrev');
     const testiNext = document.getElementById('testiNext');
@@ -210,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     // CONTACT FORM
     // ============================================
-
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
@@ -223,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     // SCROLL ANIMATIONS
     // ============================================
-
     const fadeElements = document.querySelectorAll('.fade-up');
     const staggerElements = document.querySelectorAll('.stagger-child');
 

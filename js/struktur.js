@@ -16,8 +16,8 @@ const strukturData = [
     { id: 12, name: '[Nama Struktur 12]', position: 'Staf Administrasi', image: 'https://picsum.photos/seed/struktur12/400/400', desc: '[Deskripsi singkat tugas dan peran.]' },
     { id: 13, name: '[Nama Struktur 13]', position: 'Staf Perpustakaan', image: 'https://picsum.photos/seed/struktur13/400/400', desc: '[Deskripsi singkat tugas dan peran.]' },
     { id: 14, name: '[Nama Struktur 14]', position: 'Staf Perpustakaan', image: 'https://picsum.photos/seed/struktur14/400/400', desc: '[Deskripsi singkat tugas dan peran.]' },
-    { id: 15, name: '[Nama Struktur 14]', position: 'Staf Perpustakaan', image: 'https://picsum.photos/seed/struktur14/400/400', desc: '[Deskripsi singkat tugas dan peran.]' },
-    { id: 16, name: '[Nama Struktur 14]', position: 'Staf Perpustakaan', image: 'https://picsum.photos/seed/struktur14/400/400', desc: '[Deskripsi singkat tugas dan peran.]' }
+    { id: 15, name: '[Nama Struktur 15]', position: 'Staf Perpustakaan', image: 'https://picsum.photos/seed/struktur14/400/400', desc: '[Deskripsi singkat tugas dan peran.]' },
+    { id: 16, name: '[Nama Struktur 16]', position: 'Staf Perpustakaan', image: 'https://picsum.photos/seed/struktur14/400/400', desc: '[Deskripsi singkat tugas dan peran.]' }
 ];
 
 // ============================================

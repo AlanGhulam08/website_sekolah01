@@ -1,0 +1,121 @@
+/* ============================================
+   UNIT PENDIDIKAN (SMP & MA)
+   ============================================ */
+.unit-section {
+    padding: 60px 0 100px;
+    background: var(--white);
+}
+
+/* Header Unit - Hanya Logo dan Nama Sekolah */
+.unit-header {
+    background: var(--off-white);
+    padding: 140px 0 60px;
+    text-align: center;
+}
+
+/* Logo Diperbesar */
+.unit-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+/* Nama Sekolah */
+.unit-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin: 0;
+}
+
+/* Profil Unit */
+.unit-profile {
+    padding: 60px 0;
+}
+
+.unit-description {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--gray-medium);
+    line-height: 1.8;
+}
+
+/* Video Profil */
+.unit-video-section {
+    padding: 60px 0;
+    background: var(--off-white);
+}
+
+.unit-video-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.unit-video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: block;
+    border: none;
+}
+
+/* PPDB */
+.ppdb-section {
+    padding: 60px 0 100px;
+}
+
+.ppdb-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.ppdb-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-light);
+    text-align: center;
+}
+
+.ppdb-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 12px;
+}
+
+.ppdb-card p {
+    font-size: 0.95rem;
+    color: var(--gray-medium);
+    margin-bottom: 8px;
+}
+
+.ppdb-card .btn-primary {
+    margin-top: 16px;
+    width: 100%;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .ppdb-grid {
+        grid-template-columns: 1fr;
+    }
+    .unit-header {
+        padding-top: 100px;
+    }
+    .unit-logo {
+        width: 110px;
+        height: 110px;
+    }
+    .unit-header h1 {
+        font-size: 2rem;
+    }
+}
