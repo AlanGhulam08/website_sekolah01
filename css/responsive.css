@@ -5,7 +5,7 @@
 /* ============================================
    DESKTOP KECIL (min-width: 993px) and (max-width: 1200px)
    ============================================ */
-@media (min-width: 993px) and (max-width: 1200px) {
+   @media (min-width: 993px) and (max-width: 1200px) {
     .container {
         max-width: 960px;
     }
@@ -62,14 +62,17 @@
         justify-content: flex-start;
         align-items: stretch;
         gap: 0;
-        transition: var(--transition);
-        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
+        transition: right 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.45s ease;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0);
         padding: 80px 20px 20px;
         z-index: 1000;
+        will-change: right;
     }
 
     .nav-links.open {
         right: 0;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
     }
 
     .nav-links > li {
@@ -91,20 +94,33 @@
         background: rgba(26, 107, 60, 0.08) !important;
     }
 
-    /* Dropdown Accordion di Tablet */
+    /* Dropdown Accordion di Tablet - Smooth */
     .dropdown-content {
-        display: none;
+        display: block;
         position: static;
-        opacity: 1;
+        opacity: 0;
+        visibility: hidden;
         transform: none;
         box-shadow: none;
         background: transparent;
-        padding: 0 0 10px 20px;
+        padding: 0 20px;
         border-top: none;
+        max-height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition:
+            max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.3s ease,
+            padding 0.3s ease,
+            visibility 0.3s;
     }
 
     .dropdown.open .dropdown-content {
-        display: block;
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        padding: 10px 20px;
     }
 
     .dropdown-content a {
@@ -117,10 +133,6 @@
         background: transparent !important;
         color: var(--emerald) !important;
         border-left-color: var(--emerald);
-    }
-
-    .nav-links > li > a .fa-chevron-down {
-        display: none;
     }
 
     /* ---------- HERO (FIXED HEIGHT) ---------- */
@@ -218,19 +230,6 @@
         border-radius: 8px;
     }
 
-    /* ---------- TESTIMONI ---------- */
-    .testimoni-item {
-        padding: 30px 20px;
-    }
-
-    .testimoni-item p {
-        font-size: 0.95rem;
-    }
-
-    .testimoni-controls {
-        gap: 16px;
-    }
-
     /* ---------- KONTAK ---------- */
     .contact-grid {
         grid-template-columns: 1fr;
@@ -317,14 +316,17 @@
         justify-content: flex-start;
         align-items: stretch;
         gap: 0;
-        transition: var(--transition);
-        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
+        transition: right 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.45s ease;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0);
         padding: 80px 20px 20px;
         z-index: 1000;
+        will-change: right;
     }
 
     .nav-links.open {
         right: 0;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
     }
 
     .nav-links > li {
@@ -346,20 +348,33 @@
         background: rgba(26, 107, 60, 0.08) !important;
     }
 
-    /* Dropdown Accordion di Mobile */
+    /* Dropdown Accordion di Mobile - Smooth */
     .dropdown-content {
-        display: none;
+        display: block;
         position: static;
-        opacity: 1;
+        opacity: 0;
+        visibility: hidden;
         transform: none;
         box-shadow: none;
         background: transparent;
-        padding: 0 0 10px 20px;
+        padding: 0 20px;
         border-top: none;
+        max-height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition:
+            max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.3s ease,
+            padding 0.3s ease,
+            visibility 0.3s;
     }
 
     .dropdown.open .dropdown-content {
-        display: block;
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        padding: 10px 20px;
     }
 
     .dropdown-content a {
@@ -372,10 +387,6 @@
         background: transparent !important;
         color: var(--emerald) !important;
         border-left-color: var(--emerald);
-    }
-
-    .nav-links > li > a .fa-chevron-down {
-        display: none;
     }
 
     /* ---------- HERO (FIXED HEIGHT) ---------- */
@@ -582,32 +593,6 @@
         min-width: 30px;
         height: 36px;
         font-size: 1rem;
-    }
-
-    /* ---------- TESTIMONI ---------- */
-    .testimoni-section {
-        padding: 60px 0;
-    }
-
-    .testimoni-item {
-        padding: 24px 16px;
-    }
-
-    .testimoni-item img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .testimoni-item h4 {
-        font-size: 1rem;
-    }
-
-    .testimoni-item p {
-        font-size: 0.85rem;
-    }
-
-    .testimoni-controls {
-        margin-top: 16px;
     }
 
     /* ---------- KONTAK ---------- */

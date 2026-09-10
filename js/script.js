@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- 3. Tutup menu saat link diklik ---
     links.forEach(link => {
         link.addEventListener('click', function () {
+            // Skip jika link adalah dropbtn → biarkan listener dropdown yang handle
+            if (this.classList.contains('dropbtn')) return;
+
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
             dropdownParents.forEach(parent => {
@@ -140,60 +143,71 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================
-    // TESTIMONI CAROUSEL
+    // TESTIMONI CAROUSEL (Auto-slide Infinite + Floating Glass)
     // ============================================
     const testiTrack = document.getElementById('testimoniTrack');
-    const testiPrev = document.getElementById('testiPrev');
-    const testiNext = document.getElementById('testiNext');
-    const testiDots = document.getElementById('testiDots');
-    const testiItems = document.querySelectorAll('.testimoni-item');
-    let testiIndex = 0;
-    let testiIntervalId = null;
 
     if (testiTrack) {
-        // Buat dots untuk testimoni
-        testiItems.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToTestimoni(index));
-            testiDots.appendChild(dot);
-        });
-
-        const testiDotsArray = testiDots.querySelectorAll('.dot');
+        const testiItems = testiTrack.querySelectorAll('.testimoni-item');
+        const TOTAL = testiItems.length;
+        const INTERVAL = 3000; // 3 detik per card
+        let testiIndex = 0;
+        let testiIntervalId = null;
 
         function goToTestimoni(index) {
-            testiItems.forEach(item => item.style.transform = `translateX(-${index * 100}%)`);
-            testiDotsArray.forEach(dot => dot.classList.remove('active'));
-            testiDotsArray[index].classList.add('active');
+            if (!testiItems[index]) return;
+
+            const carousel = testiTrack.parentElement;
+            const carouselWidth = carousel.offsetWidth;
+            const item = testiItems[index];
+            const itemWidth = item.offsetWidth;
+            const itemCenter = item.offsetLeft + itemWidth / 2;
+            const carouselCenter = carouselWidth / 2;
+            const offset = -(itemCenter - carouselCenter);
+
+            testiTrack.style.transform = `translateX(${offset}px)`;
+
+            // Tandai card aktif
+            testiItems.forEach((it, i) => {
+                it.classList.toggle('active', i === index);
+            });
+
             testiIndex = index;
         }
 
         function nextTestimoni() {
-            goToTestimoni((testiIndex + 1) % testiItems.length);
+            // Infinite loop: setelah card terakhir → kembali ke card pertama
+            const next = (testiIndex + 1) % TOTAL;
+            goToTestimoni(next);
         }
-
-        function prevTestimoni() {
-            goToTestimoni((testiIndex - 1 + testiItems.length) % testiItems.length);
-        }
-
-        testiNext.addEventListener('click', () => { nextTestimoni(); resetAutoTesti(); });
-        testiPrev.addEventListener('click', () => { prevTestimoni(); resetAutoTesti(); });
 
         function startAutoTesti() {
             if (testiIntervalId) clearInterval(testiIntervalId);
-            testiIntervalId = setInterval(nextTestimoni, 6000);
+            testiIntervalId = setInterval(nextTestimoni, INTERVAL);
         }
 
-        function resetAutoTesti() {
-            clearInterval(testiIntervalId);
-            startAutoTesti();
+        function stopAutoTesti() {
+            if (testiIntervalId) {
+                clearInterval(testiIntervalId);
+                testiIntervalId = null;
+            }
         }
 
-        const testimoniCarousel = document.querySelector('.testimoni-carousel');
-        testimoniCarousel.addEventListener('mouseenter', () => clearInterval(testiIntervalId));
-        testimoniCarousel.addEventListener('mouseleave', startAutoTesti);
+        // Pause saat hover
+        const carouselEl = testiTrack.parentElement;
+        carouselEl.addEventListener('mouseenter', stopAutoTesti);
+        carouselEl.addEventListener('mouseleave', startAutoTesti);
 
+        // Recalculate posisi saat resize
+        let testiResizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(testiResizeTimer);
+            testiResizeTimer = setTimeout(() => {
+                goToTestimoni(testiIndex);
+            }, 200);
+        });
+
+        // Init
         goToTestimoni(0);
         startAutoTesti();
     }
@@ -242,4 +256,71 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { ...observerOptions, threshold: 0.1 });
 
     staggerElements.forEach(el => staggerObserver.observe(el));
+});
+
+// ============================================
+// PAGE TRANSITION (SMOOTH NAVIGATION)
+// Tambahan - tidak mengubah logic yang ada
+// ============================================
+document.addEventListener('DOMContentLoaded', function () {
+    const currentFile = (window.location.pathname.split('/').pop() || 'index.html')
+        .split('?')[0];
+
+    // Cek apakah link adalah navigasi internal antar-halaman
+    function isInternalNavigation(href) {
+        if (!href) return false;
+        if (href.startsWith('#')) return false;                // anchor di halaman yang sama
+        if (href.startsWith('mailto:')) return false;
+        if (href.startsWith('tel:')) return false;
+        if (href.startsWith('javascript:')) return false;
+
+        // URL eksternal → skip
+        if (/^https?:\/\//i.test(href)) {
+            try {
+                const url = new URL(href);
+                if (url.origin !== window.location.origin) return false;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Link ke halaman yang sama → skip (biar anchor internal tetap smooth)
+        const [path] = href.split('#');
+        if (path === '' || path === currentFile) return false;
+
+        return true;
+    }
+
+    // Pasang listener ke semua link
+    document.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (e.defaultPrevented) return;
+            if (e.button !== 0) return;                         // bukan klik kiri
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return; // buka tab baru
+            if (link.target === '_blank') return;
+            if (link.hasAttribute('download')) return;
+
+            const href = link.getAttribute('href');
+            if (!isInternalNavigation(href)) return;
+
+            e.preventDefault();
+            document.body.classList.add('page-exit');
+
+            // Tunggu animasi keluar selesai (300ms), lalu navigasi
+            setTimeout(() => {
+                window.location.href = href;
+            }, 300);
+        });
+    });
+
+    // Tangani tombol "Back" browser (bfcache restore)
+    window.addEventListener('pageshow', function (e) {
+        if (e.persisted) {
+            document.body.classList.remove('page-exit');
+            // Replay animasi masuk
+            document.body.style.animation = 'none';
+            void document.body.offsetHeight; // paksa reflow
+            document.body.style.animation = '';
+        }
+    });
 });
