@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Struktur Organisasi - YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
+    <title>Semua Ulasan - YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
 
     <link rel="icon" type="image/png" href="assets/logo/logo-yayasan.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/struktur.css" />
+    <link rel="stylesheet" href="css/ulasan.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700,800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -23,7 +23,7 @@
 <body>
 
     <!-- ====================
-    NAVBAR (KONSISTEN DENGAN INDEX.HTML)
+    NAVBAR
     ==================== -->
     <nav class="navbar navbar-solid" id="navbar">
         <div class="container">
@@ -36,9 +36,8 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Beranda</a></li>
                 
-                <!-- Dropdown Struktur Organisasi -->
                 <li class="dropdown">
-                    <a href="#" class="dropbtn active" id="strukturDropdownBtn">Struktur Organisasi <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="dropbtn">Struktur Organisasi <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content dropdown-struktur" id="strukturDropdownContent">
                         <a href="struktur-organisasi.html" data-unit="pusat">Yayasan (Pusat)</a>
                         <div class="dropdown-divider"></div>
@@ -50,7 +49,6 @@
                     </div>
                 </li>
                 
-                <!-- Dropdown Unit Pendidikan -->
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Unit Pendidikan <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
@@ -63,7 +61,7 @@
                 </li>
 
                 <li><a href="berita.html">Berita</a></li>
-                <li><a href="ulasan.html">Ulasan</a></li>
+                <li><a href="ulasan.html" class="active">Ulasan</a></li>
                 <li><a href="index.html#kontak">Kontak</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -75,51 +73,63 @@
     </nav>
 
     <!-- ====================
-    PAGE HEADER + BREADCRUMB
+    PAGE HEADER
     ==================== -->
     <section class="page-header">
         <div class="container">
-            <!-- Breadcrumb -->
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#ulasan">Home</a></li>
                     <li><span class="separator"><i class="fas fa-chevron-right"></i></span></li>
-                    <li><a href="struktur-organisasi.html" id="breadcrumbStrukturLink">Struktur Organisasi</a></li>
-                    <li><span class="separator" id="breadcrumbUnitSeparator" style="display: none;"><i class="fas fa-chevron-right"></i></span></li>
-                    <li aria-current="page" id="breadcrumbUnitLi" style="display: none;">
-                        <span class="current" id="breadcrumbUnitCurrent"></span>
-                    </li>
+                    <li aria-current="page"><span class="current">Semua Ulasan</span></li>
                 </ol>
             </nav>
-            <h1 id="pageHeaderTitle">Struktur Organisasi</h1>
-            <p id="pageHeaderSubtitle">Susunan pengurus dan struktur YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.</p>
+            <h1>Semua Ulasan</h1>
+            <p>Ulasan dan kesan dari masyarakat, orang tua, dan siswa terhadap Yayasan Pendidikan dan Sosial At Thoyyibun.</p>
         </div>
     </section>
 
     <!-- ====================
-    DAFTAR STRUKTUR
+    DAFTAR ULASAN
     ==================== -->
-    <section class="struktur-section">
+    <section class="ulasan-page-section">
         <div class="container">
-            <div class="section-head center">
-                <span class="section-tag" id="sectionTag">Tim Kami</span>
-                <h2 class="section-title" id="sectionTitle">Dewan <span>Pengurus & Struktur</span></h2>
-                <p class="section-sub" id="sectionSub">Orang-orang yang berkomitmen memajukan pendidikan Islam.</p>
-            </div>
-
-            <div class="struktur-grid" id="strukturGrid">
-                <!-- Data akan di-render oleh JavaScript -->
+            <div class="ulasan-grid" id="ulasanGrid">
+                <!-- Card akan di-render oleh JavaScript -->
             </div>
 
             <!-- Pagination -->
-            <div class="pagination" id="strukturPagination">
+            <div class="pagination" id="ulasanPagination">
                 <!-- Tombol pagination akan di-render oleh JavaScript -->
+            </div>
+
+            <!-- CTA Tulis Ulasan -->
+            <div class="ulasan-cta">
+                <h3>Punya pengalaman atau kesan?</h3>
+                <p>Bagikan ulasan Anda tentang Yayasan Pendidikan dan Sosial At Thoyyibun.</p>
+                <a href="tulis-ulasan.html" class="btn-primary">
+                    <i class="fas fa-pen"></i> Tulis Ulasan
+                </a>
             </div>
         </div>
     </section>
 
     <!-- ====================
-    FOOTER (KONSISTEN DENGAN INDEX.HTML)
+    MODAL POPUP DETAIL ULASAN
+    ==================== -->
+    <div class="ulasan-modal-overlay" id="ulasanModalOverlay">
+        <div class="ulasan-modal" id="ulasanModal">
+            <button class="ulasan-modal-close" id="ulasanModalClose" aria-label="Tutup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="ulasan-modal-content" id="ulasanModalContent">
+                <!-- Diisi oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================
+    FOOTER
     ==================== -->
     <footer class="footer">
         <div class="container">
@@ -161,7 +171,6 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
-    <script src="js/struktur-data.js"></script>
-    <script src="js/struktur.js"></script>
+    <script src="js/ulasan.js"></script>
 </body>
 </html>

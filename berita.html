@@ -22,7 +22,7 @@
 <body>
 
     <!-- ====================
-    NAVBAR (KONSISTEN DENGAN INDEX.HTML)
+    NAVBAR
     ==================== -->
     <nav class="navbar navbar-solid" id="navbar">
         <div class="container">
@@ -62,6 +62,7 @@
                 </li>
 
                 <li><a href="berita.html" class="active">Berita</a></li>
+                <li><a href="ulasan.html">Ulasan</a></li>
                 <li><a href="index.html#kontak">Kontak</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -77,7 +78,6 @@
     ==================== -->
     <section class="page-header">
         <div class="container">
-            <!-- Breadcrumb -->
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ol>
                     <li><a href="index.html#berita">Home</a></li>
@@ -91,23 +91,34 @@
     </section>
 
     <!-- ====================
-    DAFTAR BERITA
+    FILTER KATEGORI (BARU)
     ==================== -->
-    <section class="news-page">
+    <section class="kategori-filter-section">
         <div class="container">
-            <div class="news-grid" id="newsGrid">
-                <!-- Card akan di-render oleh JavaScript -->
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination" id="pagination">
-                <!-- Tombol pagination akan di-render oleh JavaScript -->
+            <div class="kategori-filter" id="kategoriFilter">
+                <!-- Pill kategori di-render oleh JS (renderKategoriFilter) -->
             </div>
         </div>
     </section>
 
     <!-- ====================
-    FOOTER (KONSISTEN DENGAN INDEX.HTML)
+    DAFTAR BERITA
+    ==================== -->
+    <section class="news-page">
+        <div class="container">
+            <div class="news-grid" id="newsGrid">
+                <!-- Card di-render oleh JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Tombol pagination di-render oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    FOOTER
     ==================== -->
     <footer class="footer">
         <div class="container">
@@ -126,6 +137,7 @@
                         <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
                         <li><a href="unit.html?unit=pondok">Unit Pendidikan</a></li>
                         <li><a href="berita.html">Berita</a></li>
+                        <li><a href="ulasan.html">Ulasan</a></li>
                         <li><a href="index.html#kontak">Kontak</a></li>
                     </ul>
                 </div>

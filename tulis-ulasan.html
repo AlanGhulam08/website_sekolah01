@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tulis Ulasan - YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</title>
+
+    <link rel="icon" type="image/png" href="assets/logo/logo-yayasan.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/ulasan.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+    <!-- ====================
+    NAVBAR
+    ==================== -->
+    <nav class="navbar navbar-solid" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/logo/logo-yayasan.png" alt="Logo Yayasan" class="logo-image" />
+                <div class="brand-text">
+                    YAYASAN <small>PENDIDIKAN DAN SOSIAL AT THOYYIBUN</small>
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Beranda</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Struktur Organisasi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content dropdown-struktur" id="strukturDropdownContent">
+                        <a href="struktur-organisasi.html" data-unit="pusat">Yayasan (Pusat)</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="struktur-organisasi.html?unit=pondok" data-unit="pondok">Pondok</a>
+                        <a href="struktur-organisasi.html?unit=smp" data-unit="smp">SMP</a>
+                        <a href="struktur-organisasi.html?unit=ma" data-unit="ma">MA</a>
+                        <a href="struktur-organisasi.html?unit=tpq" data-unit="tpq">TPQ</a>
+                        <a href="struktur-organisasi.html?unit=lksa" data-unit="lksa">LKSA</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Unit Pendidikan <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="unit.html?unit=pondok">Pondok</a>
+                        <a href="unit.html?unit=smp">SMP</a>
+                        <a href="unit.html?unit=ma">MA</a>
+                        <a href="unit.html?unit=tpq">TPQ</a>
+                        <a href="unit.html?unit=lksa">LKSA</a>
+                    </div>
+                </li>
+
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="ulasan.html" class="active">Ulasan</a></li>
+                <li><a href="index.html#kontak">Kontak</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ====================
+    PAGE HEADER
+    ==================== -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="index.html#ulasan">Home</a></li>
+                    <li><span class="separator"><i class="fas fa-chevron-right"></i></span></li>
+                    <li><a href="ulasan.html">Ulasan</a></li>
+                    <li><span class="separator"><i class="fas fa-chevron-right"></i></span></li>
+                    <li aria-current="page"><span class="current">Tulis Ulasan</span></li>
+                </ol>
+            </nav>
+            <h1>Tulis Ulasan Anda</h1>
+            <p>Bagikan pengalaman, kesan, dan pesan Anda terhadap Yayasan Pendidikan dan Sosial At Thoyyibun.</p>
+        </div>
+    </section>
+
+    <!-- ====================
+    FORM TULIS ULASAN
+    ==================== -->
+    <section class="tulis-ulasan-section">
+        <div class="container">
+            <div class="tulis-ulasan-wrapper">
+                <form id="formTulisUlasan" class="tulis-ulasan-form" novalidate>
+
+                    <!-- Info Note: Moderasi -->
+                    <div class="form-info-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Ulasan Anda akan ditinjau oleh admin sebelum ditampilkan di halaman publik.</p>
+                    </div>
+
+                    <!-- Nama -->
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap <span class="required">*</span></label>
+                        <input type="text" id="nama" name="nama" placeholder="Nama Anda" required maxlength="100" />
+                        <span class="form-error" id="errorNama"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="email@contoh.com" required maxlength="150" />
+                        <span class="form-hint">Email tidak akan ditampilkan ke publik. Satu email hanya bisa mengirim 1 ulasan.</span>
+                        <span class="form-error" id="errorEmail"></span>
+                    </div>
+
+                    <!-- Peran -->
+                    <div class="form-group">
+                        <label for="peran">Peran Anda <span class="required">*</span></label>
+                        <select id="peran" name="peran" required>
+                            <option value="">-- Pilih Peran --</option>
+                            <option value="Orang Tua Siswa">Orang Tua Siswa</option>
+                            <option value="Murid">Murid</option>
+                            <option value="Alumni">Alumni</option>
+                            <option value="Masyarakat Umum">Masyarakat Umum</option>
+                        </select>
+                        <span class="form-error" id="errorPeran"></span>
+                    </div>
+
+                    <!-- Rating (Star) -->
+                    <div class="form-group">
+                        <label>Rating <span class="required">*</span></label>
+                        <div class="star-rating-input" id="starRatingInput">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="rating" name="rating" value="0" />
+                        <span class="form-error" id="errorRating"></span>
+                    </div>
+
+                    <!-- Foto Upload (Opsional) -->
+                    <div class="form-group">
+                        <label for="foto">Foto Profil (Opsional)</label>
+                        <div class="upload-foto-wrapper">
+                            <input type="file" id="foto" name="foto" accept="image/*" />
+                            <div class="upload-preview" id="uploadPreview">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload foto</p>
+                                    <small>Format: JPG, PNG. Max: 2MB</small>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="form-hint">Jika tidak upload, avatar akan otomatis dibuat dari inisial nama Anda.</span>
+                        <span class="form-error" id="errorFoto"></span>
+                    </div>
+
+                    <!-- Komentar -->
+                    <div class="form-group">
+                        <label for="komentar">Ulasan / Komentar <span class="required">*</span></label>
+                        <textarea id="komentar" name="komentar" rows="6" placeholder="Tulis ulasan Anda di sini..." required minlength="20" maxlength="1000"></textarea>
+                        <div class="char-counter">
+                            <span id="charCount">0</span> / 1000 karakter
+                        </div>
+                        <span class="form-error" id="errorKomentar"></span>
+                    </div>
+
+                    <!-- reCAPTCHA v2 -->
+                    <div class="form-group">
+                        <label>Verifikasi <span class="required">*</span></label>
+                        <div class="g-recaptcha" data-sitekey="6Lc_YOUR_SITE_KEY_HERE"></div>
+                        <span class="form-hint">Ganti <code>6Lc_YOUR_SITE_KEY_HERE</code> dengan Site Key dari Google reCAPTCHA Anda.</span>
+                        <span class="form-error" id="errorCaptcha"></span>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-actions">
+                        <a href="ulasan.html" class="btn-outline">
+                            <i class="fas fa-arrow-left"></i> Batal
+                        </a>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Kirim Ulasan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================
+    FOOTER
+    ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo/logo-yayasan.png" alt="Logo Yayasan" class="footer-logo-image" />
+                    <div>
+                        <h3>YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN</h3>
+                        <p>Yayasan Pendidikan dan Sosial At Thoyyibun berkomitmen menghadirkan pendidikan yang berkualitas.</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="index.html#beranda">Beranda</a></li>
+                        <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+                        <li><a href="unit.html?unit=pondok">Unit Pendidikan</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                        <li><a href="ulasan.html">Ulasan</a></li>
+                        <li><a href="index.html#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN. All Rights Reserved.</p>
+                <p class="watermark">Dibuat oleh <strong>Kelompok 3/XII-RPL 1 - SMK Krian 1 Sidoarjo</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/ulasan.js"></script>
+</body>
+</html>

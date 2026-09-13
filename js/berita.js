@@ -1,16 +1,49 @@
 // ============================================
-// DATA BERITA (12 placeholder)
+// BERITA — Data, Render, Filter Kategori, Pagination
+// File: js/berita.js
+// ============================================
+// Digunakan di 4 halaman:
+//   1. index.html         → highlight (3) + terbaru (5)
+//   2. berita.html        → grid + filter kategori + pagination
+//   3. detail-berita.html → detail berita via ?id=xxx
 // ============================================
 
+// ============================================
+// 1. DATA KATEGORI (Master Kategori)
+// ============================================
+// 'semua' adalah pseudo-kategori untuk reset filter.
+// Di backend nanti, ini jadi tabel `kategori_berita`.
+// ============================================
+const kategoriData = [
+    { id: 'semua', nama: 'Semua', slug: 'semua' },
+    { id: 1, nama: 'Kegiatan Yayasan', slug: 'kegiatan-yayasan' },
+    { id: 2, nama: 'Prestasi Siswa', slug: 'prestasi-siswa' },
+    { id: 3, nama: 'Pengumuman', slug: 'pengumuman' },
+    { id: 4, nama: 'Prestasi Yayasan', slug: 'prestasi-yayasan' }
+];
+
+// ============================================
+// 2. DATA BERITA (Dummy — Ganti dengan API)
+// ============================================
+// Field:
+//   - id          : number (unique)
+//   - title       : string
+//   - categoryId  : number (FK ke kategoriData)
+//   - date        : string (format bebas, nanti ISO date di backend)
+//   - image       : string (URL / path upload)
+//   - excerpt     : string (ringkasan singkat untuk card)
+//   - isFeatured  : boolean (max 3 di sistem)
+//   - content     : string (HTML lengkap)
+// ============================================
 const beritaData = [
     {
         id: 1,
         title: '[Judul Berita 01]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 1,
         date: '[Tanggal 01]',
         image: 'https://picsum.photos/seed/news1/800/500',
         excerpt: '[Ringkasan singkat berita 01. Placeholder ini akan diganti dengan konten asli nantinya.]',
-        isFeatured: true, // Penanda berita highlight
+        isFeatured: true,
         content: `
             <p>Paragraf pertama dari berita 01. Di sini nanti akan diisi dengan konten berita yang sebenarnya.</p>
             <p>Paragraf kedua menjelaskan lebih detail tentang kegiatan atau informasi yang disampaikan.</p>
@@ -27,11 +60,11 @@ const beritaData = [
     {
         id: 2,
         title: '[Judul Berita 02]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 2,
         date: '[Tanggal 02]',
         image: 'https://picsum.photos/seed/news2/800/500',
         excerpt: '[Ringkasan singkat berita 02. Placeholder ini akan diganti dengan konten asli nantinya.]',
-        isFeatured: true, // Penanda berita highlight
+        isFeatured: true,
         content: `
             <p>Paragraf pertama dari berita 02. Konten ini bersifat placeholder.</p>
             <p>Paragraf kedua dengan informasi lebih lanjut.</p>
@@ -43,10 +76,11 @@ const beritaData = [
     {
         id: 3,
         title: '[Judul Berita 03]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 3,
         date: '[Tanggal 03]',
         image: 'https://picsum.photos/seed/news3/800/500',
         excerpt: '[Ringkasan singkat berita 03. Placeholder ini akan diganti dengan konten asli nantinya.]',
+        isFeatured: true,
         content: `
             <p>Paragraf pertama dari berita 03. Placeholder untuk konten berita.</p>
             <p>Paragraf kedua dengan informasi tambahan.</p>
@@ -58,7 +92,7 @@ const beritaData = [
     {
         id: 4,
         title: '[Judul Berita 04]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 1,
         date: '[Tanggal 04]',
         image: 'https://picsum.photos/seed/news4/800/500',
         excerpt: '[Ringkasan singkat berita 04. Placeholder ini akan diganti dengan konten asli nantinya.]',
@@ -73,11 +107,10 @@ const beritaData = [
     {
         id: 5,
         title: '[Judul Berita 05]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 2,
         date: '[Tanggal 05]',
         image: 'https://picsum.photos/seed/news5/800/500',
         excerpt: '[Ringkasan singkat berita 05. Placeholder ini akan diganti dengan konten asli nantinya.]',
-        isFeatured: true, // Penanda berita highlight
         content: `
             <p>Paragraf pertama dari berita 05. Placeholder untuk konten.</p>
             <p>Paragraf kedua dengan informasi tambahan.</p>
@@ -89,7 +122,7 @@ const beritaData = [
     {
         id: 6,
         title: '[Judul Berita 06]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 3,
         date: '[Tanggal 06]',
         image: 'https://picsum.photos/seed/news6/800/500',
         excerpt: '[Ringkasan singkat berita 06. Placeholder ini akan diganti dengan konten asli nantinya.]',
@@ -104,7 +137,7 @@ const beritaData = [
     {
         id: 7,
         title: '[Judul Berita 07]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 1,
         date: '[Tanggal 07]',
         image: 'https://picsum.photos/seed/news7/800/500',
         excerpt: '[Ringkasan singkat berita 07. Placeholder ini akan diganti dengan konten asli nantinya.]',
@@ -119,11 +152,10 @@ const beritaData = [
     {
         id: 8,
         title: '[Judul Berita 08]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 2,
         date: '[Tanggal 08]',
         image: 'https://picsum.photos/seed/news8/800/500',
         excerpt: '[Ringkasan singkat berita 08. Placeholder ini akan diganti dengan konten asli nantinya.]',
-        // PERUBAHAN: Properti isFeatured dihapus agar hanya 3 berita yang tampil di highlight
         content: `
             <p>Paragraf pertama dari berita 08. Konten placeholder.</p>
             <p>Paragraf kedua dengan informasi lebih lanjut.</p>
@@ -135,7 +167,7 @@ const beritaData = [
     {
         id: 9,
         title: '[Judul Berita 09]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 3,
         date: '[Tanggal 09]',
         image: 'https://picsum.photos/seed/news9/800/500',
         excerpt: '[Ringkasan singkat berita 09. Placeholder ini akan diganti dengan konten asli nantinya.]',
@@ -150,7 +182,7 @@ const beritaData = [
     {
         id: 10,
         title: '[Judul Berita 10]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 4,
         date: '[Tanggal 10]',
         image: 'https://picsum.photos/seed/news10/800/500',
         excerpt: '[Ringkasan singkat berita 10. Placeholder ini akan diganti dengan konten asli nantinya.]',
@@ -165,7 +197,7 @@ const beritaData = [
     {
         id: 11,
         title: '[Judul Berita 11]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 4,
         date: '[Tanggal 11]',
         image: 'https://picsum.photos/seed/news11/800/500',
         excerpt: '[Ringkasan singkat berita 11. Placeholder ini akan diganti dengan konten asli nantinya.]',
@@ -180,7 +212,7 @@ const beritaData = [
     {
         id: 12,
         title: '[Judul Berita 12]',
-        category: '[Kegiatan Yayasan]',
+        categoryId: 4,
         date: '[Tanggal 12]',
         image: 'https://picsum.photos/seed/news12/800/500',
         excerpt: '[Ringkasan singkat berita 12. Placeholder ini akan diganti dengan konten asli nantinya.]',
@@ -195,105 +227,220 @@ const beritaData = [
 ];
 
 // ============================================
-// VARIABLES
+// 3. KONFIGURASI
+// ============================================
+const BERITA_PER_HALAMAN = 9;         // Halaman berita.html — grid 3×3
+const BERITA_TERBARU_BERANDA = 5;     // Beranda — 5 terbaru
+const BERITA_HIGHLIGHT_BERANDA = 3;   // Beranda — 3 highlight (max)
+
+// ============================================
+// 4. HELPER: Kategori
 // ============================================
 
-const BERITA_PER_HALAMAN = 6;
+// Ambil kategori dari URL (?kategori=xxx), default 'semua'
+function getKategoriFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('kategori') || 'semua';
+}
+
+// Cari kategori berdasarkan id
+function getKategoriById(id) {
+    return kategoriData.find(k => k.id === id) || null;
+}
+
+// Cari kategori berdasarkan slug
+function getKategoriBySlug(slug) {
+    return kategoriData.find(k => k.slug === slug) || null;
+}
+
+// Filter berita berdasarkan slug kategori
+function getBeritaByKategori(slug) {
+    if (!slug || slug === 'semua') return beritaData;
+    const kategori = getKategoriBySlug(slug);
+    if (!kategori || kategori.id === 'semua') return beritaData;
+    return beritaData.filter(b => b.categoryId === kategori.id);
+}
 
 // ============================================
-// FUNGSI HELPER (Untuk Index.html)
+// 5. HELPER: Berita untuk Beranda
 // ============================================
 
 function getFeaturedBerita() {
-    return beritaData.filter(berita => berita.isFeatured === true);
+    return beritaData
+        .filter(b => b.isFeatured === true)
+        .slice(0, BERITA_HIGHLIGHT_BERANDA);
 }
 
 function getLatestBerita(count) {
-    return [...beritaData].slice(0, count);
-}
-
-// Render berita highlight ke container
-function renderFeaturedBerita(containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    const featured = getFeaturedBerita();
-    container.innerHTML = featured.map(berita => renderBeritaCard(berita)).join('');
-    
-    // PERBAIKAN: Tambahkan class visible agar animasi muncul
-    setTimeout(() => {
-        container.querySelectorAll('.fade-up, .stagger-child').forEach(el => {
-            el.classList.add('visible');
-        });
-    }, 100);
-}
-
-// Render berita terbaru ke container
-function renderLatestBerita(containerId, count = 6) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    const latest = getLatestBerita(count);
-    container.innerHTML = latest.map(berita => renderBeritaCard(berita)).join('');
-    
-    // PERBAIKAN: Tambahkan class visible agar animasi muncul
-    setTimeout(() => {
-        container.querySelectorAll('.fade-up, .stagger-child').forEach(el => {
-            el.classList.add('visible');
-        });
-    }, 100);
+    // Asumsi: id lebih besar = lebih baru
+    // Nanti di backend, pakai published_at DESC
+    return [...beritaData]
+        .sort((a, b) => b.id - a.id)
+        .slice(0, count);
 }
 
 // ============================================
-// FUNGSI RENDER CARD BERITA
+// 6. RENDER CARD BERITA
 // ============================================
 
 function renderBeritaCard(berita) {
+    const kategori = getKategoriById(berita.categoryId);
+    const kategoriNama = kategori ? kategori.nama : 'Tanpa Kategori';
+
     return `
         <article class="news-card fade-up stagger-child">
             <div class="news-card-image">
                 <img 
                     src="${berita.image}" 
                     alt="${berita.title}"
+                    loading="lazy"
                 />
             </div>
             <div class="news-card-content">
                 <div class="news-meta">
-                    <span class="news-category">${berita.category}</span>
+                    <span class="news-category">${kategoriNama}</span>
                     <span class="news-date">${berita.date}</span>
                 </div>
                 <h3>${berita.title}</h3>
                 <p>${berita.excerpt}</p>
-                <a href="detail-berita.html?id=${berita.id}" class="btn-news">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                <a href="detail-berita.html?id=${berita.id}" class="btn-news">
+                    Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </article>
     `;
 }
 
 // ============================================
-// FUNGSI PAGINATION (Untuk berita.html)
+// 7. RENDER UNTUK BERANDA (index.html)
+// ============================================
+
+function renderFeaturedBerita(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const featured = getFeaturedBerita();
+    if (featured.length === 0) {
+        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding: 40px;">Belum ada berita highlight.</p>';
+        return;
+    }
+
+    container.innerHTML = featured.map(berita => renderBeritaCard(berita)).join('');
+
+    setTimeout(() => {
+        container.querySelectorAll('.fade-up, .stagger-child').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 100);
+}
+
+function renderLatestBerita(containerId, count = BERITA_TERBARU_BERANDA) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const latest = getLatestBerita(count);
+    if (latest.length === 0) {
+        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding: 40px;">Belum ada berita.</p>';
+        return;
+    }
+
+    container.innerHTML = latest.map(berita => renderBeritaCard(berita)).join('');
+
+    setTimeout(() => {
+        container.querySelectorAll('.fade-up, .stagger-child').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 100);
+}
+
+// ============================================
+// 8. RENDER FILTER KATEGORI (berita.html)
+// ============================================
+
+function renderKategoriFilter() {
+    const container = document.getElementById('kategoriFilter');
+    if (!container) return;
+
+    const currentSlug = getKategoriFromURL();
+
+    container.innerHTML = kategoriData.map(k => {
+        const isActive = k.slug === currentSlug;
+        return `
+            <button 
+                type="button"
+                class="kategori-pill ${isActive ? 'active' : ''}" 
+                data-slug="${k.slug}"
+            >
+                ${k.nama}
+            </button>
+        `;
+    }).join('');
+}
+
+function initKategoriFilter() {
+    const container = document.getElementById('kategoriFilter');
+    if (!container) return;
+
+    // Event delegation — aman meskipun innerHTML di-render ulang
+    container.addEventListener('click', function (e) {
+        const pill = e.target.closest('.kategori-pill');
+        if (!pill) return;
+
+        const slug = pill.dataset.slug;
+        const currentSlug = getKategoriFromURL();
+
+        // Kalau klik kategori yang sama → skip
+        if (slug === currentSlug) return;
+
+        // Update URL tanpa reload (pakai History API)
+        const newUrl = slug === 'semua'
+            ? 'berita.html'
+            : `berita.html?kategori=${slug}`;
+        history.pushState({ kategori: slug }, '', newUrl);
+
+        // Re-render filter (update active) + grid
+        renderKategoriFilter();
+        renderNewsPage(1);
+
+        // Smooth scroll ke atas section berita
+        const section = document.querySelector('.news-page');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+
+    // Handle tombol back/forward browser
+    window.addEventListener('popstate', function () {
+        renderKategoriFilter();
+        renderNewsPage(1);
+    });
+}
+
+// ============================================
+// 9. PAGINATION (berita.html)
 // ============================================
 
 function renderPagination(totalBerita, currentPage) {
     const totalHalaman = Math.ceil(totalBerita / BERITA_PER_HALAMAN);
     const paginationContainer = document.getElementById('pagination');
-    
+
     if (!paginationContainer) return;
+
     if (totalHalaman <= 1) {
         paginationContainer.innerHTML = '';
         return;
     }
 
     let html = '';
-    
-    // Tombol Previous
+
+    // Previous
     html += `<button class="page-btn prev-btn" data-page="prev" ${currentPage === 1 ? 'disabled' : ''} aria-label="Halaman Sebelumnya">
         <i class="fas fa-chevron-left"></i>
     </button>`;
 
-    // Tombol halaman
+    // Nomor halaman
     for (let i = 1; i <= totalHalaman; i++) {
         const active = i === currentPage ? 'active' : '';
-        
-        // Tampilkan halaman pertama, terakhir, dan sekitar halaman aktif
         if (i === 1 || i === totalHalaman || (i >= currentPage - 1 && i <= currentPage + 1)) {
             html += `<button class="page-btn ${active}" data-page="${i}">${i}</button>`;
         } else if (i === currentPage - 2 || i === currentPage + 2) {
@@ -301,30 +448,25 @@ function renderPagination(totalBerita, currentPage) {
         }
     }
 
-    // Tombol Next
+    // Next
     html += `<button class="page-btn next-btn" data-page="next" ${currentPage === totalHalaman ? 'disabled' : ''} aria-label="Halaman Berikutnya">
         <i class="fas fa-chevron-right"></i>
     </button>`;
 
     paginationContainer.innerHTML = html;
 
-    // Event listener untuk tombol pagination
+    // Event listener
     paginationContainer.querySelectorAll('.page-btn:not([disabled])').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             const page = this.dataset.page;
             let newPage = currentPage;
 
-            if (page === 'prev') {
-                newPage = Math.max(1, currentPage - 1);
-            } else if (page === 'next') {
-                newPage = Math.min(totalHalaman, currentPage + 1);
-            } else {
-                newPage = parseInt(page);
-            }
+            if (page === 'prev') newPage = Math.max(1, currentPage - 1);
+            else if (page === 'next') newPage = Math.min(totalHalaman, currentPage + 1);
+            else newPage = parseInt(page);
 
             if (newPage !== currentPage) {
                 renderNewsPage(newPage);
-                // Scroll ke atas halaman berita
                 document.querySelector('.news-page').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
@@ -332,42 +474,54 @@ function renderPagination(totalBerita, currentPage) {
 }
 
 // ============================================
-// FUNGSI RENDER HALAMAN BERITA (berita.html)
+// 10. RENDER HALAMAN BERITA (berita.html)
 // ============================================
 
 function renderNewsPage(page = 1) {
     const grid = document.getElementById('newsGrid');
     if (!grid) return;
 
+    const kategoriSlug = getKategoriFromURL();
+    const filteredBerita = getBeritaByKategori(kategoriSlug);
+
     const start = (page - 1) * BERITA_PER_HALAMAN;
     const end = start + BERITA_PER_HALAMAN;
-    const beritaHalaman = beritaData.slice(start, end);
+    const beritaHalaman = filteredBerita.slice(start, end);
+
+    if (beritaHalaman.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
+                <i class="fas fa-newspaper" style="font-size: 2.5rem; color: var(--gray-light); margin-bottom: 16px; display: block;"></i>
+                <h3 style="color: var(--dark-green); margin-bottom: 8px;">Belum Ada Berita</h3>
+                <p style="color: var(--gray-medium);">Belum ada berita di kategori ini.</p>
+            </div>
+        `;
+        const paginationContainer = document.getElementById('pagination');
+        if (paginationContainer) paginationContainer.innerHTML = '';
+        return;
+    }
 
     grid.innerHTML = beritaHalaman.map(berita => renderBeritaCard(berita)).join('');
 
-    // Re-trigger animasi fade-up & stagger
     setTimeout(() => {
         document.querySelectorAll('.fade-up, .stagger-child').forEach(el => {
             el.classList.add('visible');
         });
     }, 100);
 
-    renderPagination(beritaData.length, page);
+    renderPagination(filteredBerita.length, page);
 }
 
 // ============================================
-// FUNGSI RENDER DETAIL BERITA (detail-berita.html)
+// 11. RENDER DETAIL BERITA (detail-berita.html)
 // ============================================
 
 function renderDetailBerita() {
     const wrapper = document.getElementById('detailWrapper');
     if (!wrapper) return;
 
-    // Ambil parameter id dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const id = parseInt(urlParams.get('id'));
-
-    // Cari berita berdasarkan id
     const berita = beritaData.find(b => b.id === id);
 
     if (!berita) {
@@ -380,6 +534,9 @@ function renderDetailBerita() {
         `;
         return;
     }
+
+    const kategori = getKategoriById(berita.categoryId);
+    const kategoriNama = kategori ? kategori.nama : 'Tanpa Kategori';
 
     wrapper.innerHTML = `
         <!-- Breadcrumb -->
@@ -395,7 +552,7 @@ function renderDetailBerita() {
 
         <!-- Meta -->
         <div class="detail-meta">
-            <span class="detail-category">${berita.category}</span>
+            <span class="detail-category">${kategoriNama}</span>
             <span class="detail-date">${berita.date}</span>
         </div>
 
@@ -404,10 +561,7 @@ function renderDetailBerita() {
 
         <!-- Gambar -->
         <div class="detail-image">
-            <img 
-                src="${berita.image}" 
-                alt="${berita.title}"
-            />
+            <img src="${berita.image}" alt="${berita.title}" />
         </div>
 
         <!-- Konten -->
@@ -425,17 +579,19 @@ function renderDetailBerita() {
 }
 
 // ============================================
-// INIT (Deteksi Halaman)
+// 12. INIT — Deteksi Halaman
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Cek halaman mana yang sedang dibuka
+document.addEventListener('DOMContentLoaded', function () {
     const isBeritaPage = document.getElementById('newsGrid') !== null;
     const isDetailPage = document.getElementById('detailWrapper') !== null;
-    const isHomePage = document.getElementById('highlightContainer') !== null || document.getElementById('latestContainer') !== null;
+    const isHomePage = document.getElementById('highlightContainer') !== null 
+                    || document.getElementById('latestContainer') !== null;
 
     if (isBeritaPage) {
         // Halaman berita.html
+        renderKategoriFilter();
+        initKategoriFilter();
         renderNewsPage(1);
         console.log('Halaman Berita siap!');
     } else if (isDetailPage) {
@@ -443,9 +599,9 @@ document.addEventListener('DOMContentLoaded', function() {
         renderDetailBerita();
         console.log('Halaman Detail Berita siap!');
     } else if (isHomePage) {
-        // Halaman index.html - Integrasi berita dinamis
+        // Halaman index.html
         renderFeaturedBerita('highlightContainer');
-        renderLatestBerita('latestContainer', 6);
-        console.log('Halaman Utama - Berita dinamis dimuat!');
+        renderLatestBerita('latestContainer', BERITA_TERBARU_BERANDA);
+        console.log('Halaman Utama — Berita dimuat!');
     }
 });

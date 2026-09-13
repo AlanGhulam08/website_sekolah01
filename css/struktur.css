@@ -49,29 +49,25 @@
     transform: scale(1.05);
 }
 
+/* Card Content — Nama + Jabatan (tanpa deskripsi) */
 .struktur-card-content {
-    padding: 20px 16px 24px;
+    padding: 24px 16px 28px;
+    text-align: center;
 }
 
 .struktur-card-content h3 {
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--dark-green);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    line-height: 1.3;
 }
 
 .struktur-jabatan {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--gold);
-    margin-bottom: 8px;
     letter-spacing: 0.5px;
-}
-
-.struktur-bio {
-    font-size: 0.85rem;
-    color: var(--gray-medium);
-    line-height: 1.5;
     margin: 0;
 }
 
@@ -181,15 +177,15 @@
         gap: 20px;
     }
 
+    .struktur-card-content {
+        padding: 20px 16px 24px;
+    }
+
     .struktur-card-content h3 {
         font-size: 1rem;
     }
 
     .struktur-jabatan {
-        font-size: 0.8rem;
-    }
-
-    .struktur-bio {
         font-size: 0.8rem;
     }
 }

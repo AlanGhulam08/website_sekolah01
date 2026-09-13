@@ -1,6 +1,18 @@
 // ============================================
-// DATA UNIT (Dummy - Ganti dengan data asli)
-// Urutan: Pondok, SMP, MA, TPQ, LKSA
+// KONFIGURASI GLOBAL
+// File: js/unit.js
+// ============================================
+// Nomor WhatsApp untuk SEMUA unit pendidikan.
+// Ganti nomor di sini kalau mau ubah — akan apply ke semua unit.
+// Kalau nanti tiap unit punya nomor sendiri, tambah field `whatsapp`
+// di masing-masing unitData dan update render-nya.
+// ============================================
+const WHATSAPP_NUMBER = '6281234567890';
+
+// ============================================
+// DATA UNIT (Dummy — Ganti dengan data asli)
+// Field: id, urutan, is_active, logo, nama, deskripsi,
+//        banner, visi, misi, kepalaSekolah, videoUrl, ppdb
 // ============================================
 const unitData = [
     // ============================================
@@ -8,6 +20,8 @@ const unitData = [
     // ============================================
     {
         id: 'pondok',
+        urutan: 1,
+        is_active: true,
         logo: 'assets/logo/Pondok.png',
         nama: "Pondok Pesantren dan Madrasah AL-Qur'an Darul Falah",
         deskripsi: "Pondok Pesantren dan Madrasah AL-Qur'an Darul Falah berkomitmen mencetak generasi penghafal Al-Qur'an yang berakhlak mulia, berilmu, dan mengamalkan nilai-nilai keislaman dalam kehidupan sehari-hari.",
@@ -27,13 +41,13 @@ const unitData = [
             foto: 'assets/images/kepala-sekolah/kepala-sekolah.jpg',
             jabatan: "Pengasuh Pondok Pesantren dan Madrasah AL-Qur'an Darul Falah"
         },
-        whatsapp: 'https://wa.me/6281234567890',
-        videoUrl: 'https://www.youtube-nocookie.com/embed/VIDEO_ID_PONDOK',
+        // Format: paste raw URL YouTube (semua format didukung)
+        videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         ppdb: {
             gelombang: [
-                { periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
+                { nama: 'Gelombang 1 - Early Bird', periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 2 - Reguler', periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 3 - Terakhir', periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
             ]
         }
     },
@@ -43,6 +57,8 @@ const unitData = [
     // ============================================
     {
         id: 'smp',
+        urutan: 2,
+        is_active: true,
         logo: 'assets/logo/logo-smp.png',
         nama: 'SMP AL-Makin Islamic Krian',
         deskripsi: 'SMP AL-Makin Islamic Krian berkomitmen menghadirkan pendidikan Islam berkualitas yang memadukan kurikulum nasional dengan nilai-nilai keislaman.',
@@ -62,13 +78,12 @@ const unitData = [
             foto: 'assets/images/kepala-sekolah/kepala-sekolah.jpg',
             jabatan: 'Kepala SMP AL-Makin Islamic Krian'
         },
-        whatsapp: 'https://wa.me/6281234567890',
-        videoUrl: 'https://www.youtube-nocookie.com/embed/VIDEO_ID_SMP',
+        videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         ppdb: {
             gelombang: [
-                { periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
+                { nama: 'Gelombang 1 - Early Bird', periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 2 - Reguler', periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 3 - Terakhir', periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
             ]
         }
     },
@@ -78,6 +93,8 @@ const unitData = [
     // ============================================
     {
         id: 'ma',
+        urutan: 3,
+        is_active: true,
         logo: 'assets/logo/logo-ma.png',
         nama: 'Madrasah Diniyah Takmiliyah Darul Falah AL-Mubarok',
         deskripsi: 'Madrasah Diniyah Takmiliyah Darul Falah AL-Mubarok menyelenggarakan pendidikan keagamaan dengan pendalaman ilmu agama dan pengetahuan umum untuk mencetak generasi yang berilmu dan berakhlak mulia.',
@@ -97,13 +114,12 @@ const unitData = [
             foto: 'assets/images/kepala-sekolah/kepala-sekolah.jpg',
             jabatan: 'Kepala Madrasah Diniyah Takmiliyah Darul Falah AL-Mubarok'
         },
-        whatsapp: 'https://wa.me/6281234567890',
-        videoUrl: 'https://www.youtube-nocookie.com/embed/VIDEO_ID_MA',
+        videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         ppdb: {
             gelombang: [
-                { periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
+                { nama: 'Gelombang 1 - Early Bird', periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 2 - Reguler', periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 3 - Terakhir', periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
             ]
         }
     },
@@ -113,6 +129,8 @@ const unitData = [
     // ============================================
     {
         id: 'tpq',
+        urutan: 4,
+        is_active: true,
         logo: 'assets/logo/TPQ.png',
         nama: 'TPQ Darul Falah AL-Mubarok',
         deskripsi: "TPQ Darul Falah AL-Mubarok berkomitmen mendidik anak-anak sejak dini dalam membaca, menghafal, dan memahami Al-Qur'an dengan metode yang menyenangkan dan mudah dipahami.",
@@ -132,13 +150,12 @@ const unitData = [
             foto: 'assets/images/kepala-sekolah/kepala-sekolah.jpg',
             jabatan: 'Kepala TPQ Darul Falah AL-Mubarok'
         },
-        whatsapp: 'https://wa.me/6281234567890',
-        videoUrl: 'https://www.youtube-nocookie.com/embed/VIDEO_ID_TPQ',
+        videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         ppdb: {
             gelombang: [
-                { periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
+                { nama: 'Gelombang 1 - Early Bird', periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 2 - Reguler', periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 3 - Terakhir', periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
             ]
         }
     },
@@ -148,6 +165,8 @@ const unitData = [
     // ============================================
     {
         id: 'lksa',
+        urutan: 5,
+        is_active: true,
         logo: 'https://via.placeholder.com/100?text=Logo',
         nama: 'Lembaga Kesejahteraan Sosial Anak AT-Thoyyibun',
         deskripsi: 'Lembaga Kesejahteraan Sosial Anak AT-Thoyyibun hadir untuk memberikan perlindungan, pengasuhan, dan pendidikan bagi anak-anak yatim, piatu, dan dhuafa agar tumbuh menjadi generasi yang mandiri dan berakhlak mulia.',
@@ -167,17 +186,59 @@ const unitData = [
             foto: 'assets/images/kepala-sekolah/kepala-sekolah.jpg',
             jabatan: 'Ketua LKSA (Lembaga Kesejahteraan Sosial Anak) AT-Thoyyibun'
         },
-        whatsapp: 'https://wa.me/6281234567890',
-        videoUrl: 'https://www.youtube-nocookie.com/embed/VIDEO_ID_LKSA',
+        videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         ppdb: {
             gelombang: [
-                { periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
-                { periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
+                { nama: 'Gelombang 1 - Early Bird', periode: 'Januari - Maret', biaya: 'Rp100.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 2 - Reguler', periode: 'April - Mei', biaya: 'Rp150.000', linkForm: 'https://forms.google.com/CONTOH' },
+                { nama: 'Gelombang 3 - Terakhir', periode: 'Juni - Juli', biaya: 'Rp200.000', linkForm: 'https://forms.google.com/CONTOH' }
             ]
         }
     }
 ];
+
+// ============================================
+// HELPER: Extract YouTube Video ID dari berbagai format URL
+// Support:
+//   - https://www.youtube.com/watch?v=VIDEO_ID
+//   - https://youtu.be/VIDEO_ID
+//   - https://www.youtube.com/embed/VIDEO_ID
+//   - https://www.youtube-nocookie.com/embed/VIDEO_ID
+//   - https://m.youtube.com/watch?v=VIDEO_ID
+// Return: VIDEO_ID (11 karakter) atau null kalau tidak valid
+// ============================================
+function extractYouTubeId(url) {
+    if (!url || typeof url !== 'string') return null;
+    const regex = /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/)|youtu\.be\/|youtube-nocookie\.com\/embed\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+}
+
+// ============================================
+// HELPER: Convert URL YouTube apa saja jadi Embed URL
+// Return: URL embed siap pakai untuk iframe, atau null
+// ============================================
+function getYouTubeEmbedUrl(url) {
+    const videoId = extractYouTubeId(url);
+    if (!videoId) return null;
+    return `https://www.youtube-nocookie.com/embed/${videoId}`;
+}
+
+// ============================================
+// HELPER: Ambil link WhatsApp
+// ============================================
+function getWhatsAppLink() {
+    return `https://wa.me/${WHATSAPP_NUMBER}`;
+}
+
+// ============================================
+// HELPER: Ambil unit aktif, sorted by urutan
+// ============================================
+function getActiveUnits() {
+    return unitData
+        .filter(u => u.is_active !== false)
+        .sort((a, b) => (a.urutan || 0) - (b.urutan || 0));
+}
 
 // ============================================
 // LOGIKA RENDER
@@ -185,7 +246,8 @@ const unitData = [
 function renderUnitPage() {
     const params = new URLSearchParams(window.location.search);
     const unitId = params.get('unit') || 'pondok';
-    const unit = unitData.find(u => u.id === unitId);
+    const activeUnits = getActiveUnits();
+    const unit = activeUnits.find(u => u.id === unitId);
 
     const container = document.getElementById('unitContent');
     if (!container) return;
@@ -201,6 +263,9 @@ function renderUnitPage() {
         return;
     }
 
+    // ============================================
+    // RENDER MISI
+    // ============================================
     let misiHtml = '';
     unit.misi.forEach((misi, index) => {
         misiHtml += `
@@ -212,11 +277,14 @@ function renderUnitPage() {
         `;
     });
 
+    // ============================================
+    // RENDER PPDB (pakai gel.nama, bukan generate "Gelombang N")
+    // ============================================
     let ppdbHtml = '';
-    unit.ppdb.gelombang.forEach((gel, index) => {
+    unit.ppdb.gelombang.forEach((gel) => {
         ppdbHtml += `
             <div class="ppdb-card stagger-child">
-                <h4>Gelombang ${index + 1}</h4>
+                <h4>${gel.nama}</h4>
                 <p><strong>Periode:</strong> ${gel.periode}</p>
                 <p><strong>Biaya:</strong> ${gel.biaya}</p>
                 <a href="${gel.linkForm}" target="_blank" class="btn-primary">Daftar Sekarang</a>
@@ -225,7 +293,7 @@ function renderUnitPage() {
     });
 
     // ============================================
-    // BANNER SECTION (Opsional — hanya render jika ada data banner)
+    // RENDER BANNER (opsional — hanya render kalau ada data)
     // ============================================
     let bannerHtml = '';
     if (unit.banner && unit.banner.gambar) {
@@ -244,6 +312,39 @@ function renderUnitPage() {
         `;
     }
 
+    // ============================================
+    // RENDER VIDEO (extract ID → embed URL)
+    // ============================================
+    let videoHtml = '';
+    const embedUrl = getYouTubeEmbedUrl(unit.videoUrl);
+    if (embedUrl) {
+        videoHtml = `
+            <div class="unit-video-wrapper fade-up">
+                <iframe 
+                    src="${embedUrl}" 
+                    title="Video Profil ${unit.nama}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+            </div>
+        `;
+    } else {
+        // Fallback kalau video URL tidak valid / kosong
+        videoHtml = `
+            <div class="unit-video-wrapper fade-up" style="display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; background: var(--off-white); color: var(--gray-medium);">
+                <p style="text-align: center; padding: 20px;">
+                    <i class="fas fa-video-slash" style="font-size: 2rem; display: block; margin-bottom: 12px; color: var(--emerald);"></i>
+                    Video profil belum tersedia.
+                </p>
+            </div>
+        `;
+    }
+
+    // ============================================
+    // RENDER HTML LENGKAP
+    // ============================================
     container.innerHTML = `
         <!-- Header Unit -->
         <section class="unit-header">
@@ -262,7 +363,7 @@ function renderUnitPage() {
             </div>
         </section>
 
-        <!-- Banner Promosi (BARU) -->
+        <!-- Banner Promosi -->
         ${bannerHtml}
 
         <!-- Visi & Misi -->
@@ -308,9 +409,7 @@ function renderUnitPage() {
                     <h2 class="section-title">Mengenal <span>Kami</span></h2>
                     <p>Tonton video profil singkat untuk memahami visi, misi, dan kegiatan sekolah kami</p>
                 </div>
-                <div class="unit-video-wrapper fade-up">
-                    <iframe src="${unit.videoUrl}" title="Video Profil ${unit.nama}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
+                ${videoHtml}
             </div>
         </section>
 
@@ -326,7 +425,7 @@ function renderUnitPage() {
                     ${ppdbHtml}
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <a href="${unit.whatsapp}" target="_blank" class="btn-whatsapp fade-up" style="display: inline-flex; justify-content: center;">
+                    <a href="${getWhatsAppLink()}" target="_blank" class="btn-whatsapp fade-up" style="display: inline-flex; justify-content: center;">
                         <i class="fab fa-whatsapp"></i> Hubungi WhatsApp Sekolah
                     </a>
                 </div>
@@ -335,9 +434,8 @@ function renderUnitPage() {
     `;
 
     // ============================================
-    // RE-TRIGGER ANIMASI (SAMA SEPERTI INDEX.HTML)
+    // RE-TRIGGER ANIMASI
     // ============================================
-    // Karena elemen dirender setelah halaman dimuat, kita buat observer baru
     const fadeElements = document.querySelectorAll('.fade-up');
     const staggerElements = document.querySelectorAll('.stagger-child');
 

@@ -59,7 +59,7 @@ function getStrukturByUnit(unitKey) {
 }
 
 // ============================================
-// RENDER KARTU STRUKTUR
+// RENDER KARTU STRUKTUR (Nama + Jabatan + Foto)
 // ============================================
 function renderStrukturCard(struktur) {
     return `
@@ -70,7 +70,6 @@ function renderStrukturCard(struktur) {
             <div class="struktur-card-content">
                 <h3>${struktur.name}</h3>
                 <p class="struktur-jabatan">${struktur.position}</p>
-                <p class="struktur-bio">${struktur.desc}</p>
             </div>
         </div>
     `;
@@ -271,6 +270,17 @@ function renderStrukturPage(page = 1) {
             el.classList.add('visible');
         });
     }, 100);
+
+    // ============================================
+    // FIX BUG: Hapus class stagger-child setelah reveal selesai
+    // supaya hover tidak lagi kena transition-delay.
+    // Max delay = 0.95s + duration 0.7s = 1.65s → buffer 1.8s
+    // ============================================
+    setTimeout(() => {
+        grid.querySelectorAll('.stagger-child').forEach(el => {
+            el.classList.remove('stagger-child');
+        });
+    }, 1800);
 
     // Render pagination berdasarkan total data terfilter
     renderStrukturPagination(filteredData.length, page);

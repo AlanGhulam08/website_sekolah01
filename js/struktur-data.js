@@ -91,6 +91,7 @@ const unitMeta = {
 // ============================================
 // 2. STRUKTUR DATA
 // Daftar staff dengan unitId sebagai filter
+// Field: id, unitId, name, position, image
 // Total: 43 data dummy (3 + 8 + 12 + 6 + 4 + 10)
 // ============================================
 const strukturData = [
@@ -104,24 +105,21 @@ const strukturData = [
         unitId: null,
         name: '[Nama Ketua Yayasan]',
         position: 'Ketua Yayasan',
-        image: 'https://picsum.photos/seed/yayasan1/400/400',
-        desc: 'Memimpin dan mengoordinasikan seluruh kegiatan yayasan.'
+        image: 'https://picsum.photos/seed/yayasan1/400/400'
     },
     {
         id: 2,
         unitId: null,
         name: '[Nama Sekretaris Yayasan]',
         position: 'Sekretaris',
-        image: 'https://picsum.photos/seed/yayasan2/400/400',
-        desc: 'Mengelola administrasi dan surat-menyurat yayasan.'
+        image: 'https://picsum.photos/seed/yayasan2/400/400'
     },
     {
         id: 3,
         unitId: null,
         name: '[Nama Bendahara Yayasan]',
         position: 'Bendahara',
-        image: 'https://picsum.photos/seed/yayasan3/400/400',
-        desc: 'Mengelola keuangan dan pembukuan yayasan.'
+        image: 'https://picsum.photos/seed/yayasan3/400/400'
     },
 
     // ============================================
@@ -133,64 +131,56 @@ const strukturData = [
         unitId: 'pondok',
         name: '[Nama Pengasuh Pondok]',
         position: 'Pengasuh Pondok',
-        image: 'https://picsum.photos/seed/pondok1/400/400',
-        desc: 'Membimbing dan mengasuh santri Pondok Pesantren.'
+        image: 'https://picsum.photos/seed/pondok1/400/400'
     },
     {
         id: 5,
         unitId: 'pondok',
         name: '[Nama Mudir Pondok]',
         position: 'Mudir (Direktur)',
-        image: 'https://picsum.photos/seed/pondok2/400/400',
-        desc: 'Memimpin operasional harian pondok pesantren.'
+        image: 'https://picsum.photos/seed/pondok2/400/400'
     },
     {
         id: 6,
         unitId: 'pondok',
         name: '[Nama Kepala Madrasah Diniyah]',
         position: 'Kepala Madrasah Diniyah',
-        image: 'https://picsum.photos/seed/pondok3/400/400',
-        desc: 'Mengelola program pendidikan diniyah pondok.'
+        image: 'https://picsum.photos/seed/pondok3/400/400'
     },
     {
         id: 7,
         unitId: 'pondok',
         name: '[Nama Koordinator Tahfidz]',
         position: 'Koordinator Tahfidz',
-        image: 'https://picsum.photos/seed/pondok4/400/400',
-        desc: "Mengoordinasikan program hafalan Al-Qur'an santri."
+        image: 'https://picsum.photos/seed/pondok4/400/400'
     },
     {
         id: 8,
         unitId: 'pondok',
         name: '[Nama Ustadz 1]',
         position: 'Ustadz Pengajar',
-        image: 'https://picsum.photos/seed/pondok5/400/400',
-        desc: 'Pengajar kitab kuning dan ilmu agama.'
+        image: 'https://picsum.photos/seed/pondok5/400/400'
     },
     {
         id: 9,
         unitId: 'pondok',
         name: '[Nama Ustadz 2]',
         position: 'Ustadz Pengajar',
-        image: 'https://picsum.photos/seed/pondok6/400/400',
-        desc: 'Pengajar tahsin dan tahfidz Al-Qur\'an.'
+        image: 'https://picsum.photos/seed/pondok6/400/400'
     },
     {
         id: 10,
         unitId: 'pondok',
         name: '[Nama Ustadzah 1]',
         position: 'Ustadzah Pengajar',
-        image: 'https://picsum.photos/seed/pondok7/400/400',
-        desc: 'Pengajar ilmu agama untuk santri putri.'
+        image: 'https://picsum.photos/seed/pondok7/400/400'
     },
     {
         id: 11,
         unitId: 'pondok',
         name: '[Nama Staf Pondok]',
         position: 'Staf Administrasi',
-        image: 'https://picsum.photos/seed/pondok8/400/400',
-        desc: 'Mengelola administrasi dan kesekretariatan pondok.'
+        image: 'https://picsum.photos/seed/pondok8/400/400'
     },
 
     // ============================================
@@ -202,96 +192,84 @@ const strukturData = [
         unitId: 'smp',
         name: '[Nama Kepala SMP]',
         position: 'Kepala Sekolah',
-        image: 'https://picsum.photos/seed/smp1/400/400',
-        desc: 'Memimpin dan mengelola seluruh kegiatan SMP.'
+        image: 'https://picsum.photos/seed/smp1/400/400'
     },
     {
         id: 13,
         unitId: 'smp',
         name: '[Nama Wakil Kepala SMP]',
         position: 'Wakil Kepala Sekolah',
-        image: 'https://picsum.photos/seed/smp2/400/400',
-        desc: 'Membantu kepala sekolah dalam bidang akademik.'
+        image: 'https://picsum.photos/seed/smp2/400/400'
     },
     {
         id: 14,
         unitId: 'smp',
         name: '[Nama Guru 1]',
         position: 'Guru Matematika',
-        image: 'https://picsum.photos/seed/smp3/400/400',
-        desc: 'Pengajar mata pelajaran Matematika.'
+        image: 'https://picsum.photos/seed/smp3/400/400'
     },
     {
         id: 15,
         unitId: 'smp',
         name: '[Nama Guru 2]',
         position: 'Guru Bahasa Indonesia',
-        image: 'https://picsum.photos/seed/smp4/400/400',
-        desc: 'Pengajar mata pelajaran Bahasa Indonesia.'
+        image: 'https://picsum.photos/seed/smp4/400/400'
     },
     {
         id: 16,
         unitId: 'smp',
         name: '[Nama Guru 3]',
         position: 'Guru Bahasa Inggris',
-        image: 'https://picsum.photos/seed/smp5/400/400',
-        desc: 'Pengajar mata pelajaran Bahasa Inggris.'
+        image: 'https://picsum.photos/seed/smp5/400/400'
     },
     {
         id: 17,
         unitId: 'smp',
         name: '[Nama Guru 4]',
         position: 'Guru IPA',
-        image: 'https://picsum.photos/seed/smp6/400/400',
-        desc: 'Pengajar mata pelajaran Ilmu Pengetahuan Alam.'
+        image: 'https://picsum.photos/seed/smp6/400/400'
     },
     {
         id: 18,
         unitId: 'smp',
         name: '[Nama Guru 5]',
         position: 'Guru IPS',
-        image: 'https://picsum.photos/seed/smp7/400/400',
-        desc: 'Pengajar mata pelajaran Ilmu Pengetahuan Sosial.'
+        image: 'https://picsum.photos/seed/smp7/400/400'
     },
     {
         id: 19,
         unitId: 'smp',
         name: '[Nama Guru 6]',
         position: 'Guru PAI',
-        image: 'https://picsum.photos/seed/smp8/400/400',
-        desc: 'Pengajar mata pelajaran Pendidikan Agama Islam.'
+        image: 'https://picsum.photos/seed/smp8/400/400'
     },
     {
         id: 20,
         unitId: 'smp',
         name: '[Nama Guru 7]',
         position: 'Guru Tahfidz',
-        image: 'https://picsum.photos/seed/smp9/400/400',
-        desc: "Pengajar program tahfidz Al-Qur'an."
+        image: 'https://picsum.photos/seed/smp9/400/400'
     },
     {
         id: 21,
         unitId: 'smp',
         name: '[Nama Guru 8]',
         position: 'Guru Seni Budaya',
-        image: 'https://picsum.photos/seed/smp10/400/400',
-        desc: 'Pengajar mata pelajaran Seni Budaya.'
+        image: 'https://picsum.photos/seed/smp10/400/400'
     },
     {
         id: 22,
         unitId: 'smp',
         name: '[Nama Staf TU]',
         position: 'Staf Tata Usaha',
-        image: 'https://picsum.photos/seed/smp11/400/400',
-        desc: 'Mengelola administrasi dan tata usaha sekolah.'
+        image: 'https://picsum.photos/seed/smp11/400/400'
     },
     {
         id: 23,
         unitId: 'smp',
         name: '[Nama Staf Perpustakaan]',
         position: 'Staf Perpustakaan',
-        image: 'https://picsum.photos/seed/smp12/400/400',
-        desc: 'Mengelola perpustakaan dan literasi sekolah.'
+        image: 'https://picsum.photos/seed/smp12/400/400'
     },
 
     // ============================================
@@ -303,48 +281,42 @@ const strukturData = [
         unitId: 'ma',
         name: '[Nama Kepala MA]',
         position: 'Kepala Madrasah',
-        image: 'https://picsum.photos/seed/ma1/400/400',
-        desc: 'Memimpin dan mengelola seluruh kegiatan madrasah.'
+        image: 'https://picsum.photos/seed/ma1/400/400'
     },
     {
         id: 25,
         unitId: 'ma',
         name: '[Nama Wakil Kepala MA]',
         position: 'Wakil Kepala Madrasah',
-        image: 'https://picsum.photos/seed/ma2/400/400',
-        desc: 'Membantu kepala madrasah dalam bidang kurikulum.'
+        image: 'https://picsum.photos/seed/ma2/400/400'
     },
     {
         id: 26,
         unitId: 'ma',
         name: '[Nama Guru MA 1]',
         position: 'Guru Fiqih',
-        image: 'https://picsum.photos/seed/ma3/400/400',
-        desc: 'Pengajar mata pelajaran Fiqih.'
+        image: 'https://picsum.photos/seed/ma3/400/400'
     },
     {
         id: 27,
         unitId: 'ma',
         name: '[Nama Guru MA 2]',
         position: 'Guru Bahasa Arab',
-        image: 'https://picsum.photos/seed/ma4/400/400',
-        desc: 'Pengajar mata pelajaran Bahasa Arab.'
+        image: 'https://picsum.photos/seed/ma4/400/400'
     },
     {
         id: 28,
         unitId: 'ma',
         name: '[Nama Guru MA 3]',
         position: "Guru Al-Qur'an Hadits",
-        image: 'https://picsum.photos/seed/ma5/400/400',
-        desc: "Pengajar mata pelajaran Al-Qur'an Hadits."
+        image: 'https://picsum.photos/seed/ma5/400/400'
     },
     {
         id: 29,
         unitId: 'ma',
         name: '[Nama Staf MA]',
         position: 'Staf Administrasi',
-        image: 'https://picsum.photos/seed/ma6/400/400',
-        desc: 'Mengelola administrasi madrasah.'
+        image: 'https://picsum.photos/seed/ma6/400/400'
     },
 
     // ============================================
@@ -356,32 +328,28 @@ const strukturData = [
         unitId: 'tpq',
         name: '[Nama Kepala TPQ]',
         position: 'Kepala TPQ',
-        image: 'https://picsum.photos/seed/tpq1/400/400',
-        desc: 'Memimpin dan mengelola kegiatan TPQ.'
+        image: 'https://picsum.photos/seed/tpq1/400/400'
     },
     {
         id: 31,
         unitId: 'tpq',
         name: '[Nama Ustadzah TPQ 1]',
         position: 'Ustadzah Pengajar',
-        image: 'https://picsum.photos/seed/tpq2/400/400',
-        desc: "Pengajar baca tulis Al-Qur'an untuk anak-anak."
+        image: 'https://picsum.photos/seed/tpq2/400/400'
     },
     {
         id: 32,
         unitId: 'tpq',
         name: '[Nama Ustadzah TPQ 2]',
         position: 'Ustadzah Pengajar',
-        image: 'https://picsum.photos/seed/tpq3/400/400',
-        desc: "Pengajar hafalan surat pendek Al-Qur'an."
+        image: 'https://picsum.photos/seed/tpq3/400/400'
     },
     {
         id: 33,
         unitId: 'tpq',
         name: '[Nama Staf TPQ]',
         position: 'Staf Administrasi',
-        image: 'https://picsum.photos/seed/tpq4/400/400',
-        desc: 'Mengelola administrasi dan absensi santri TPQ.'
+        image: 'https://picsum.photos/seed/tpq4/400/400'
     },
 
     // ============================================
@@ -393,79 +361,69 @@ const strukturData = [
         unitId: 'lksa',
         name: '[Nama Ketua LKSA]',
         position: 'Ketua LKSA',
-        image: 'https://picsum.photos/seed/lksa1/400/400',
-        desc: 'Memimpin dan mengelola Lembaga Kesejahteraan Sosial Anak.'
+        image: 'https://picsum.photos/seed/lksa1/400/400'
     },
     {
         id: 35,
         unitId: 'lksa',
         name: '[Nama Sekretaris LKSA]',
         position: 'Sekretaris',
-        image: 'https://picsum.photos/seed/lksa2/400/400',
-        desc: 'Mengelola administrasi dan kesekretariatan LKSA.'
+        image: 'https://picsum.photos/seed/lksa2/400/400'
     },
     {
         id: 36,
         unitId: 'lksa',
         name: '[Nama Bendahara LKSA]',
         position: 'Bendahara',
-        image: 'https://picsum.photos/seed/lksa3/400/400',
-        desc: 'Mengelola keuangan dan pembukuan LKSA.'
+        image: 'https://picsum.photos/seed/lksa3/400/400'
     },
     {
         id: 37,
         unitId: 'lksa',
         name: '[Nama Pendamping 1]',
         position: 'Pendamping Anak',
-        image: 'https://picsum.photos/seed/lksa4/400/400',
-        desc: 'Mendampingi dan membina anak asuh LKSA.'
+        image: 'https://picsum.photos/seed/lksa4/400/400'
     },
     {
         id: 38,
         unitId: 'lksa',
         name: '[Nama Pendamping 2]',
         position: 'Pendamping Anak',
-        image: 'https://picsum.photos/seed/lksa5/400/400',
-        desc: 'Mendampingi dan membina anak asuh LKSA.'
+        image: 'https://picsum.photos/seed/lksa5/400/400'
     },
     {
         id: 39,
         unitId: 'lksa',
         name: '[Nama Pengajar LKSA 1]',
         position: 'Pengajar',
-        image: 'https://picsum.photos/seed/lksa6/400/400',
-        desc: 'Pengajar bimbingan belajar untuk anak asuh.'
+        image: 'https://picsum.photos/seed/lksa6/400/400'
     },
     {
         id: 40,
         unitId: 'lksa',
         name: '[Nama Pengajar LKSA 2]',
         position: 'Pengajar',
-        image: 'https://picsum.photos/seed/lksa7/400/400',
-        desc: 'Pengajar ilmu agama untuk anak asuh.'
+        image: 'https://picsum.photos/seed/lksa7/400/400'
     },
     {
         id: 41,
         unitId: 'lksa',
         name: '[Nama Staf Sosial]',
         position: 'Staf Sosial',
-        image: 'https://picsum.photos/seed/lksa8/400/400',
-        desc: 'Mengelola program sosial dan kesejahteraan anak.'
+        image: 'https://picsum.photos/seed/lksa8/400/400'
     },
     {
         id: 42,
         unitId: 'lksa',
         name: '[Nama Staf Kesehatan]',
         position: 'Staf Kesehatan',
-        image: 'https://picsum.photos/seed/lksa9/400/400',
-        desc: 'Mengelola kesehatan dan gizi anak asuh.'
+        image: 'https://picsum.photos/seed/lksa9/400/400'
     },
     {
         id: 43,
         unitId: 'lksa',
         name: '[Nama Staf Administrasi LKSA]',
         position: 'Staf Administrasi',
-        image: 'https://picsum.photos/seed/lksa10/400/400',
-        desc: 'Mengelola administrasi dan dokumentasi LKSA.'
+        image: 'https://picsum.photos/seed/lksa10/400/400'
     }
 ];

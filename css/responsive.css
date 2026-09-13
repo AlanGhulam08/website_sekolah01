@@ -5,7 +5,7 @@
 /* ============================================
    DESKTOP KECIL (min-width: 993px) and (max-width: 1200px)
    ============================================ */
-   @media (min-width: 993px) and (max-width: 1200px) {
+@media (min-width: 993px) and (max-width: 1200px) {
     .container {
         max-width: 960px;
     }
@@ -34,7 +34,7 @@
         gap: 20px;
     }
 
-    /* Struktur Organisasi - Penyesuaian 4 kolom menjadi 3 kolom */
+    /* Struktur Organisasi */
     .struktur-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
@@ -135,7 +135,7 @@
         border-left-color: var(--emerald);
     }
 
-    /* ---------- HERO (FIXED HEIGHT) ---------- */
+    /* ---------- HERO ---------- */
     .hero {
         height: 100vh;
         min-height: 600px;
@@ -217,7 +217,7 @@
         gap: 24px;
     }
 
-    /* ---------- PAGINATION (TAMBAHAN BARU) ---------- */
+    /* ---------- PAGINATION ---------- */
     .pagination {
         justify-content: center;
         gap: 10px;
@@ -267,7 +267,7 @@
         justify-content: center;
     }
 
-    /* ---------- HALAMAN BERITA & DETAIL (TAMBAHAN BARU) ---------- */
+    /* ---------- HALAMAN BERITA & DETAIL ---------- */
     .page-header {
         padding: 120px 0 40px;
     }
@@ -348,7 +348,7 @@
         background: rgba(26, 107, 60, 0.08) !important;
     }
 
-    /* Dropdown Accordion di Mobile - Smooth */
+    /* Dropdown Accordion di Mobile */
     .dropdown-content {
         display: block;
         position: static;
@@ -389,7 +389,7 @@
         border-left-color: var(--emerald);
     }
 
-    /* ---------- HERO (FIXED HEIGHT) ---------- */
+    /* ---------- HERO ---------- */
     .hero {
         height: 100vh;
         min-height: 500px;
@@ -568,7 +568,7 @@
         text-align: center;
     }
 
-    /* ---------- PAGINATION (TAMBAHAN BARU) ---------- */
+    /* ---------- PAGINATION ---------- */
     .pagination {
         justify-content: center;
         gap: 6px;
@@ -670,7 +670,7 @@
         justify-content: center;
     }
 
-    /* ---------- HALAMAN BERITA & DETAIL (TAMBAHAN BARU) ---------- */
+    /* ---------- HALAMAN BERITA & DETAIL ---------- */
     .page-header {
         padding: 100px 0 30px;
     }
@@ -715,5 +715,58 @@
     }
     .detail-back {
         margin-top: 32px;
+    }
+}
+
+/* ============================================
+   KONTAK LAYOUT BARU — RESPONSIVE
+   ============================================ */
+
+/* Tablet (max-width: 992px) — stack jadi 1 kolom */
+@media (max-width: 992px) {
+    .contact-grid-side {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .map-container-side {
+        min-height: 320px;
+        height: 320px;
+    }
+
+    .map-container-side iframe {
+        min-height: 320px;
+    }
+
+    .contact-grid-side .contact-info .btn-whatsapp {
+        align-self: stretch;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+    .contact-grid-side {
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .map-container-side {
+        min-height: 260px;
+        height: 260px;
+    }
+
+    .map-container-side iframe {
+        min-height: 260px;
+    }
+
+    .contact-grid-side .contact-info {
+        gap: 20px;
+    }
+
+    .contact-grid-side .contact-info .btn-whatsapp {
+        padding: 11px 20px;
+        font-size: 0.85rem;
     }
 }
