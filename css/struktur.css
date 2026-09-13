@@ -12,7 +12,7 @@
 
 .struktur-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ubah dari 3 menjadi 4 kolom */
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom × 2 baris = 8 per halaman */
     gap: 32px;
 }
 
@@ -75,17 +75,121 @@
     margin: 0;
 }
 
-/* Responsive */
+/* ============================================
+   DROPDOWN STRUKTUR — STYLING KHUSUS
+   ============================================ */
+
+/* Divider antara "Yayasan (Pusat)" dan grup unit */
+.dropdown-divider {
+    height: 1px;
+    background: var(--gray-light);
+    margin: 6px 12px;
+    border-radius: 1px;
+}
+
+/* Item aktif di dropdown — indikator visual lebih jelas */
+.dropdown-struktur a.active {
+    background: rgba(26, 107, 60, 0.10) !important;
+    color: var(--emerald) !important;
+    font-weight: 600;
+    border-left: 3px solid var(--emerald);
+    padding-left: 17px; /* kompensasi border-left 3px */
+    position: relative;
+}
+
+.dropdown-struktur a.active:hover {
+    background: rgba(26, 107, 60, 0.15) !important;
+}
+
+/* Ikon centang di item aktif */
+.dropdown-struktur a.active::after {
+    content: '\f00c'; /* Font Awesome check */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: var(--emerald);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Hover effect lebih halus untuk item non-aktif */
+.dropdown-struktur a:not(.active):hover {
+    padding-left: 24px;
+    transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s ease,
+                color 0.3s ease;
+}
+
+/* ============================================
+   EMPTY / NOT-FOUND STATE
+   ============================================ */
+.struktur-not-found h2,
+.struktur-empty h3 {
+    color: var(--dark-green);
+    margin-bottom: 12px;
+}
+
+.struktur-not-found p,
+.struktur-empty p {
+    color: var(--gray-medium);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Desktop kecil */
+@media (min-width: 993px) and (max-width: 1200px) {
+    .struktur-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Tablet */
 @media (max-width: 992px) {
     .struktur-grid {
         grid-template-columns: repeat(2, 1fr); /* Tablet: 2 kolom */
         gap: 24px;
     }
+
+    /* Mobile accordion untuk dropdown struktur */
+    .dropdown-struktur .dropdown-divider {
+        margin: 8px 20px;
+        height: 2px;
+        background: rgba(26, 107, 60, 0.10);
+    }
+
+    .dropdown-struktur a.active::after {
+        right: 24px;
+    }
+
+    /* Hilangkan border-left di mobile, pakai style accordion */
+    .dropdown-struktur a.active {
+        border-left: none;
+        padding-left: 20px;
+        background: rgba(26, 107, 60, 0.08) !important;
+    }
 }
 
+/* Mobile */
 @media (max-width: 576px) {
     .struktur-grid {
         grid-template-columns: 1fr; /* Mobile: 1 kolom */
         gap: 20px;
+    }
+
+    .struktur-card-content h3 {
+        font-size: 1rem;
+    }
+
+    .struktur-jabatan {
+        font-size: 0.8rem;
+    }
+
+    .struktur-bio {
+        font-size: 0.8rem;
     }
 }

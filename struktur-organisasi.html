@@ -36,8 +36,19 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Beranda</a></li>
                 
-                <!-- Link aktif Struktur Organisasi -->
-                <li><a href="struktur-organisasi.html" class="active">Struktur Organisasi</a></li>
+                <!-- Dropdown Struktur Organisasi -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn active" id="strukturDropdownBtn">Struktur Organisasi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content dropdown-struktur" id="strukturDropdownContent">
+                        <a href="struktur-organisasi.html" data-unit="pusat">Yayasan (Pusat)</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="struktur-organisasi.html?unit=pondok" data-unit="pondok">Pondok</a>
+                        <a href="struktur-organisasi.html?unit=smp" data-unit="smp">SMP</a>
+                        <a href="struktur-organisasi.html?unit=ma" data-unit="ma">MA</a>
+                        <a href="struktur-organisasi.html?unit=tpq" data-unit="tpq">TPQ</a>
+                        <a href="struktur-organisasi.html?unit=lksa" data-unit="lksa">LKSA</a>
+                    </div>
+                </li>
                 
                 <!-- Dropdown Unit Pendidikan -->
                 <li class="dropdown">
@@ -72,11 +83,15 @@
                 <ol>
                     <li><a href="index.html">Home</a></li>
                     <li><span class="separator"><i class="fas fa-chevron-right"></i></span></li>
-                    <li aria-current="page"><span class="current">Struktur Organisasi</span></li>
+                    <li><a href="struktur-organisasi.html" id="breadcrumbStrukturLink">Struktur Organisasi</a></li>
+                    <li><span class="separator" id="breadcrumbUnitSeparator" style="display: none;"><i class="fas fa-chevron-right"></i></span></li>
+                    <li aria-current="page" id="breadcrumbUnitLi" style="display: none;">
+                        <span class="current" id="breadcrumbUnitCurrent"></span>
+                    </li>
                 </ol>
             </nav>
-            <h1>Struktur Organisasi</h1>
-            <p>Susunan pengurus dan struktur YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.</p>
+            <h1 id="pageHeaderTitle">Struktur Organisasi</h1>
+            <p id="pageHeaderSubtitle">Susunan pengurus dan struktur YAYASAN PENDIDIKAN DAN SOSIAL AT THOYYIBUN.</p>
         </div>
     </section>
 
@@ -86,9 +101,9 @@
     <section class="struktur-section">
         <div class="container">
             <div class="section-head center">
-                <span class="section-tag">Tim Kami</span>
-                <h2 class="section-title">Dewan <span>Pengurus & Struktur</span></h2>
-                <p class="section-sub">Orang-orang yang berkomitmen memajukan pendidikan Islam.</p>
+                <span class="section-tag" id="sectionTag">Tim Kami</span>
+                <h2 class="section-title" id="sectionTitle">Dewan <span>Pengurus & Struktur</span></h2>
+                <p class="section-sub" id="sectionSub">Orang-orang yang berkomitmen memajukan pendidikan Islam.</p>
             </div>
 
             <div class="struktur-grid" id="strukturGrid">
@@ -144,6 +159,7 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
+    <script src="js/struktur-data.js"></script>
     <script src="js/struktur.js"></script>
 </body>
 </html>

@@ -260,16 +260,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ============================================
 // PAGE TRANSITION (SMOOTH NAVIGATION)
-// Tambahan - tidak mengubah logic yang ada
+// Versi 2 — Handle query string dengan benar
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
-    const currentFile = (window.location.pathname.split('/').pop() || 'index.html')
-        .split('?')[0];
 
-    // Cek apakah link adalah navigasi internal antar-halaman
+    // ============================================
+    // HELPER: Normalisasi URL jadi path lengkap + query
+    // Contoh: "struktur-organisasi.html?unit=smp"
+    // ============================================
+    function getCurrentFullPath() {
+        // Ambil pathname + search (query string), tanpa hash
+        return window.location.pathname + window.location.search;
+    }
+
+    // ============================================
+    // HELPER: Resolve href relatif jadi full path
+    // Contoh: href="struktur-organisasi.html?unit=ma"
+    //         → "/folder/struktur-organisasi.html?unit=ma"
+    // ============================================
+    function resolveHrefToFullPath(href) {
+        // Buang hash dulu (kita tidak peduli anchor untuk bandingkan)
+        const hrefWithoutHash = href.split('#')[0];
+        if (hrefWithoutHash === '') return null; // link anchor murni (#section)
+
+        try {
+            // Pakai URL API untuk resolve relatif ke absolut
+            const url = new URL(hrefWithoutHash, window.location.href);
+            return url.pathname + url.search;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // ============================================
+    // HELPER: Cek apakah link adalah navigasi internal antar-halaman
+    // Return TRUE = butuh page transition
+    // Return FALSE = skip (anchor, mail, external, atau halaman yang sama)
+    // ============================================
     function isInternalNavigation(href) {
         if (!href) return false;
-        if (href.startsWith('#')) return false;                // anchor di halaman yang sama
+
+        // Skip anchor murni di halaman yang sama (#section)
+        if (href.startsWith('#')) return false;
+
+        // Skip protokol khusus
         if (href.startsWith('mailto:')) return false;
         if (href.startsWith('tel:')) return false;
         if (href.startsWith('javascript:')) return false;
@@ -284,19 +318,46 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Link ke halaman yang sama → skip (biar anchor internal tetap smooth)
-        const [path] = href.split('#');
-        if (path === '' || path === currentFile) return false;
+        // Resolve href ke full path (pathname + search)
+        const targetPath = resolveHrefToFullPath(href);
+        if (!targetPath) return false;
+
+        const currentPath = getCurrentFullPath();
+
+        // ============================================
+        // PERBANDINGAN URL LENGKAP (path + query)
+        // ============================================
+        // Kunci perbaikan: bandingkan pathname + search, bukan hanya pathname.
+        //
+        // Contoh:
+        // - Current: /struktur-organisasi.html?unit=smp
+        // - Target:  /struktur-organisasi.html?unit=ma
+        //   → BEDA (query beda) → return true → page transition jalan ✅
+        //
+        // - Current: /struktur-organisasi.html
+        // - Target:  /struktur-organisasi.html
+        //   → SAMA → return false → skip transition (biar reload biasa)
+        //
+        // Catatan: kalau kamu ingin klik link ke halaman yang sama
+        // tetap trigger reload dengan animasi, ubah jadi `return true`
+        // di kondisi ini. Tapi saat ini kita skip agar tidak reload
+        // halaman yang sedang dibuka (UX lebih baik).
+        // ============================================
+        if (targetPath === currentPath) {
+            return false;
+        }
 
         return true;
     }
 
-    // Pasang listener ke semua link
+    // ============================================
+    // PASANG LISTENER KE SEMUA LINK
+    // ============================================
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', function (e) {
             if (e.defaultPrevented) return;
-            if (e.button !== 0) return;                         // bukan klik kiri
-            if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return; // buka tab baru
+            if (e.button !== 0) return;                                     // bukan klik kiri
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;   // buka tab baru
             if (link.target === '_blank') return;
             if (link.hasAttribute('download')) return;
 
@@ -313,7 +374,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Tangani tombol "Back" browser (bfcache restore)
+    // ============================================
+    // TANGANI TOMBOL "BACK" BROWSER (bfcache restore)
+    // ============================================
     window.addEventListener('pageshow', function (e) {
         if (e.persisted) {
             document.body.classList.remove('page-exit');

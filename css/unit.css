@@ -44,7 +44,49 @@
     line-height: 1.8;
 }
 
-/* Video Profil */
+/* ============================================
+   BANNER PROMOSI (BARU)
+   ============================================ */
+.unit-banner-section {
+    padding: 20px 0 60px;
+    background: var(--white);
+}
+
+.unit-banner-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--off-white);
+    position: relative;
+}
+
+/* Rasio banner: 16:5 (panorama) — bisa disesuaikan */
+.unit-banner-wrapper::before {
+    content: '';
+    display: block;
+    padding-top: 31.25%; /* 5 / 16 × 100% = 31.25% → rasio 16:5 */
+}
+
+.unit-banner-wrapper img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+/* Hover effect halus — banner sedikit zoom (opsional) */
+.unit-banner-wrapper:hover img {
+    transform: scale(1.02);
+}
+
+/* ============================================
+   VIDEO PROFIL
+   ============================================ */
 .unit-video-section {
     padding: 60px 0;
     background: var(--off-white);
@@ -65,7 +107,9 @@
     border: none;
 }
 
-/* PPDB */
+/* ============================================
+   PPDB
+   ============================================ */
 .ppdb-section {
     padding: 60px 0 100px;
 }
@@ -103,7 +147,9 @@
     width: 100%;
 }
 
-/* Responsif */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
     .ppdb-grid {
         grid-template-columns: 1fr;
@@ -117,5 +163,20 @@
     }
     .unit-header h1 {
         font-size: 2rem;
+    }
+
+    /* Banner responsif di mobile */
+    .unit-banner-section {
+        padding: 10px 0 40px;
+    }
+
+    .unit-banner-wrapper::before {
+        padding-top: 50%; /* Di mobile, banner lebih tinggi (rasio 2:1) */
+    }
+}
+
+@media (max-width: 576px) {
+    .unit-banner-wrapper::before {
+        padding-top: 66.67%; /* Di mobile kecil, rasio 3:2 biar tetap proporsional */
     }
 }

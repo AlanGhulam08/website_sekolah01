@@ -11,6 +11,10 @@ const unitData = [
         logo: 'assets/logo/Pondok.png',
         nama: "Pondok Pesantren dan Madrasah AL-Qur'an Darul Falah",
         deskripsi: "Pondok Pesantren dan Madrasah AL-Qur'an Darul Falah berkomitmen mencetak generasi penghafal Al-Qur'an yang berakhlak mulia, berilmu, dan mengamalkan nilai-nilai keislaman dalam kehidupan sehari-hari.",
+        banner: {
+            gambar: 'https://picsum.photos/seed/banner-pondok/1600/500',
+            alt: 'Banner Promosi Pondok Pesantren Darul Falah'
+        },
         visi: "Menjadi pondok pesantren unggul yang melahirkan generasi Qur'ani, berakhlak mulia, dan berdaya saing global.",
         misi: [
             "Menyelenggarakan pendidikan tahfidz dan tahsin Al-Qur'an secara intensif dan terstruktur.",
@@ -42,6 +46,10 @@ const unitData = [
         logo: 'assets/logo/logo-smp.png',
         nama: 'SMP AL-Makin Islamic Krian',
         deskripsi: 'SMP AL-Makin Islamic Krian berkomitmen menghadirkan pendidikan Islam berkualitas yang memadukan kurikulum nasional dengan nilai-nilai keislaman.',
+        banner: {
+            gambar: 'https://picsum.photos/seed/banner-smp/1600/500',
+            alt: 'Banner Promosi SMP AL-Makin Islamic Krian'
+        },
         visi: 'Menjadi lembaga pendidikan Islam unggul yang mencetak generasi berakhlak mulia dan berprestasi.',
         misi: [
             'Menyelenggarakan pembelajaran aktif dan menyenangkan berbasis nilai Islam.',
@@ -73,6 +81,10 @@ const unitData = [
         logo: 'assets/logo/logo-ma.png',
         nama: 'Madrasah Diniyah Takmiliyah Darul Falah AL-Mubarok',
         deskripsi: 'Madrasah Diniyah Takmiliyah Darul Falah AL-Mubarok menyelenggarakan pendidikan keagamaan dengan pendalaman ilmu agama dan pengetahuan umum untuk mencetak generasi yang berilmu dan berakhlak mulia.',
+        banner: {
+            gambar: 'https://picsum.photos/seed/banner-ma/1600/500',
+            alt: 'Banner Promosi Madrasah Diniyah Takmiliyah Darul Falah AL-Mubarok'
+        },
         visi: 'Menjadi madrasah diniyah unggul yang mencetak generasi berilmu, beriman, dan berakhlak mulia.',
         misi: [
             'Menyelenggarakan pendidikan agama dan umum secara seimbang.',
@@ -104,6 +116,10 @@ const unitData = [
         logo: 'assets/logo/TPQ.png',
         nama: 'TPQ Darul Falah AL-Mubarok',
         deskripsi: "TPQ Darul Falah AL-Mubarok berkomitmen mendidik anak-anak sejak dini dalam membaca, menghafal, dan memahami Al-Qur'an dengan metode yang menyenangkan dan mudah dipahami.",
+        banner: {
+            gambar: 'https://picsum.photos/seed/banner-tpq/1600/500',
+            alt: 'Banner Promosi TPQ Darul Falah AL-Mubarok'
+        },
         visi: "Menjadi lembaga pendidikan Al-Qur'an yang unggul dalam mencetak generasi Qur'ani sejak dini.",
         misi: [
             "Menyelenggarakan pembelajaran baca tulis Al-Qur'an dengan metode yang efektif dan menyenangkan.",
@@ -135,6 +151,10 @@ const unitData = [
         logo: 'https://via.placeholder.com/100?text=Logo',
         nama: 'Lembaga Kesejahteraan Sosial Anak AT-Thoyyibun',
         deskripsi: 'Lembaga Kesejahteraan Sosial Anak AT-Thoyyibun hadir untuk memberikan perlindungan, pengasuhan, dan pendidikan bagi anak-anak yatim, piatu, dan dhuafa agar tumbuh menjadi generasi yang mandiri dan berakhlak mulia.',
+        banner: {
+            gambar: 'https://picsum.photos/seed/banner-lksa/1600/500',
+            alt: 'Banner Promosi LKSA AT-Thoyyibun'
+        },
         visi: 'Menjadi lembaga kesejahteraan sosial anak yang unggul dalam memberikan pengasuhan, pendidikan, dan pembinaan bagi anak-anak yang membutuhkan.',
         misi: [
             'Memberikan pengasuhan dan perlindungan bagi anak-anak yatim, piatu, dan dhuafa.',
@@ -204,6 +224,26 @@ function renderUnitPage() {
         `;
     });
 
+    // ============================================
+    // BANNER SECTION (Opsional — hanya render jika ada data banner)
+    // ============================================
+    let bannerHtml = '';
+    if (unit.banner && unit.banner.gambar) {
+        bannerHtml = `
+            <section class="unit-banner-section">
+                <div class="container">
+                    <div class="unit-banner-wrapper fade-up">
+                        <img 
+                            src="${unit.banner.gambar}" 
+                            alt="${unit.banner.alt || 'Banner Promosi ' + unit.nama}" 
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </section>
+        `;
+    }
+
     container.innerHTML = `
         <!-- Header Unit -->
         <section class="unit-header">
@@ -221,6 +261,9 @@ function renderUnitPage() {
                 </div>
             </div>
         </section>
+
+        <!-- Banner Promosi (BARU) -->
+        ${bannerHtml}
 
         <!-- Visi & Misi -->
         <section class="vision-section">
